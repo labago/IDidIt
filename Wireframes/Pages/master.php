@@ -8,8 +8,8 @@
 
 		<div class="page">
 			<div class="content">
-				<h1>Body</h1>
-
+				<h1>Welcome to IDidIt.com!</h1>
+				<br><br><br><br><br><br><br><br><br><br>
 
 			</div>
 		</div>

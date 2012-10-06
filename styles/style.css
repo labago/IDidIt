@@ -1,40 +1,92 @@
 .header {
 	height: 100px;
-	background-color: blue;
+	background-image:url('images/glass.jpg');
+	background-repeat:repeat;
+	position: relative;
+}
+
+.header-nav {
+	position: absolute; 
+    bottom: 10;
+    right: 100;
+}
+
+.nav {
+	display:inline;
+}
+
+.nav li {
+	display:inline;
+	padding-left: 20px;
+}
+
+.nav li a {
+	text-decoration:none;
+	padding:4px 0;
+	width:169px;
+	height:19px;
+	background:#0080C0;
+	color:#eee;
+	float:left;
+	text-align:center;
+	border-left:1px solid #fff;
 }
 
 .header h1 {
 	font-size: 30;
 	color: black;
 	display: inline;
+	text-align: center;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .content {
 	width: 1500px;
-	height: 1000px;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: red;
+	background-color: #39ABC4;
 }
 
 .content h1 {
-	font-size: 30;
-	color: green;
 	display: inline;
+}
+
+.content form {
+	padding-top: 30px;
+	line-height: 30px; 
+	display: block;
 }
 
 .footer {
+	line-height: 1.8em;
+	padding: 8px 0;
+	clear: both; 
+	text-align: center;
 	height: 100px;
-	background-color: black;
+	background-color: #9EA291;
+	position: relative;
 }
 
-.footer h1 {
-	font-size: 30;
-	color: white;
-	display: inline;
+.footer-content {
+	position: absolute; 
+    bottom: 10; 
 }
 
 .page {
-	background-color: purple;
+	background-color: #A9D8E0;
+	text-align: center;
+}
 
+.page h1 {
+	display: inline;
+	border-bottom:3px solid #fff;
+}
+
+.bottom-links {
+	display:inline;
+}
+
+.bottom-links li {
+	display:inline;
+	padding-left: 20px;
 }
