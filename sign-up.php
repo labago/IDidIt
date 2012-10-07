@@ -6,7 +6,7 @@
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="functions.js"></script>
 	<body>
-		<?php include("/Components/header.php"); ?>
+		<?php include("Components/header.php"); ?>
 
 		<div class="page">
 			<div class="content">
@@ -59,10 +59,7 @@
 			if($confirm){
 				$crypt = add_user($fname, $lname, $pass_1, $email_1);
 
-				// set login cookie for a month's time	
-				setcookie("user", $crypt, time()+2592000);
-
-				echo "Thanks for signing up! You are now logged into IDidIT.com";
+				echo '<META HTTP-EQUIV="Refresh" Content="0; URL=login_user.php?c='.$crypt.'">'; 
 			}
 
 
@@ -77,6 +74,6 @@
 			</div>
 		</div>
 
-		<?php include("/Components/footer.php"); ?>
+		<?php include("Components/footer.php"); ?>
 	</body>
 </html>

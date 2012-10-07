@@ -1,15 +1,15 @@
 <html>
 	<title>IDidIt</title>
 	<head>
-		<link href="/styles/style.css" rel="stylesheet" type="text/css">
+		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="jquery.js"></script>
 	<body>
-		<?php include("/Components/header.php"); ?>
+		<?php include("Components/header.php"); ?>
 
 		<div class="page">
 			<div class="content">
-				<h1>Sign Up</h1>
+				<h1>Login</h1>
 				<br><br>
 		<?php 
 
@@ -63,14 +63,11 @@
 			if($confirm){
 				$crypt = $row[4];
 
-				// set login cookie for a month's time	
-				setcookie("user", $crypt, time()+2592000);
-
-				header('Location: index.php');
+				echo '<META HTTP-EQUIV="Refresh" Content="0; URL=login_user.php?c='.$crypt.'">'; 
 			}
 			else
 			{
-				header('Location: login.php?error=1');
+				echo '<META HTTP-EQUIV="Refresh" Content="0; URL=login.php?error=1">'; 
 			}
 
 
@@ -85,6 +82,6 @@
 			</div>
 		</div>
 
-		<?php include("/Components/footer.php"); ?>
+		<?php include("Components/footer.php"); ?>
 	</body>
 </html>
