@@ -1,11 +1,12 @@
 <html>
 	<title>IDidIt</title>
 	<head>
-		<link href="../../styles/style.css" rel="stylesheet" type="text/css">
+		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="functions.js"></script>
 	<body>
-		<?php include("../Components/header.php"); ?>
+		<?php include("/Components/header.php"); ?>
 
 		<div class="page">
 			<div class="content">
@@ -76,6 +77,6 @@
 			</div>
 		</div>
 
-		<?php include("../Components/footer.php"); ?>
+		<?php include("/Components/footer.php"); ?>
 	</body>
 </html>
