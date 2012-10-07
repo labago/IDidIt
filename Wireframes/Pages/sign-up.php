@@ -3,27 +3,32 @@
 	<head>
 		<link href="../../styles/style.css" rel="stylesheet" type="text/css">
 	</head>
+	<script type="text/javascript" src="jquery.js"></script>
 	<body>
 		<?php include("../Components/header.php"); ?>
 
 		<div class="page">
 			<div class="content">
 				<h1>Sign Up</h1>
+				<br><br>
 
 		<?php if(!isset($_POST['submit'])) { ?>		
-		    <form action="sign-up.php" method="post" name="sign-up-form">
-		    	First Name:<br>
-		    	<input type="text" name="fname"><br>
-		    	Last Name:<br>
-		    	<input type="text" name="lname"><br>
-		    	Email:<br>
-		    	<input type="text" name="email_first"><br>
-		    	Email Confirmation:<br>
-		    	<input type="text" name="email_second"><br>
-		    	Password:<br>
-		    	<input type="password" name="pass_first"><br>
-		    	Password Confirmation:<br>
-		    	<input type="password" name="pass_second"><br>
+		    <form action="sign-up.php" method="post" name="sign_up_form">
+		    	First Name: <span id="first" ></span><br>
+		    	<input type="text" name="fname" onChange="check_first();"><br>
+		    	Last Name:<span id="last" ></span><br>
+		    	<input type="text" name="lname" onChange="check_last();"><br>
+		    	<b id="email4"></b> 
+		    	Email: <span id="email1" ></span><br>
+		    	<input type="text" name="email_first" onChange="check_email();"><br><span id="first" ></span>
+		    	Email Confirmation: <span id="email2" ></span> <br>
+		    	<input type="text" name="email_second" onChange="check_emails();"><br>     
+	            <b id="email3"></b>
+		    	Password:<span id="pass1" ></span><br>
+		    	<input type="password" name="pass_first"><br><b id="pass1"></b>
+		    	Password Confirmation:<span id="pass2" ></span><br>
+		    	<input type="password" name="pass_second" onChange="check_passwords();"><br>
+		    	<b id="pass3"></b>
 
 		    	<input type="submit" name="submit" value="Sign Up">
 		    </form>

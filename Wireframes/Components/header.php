@@ -6,16 +6,16 @@
 
 			$user_info = fetch_user_info($_COOKIE['user']);
 
-			echo "Logged in as ".$user_info[0]; 
+			echo "Logged in as ".$user_info[0]." <a href='logout.php'>Logout</a>"; 
 		} else { ?>
-			Welcome, login <a href="#">here</a>
+			Welcome, login <a href="login.php">here</a>
 		<?php } ?>
 
 	</div>
 
 	<span class="header-nav">
 		<ul class="nav">
-			<li><a href="master.php">Home</a></li>
+			<li><a href="index.php">Home</a></li>
 			<li><a href="#">Profile</a></li>
 			<li><a href="sign-up.php">Sign Up</a></li>
 			<li><a href="#">Search</a></li>
