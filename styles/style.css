@@ -90,3 +90,9 @@
 	display:inline;
 	padding-left: 20px;
 }
+
+.login {
+	position: absolute; 
+    right: 200;
+
+}

@@ -1,5 +1,3 @@
-<?php include("functions.php"); ?>
-
 <html>
 	<title>IDidIt</title>
 	<head>
@@ -53,7 +51,12 @@
 			}
 
 			if($confirm){
-				add_new_user($fname, $lname, $pass_1, $email_1);
+				$crypt = add_user($fname, $lname, $pass_1, $email_1);
+
+				// set login cookie for a month's time	
+				setcookie("user", $crypt, time()+2592000);
+
+				echo "Thanks for signing up! You are now logged into IDidIT.com";
 			}
 
 
