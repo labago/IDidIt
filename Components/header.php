@@ -16,7 +16,7 @@
 	<span class="header-nav">
 		<ul class="nav">
 			<li><a href="index.php">Home</a></li>
-			<li><a href="#">Profile</a></li>
+			<li><a href="profile.php">Profile</a></li>
 			<li><a href="sign-up.php">Sign Up</a></li>
 			<li><a href="#">Search</a></li>
 		</ul>

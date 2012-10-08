@@ -2,9 +2,8 @@
 data_connect();
 
 
-function check_crypt_user($crypt){
-
-
+function check_crypt_user($crypt)
+{
 	$query = "SELECT * 
 	FROM  `Users` 
 	WHERE  `Crypt` LIKE  '$crypt'
@@ -19,7 +18,8 @@ function check_crypt_user($crypt){
   
 }
 
-function gen_rand_hex(){
+function gen_rand_hex()
+{
 	srand((double)microtime()*1000000);
 
 	$decnumber = rand(0, 16777215);
@@ -29,7 +29,8 @@ function gen_rand_hex(){
 	return $colorcode;
 }
 
-function add_user($fname, $lname, $pass, $email){
+function add_user($fname, $lname, $pass, $email)
+{
 
 	$crypt = gen_rand_hex();  
 	while(!check_crypt_user($crypt)) {  
@@ -52,7 +53,8 @@ function add_user($fname, $lname, $pass, $email){
 	return $crypt;
 }
 
-function data_connect() {
+function data_connect() 
+{
   
 $host = "data.justdidthat.com"; 
 $user = "jlane09"; 
@@ -65,7 +67,8 @@ $connection = mysql_connect($host, $user, $pass) or die ("Unable to connect!");
 mysql_select_db($db) or die ("Unable to select database!");    
 }
 
-function fetch_user_info($crypt){
+function fetch_user_info($crypt)
+{
   
 $query = "SELECT * 
 FROM  `Users` 
@@ -77,13 +80,50 @@ $row = mysql_fetch_row($result);
 
 $info = array();
 
-array_push($info, $row[0]);
-array_push($info, $row[1]);
-array_push($info, $row[2]);
-array_push($info, $row[3]);
-array_push($info, $row[4]);
+foreach($row as $row_item)
+{
+	array_push($info, $row_item);	
+}
 
 return $info;
+}
+
+function fetch_user_goals($crypt)
+{
+  
+$query = "SELECT * 
+FROM  `Goal` 
+WHERE  `Crypt of User` LIKE  '$crypt'
+LIMIT 0 , 30";  
+  
+$result = mysql_query($query);
+
+$goals = array();
+
+while($row = mysql_fetch_row($result))
+{
+	array_push($goals, $row);	
+}
+
+return $goals;
+}
+
+function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt)
+{
+
+	$query =  "INSERT INTO `ididit`.`Goal` (
+			`Title` ,
+			`Date Started` ,
+			`Date Achieved` ,
+			`Description` ,
+			`Picture` ,
+			`Crypt of User`
+			)
+			VALUES (
+			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt'
+			);";
+
+	mysql_query($query);
 }
 
 

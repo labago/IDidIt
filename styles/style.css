@@ -44,6 +44,7 @@
 	width: 1500px;
 	margin-left: auto;
 	margin-right: auto;
+	min-height: 600px;
 	background-color: #39ABC4;
 }
 
@@ -99,5 +100,48 @@
 .login {
 	position: absolute; 
     right: 200;
+}
 
+.profile-pic {
+	min-height: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.profile-pic img {
+	border:5px solid blue;
+}
+
+.goal {
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:5px solid green;
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.goal_column {
+	width: 400;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.goal_column img {
+	border:5px solid yellow;
+
+}
+
+.goal_column h1 {
+	font-size: 30;
+	color: #020248;
+	border-bottom: none;
+}
+
+.space {
+	padding-top: 20px;
 }
