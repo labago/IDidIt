@@ -18,7 +18,7 @@
 			<li><a href="index.php">Home</a></li>
 			<li><a href="profile.php">Profile</a></li>
 			<li><a href="sign-up.php">Sign Up</a></li>
-			<li><a href="#">Search</a></li>
+			<li><a href="account.php">Account</a></li>
 		</ul>
 	</span>
 </div>

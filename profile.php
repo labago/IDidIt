@@ -35,7 +35,7 @@
 					echo '<div class="space"></div>';
 				}
 			?>
-			<a href="add-goal.php">Add New Goal</a>
+			<a href="add-goal.php"><input type="button" value="Add New Goal"></a>
 
 
 			<?php } else 

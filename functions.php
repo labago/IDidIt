@@ -126,6 +126,41 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt)
 	mysql_query($query);
 }
 
+function gen_pic_name($original){
+
+	$end = substr($original, (strlen($original) - 3), 3);
+
+	$name = gen_rand_hex();
+
+	if(file_exists("uploads/".$name.".".$end)){
+		return gen_pic_name($original);
+	}
+	else{
+		return $name.".".$end;
+	}
+
+}
+
+function change_user_pic($crypt, $path){
+  
+	 $query = "UPDATE  `ididit`.`Users` SET  
+	`Picture` =  '$path'
+	WHERE  `Users`.`Crypt` =  '$crypt' 
+	LIMIT 1 ;";
+
+	mysql_query($query);
+}
+
+function update_user_info($fname, $lname, $email, $password, $crypt)
+{
+	$query = "UPDATE `ididit`.`Users` SET `First Name` = '$fname',
+			`Last Name` = '$lname',
+			`Email` = '$email',
+			`Password` = '$password' WHERE `Users`.`Crypt` = '$crypt' LIMIT 1 ;";
+
+	mysql_query($query);
+}
+
 
 
 

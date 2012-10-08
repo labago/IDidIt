@@ -112,6 +112,7 @@
 
 .profile-pic img {
 	border:5px solid blue;
+	max-width: 300px;
 }
 
 .goal {
@@ -133,6 +134,7 @@
 
 .goal_column img {
 	border:5px solid yellow;
+	max-width: 400px;
 
 }
 
