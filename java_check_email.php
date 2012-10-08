@@ -11,10 +11,9 @@ LIMIT 0 , 30";
 $result_check = mysql_query($query_check);
 
 if(mysql_num_rows($result_check) == 0){
-echo '{"message":"true"}';
+echo 'true';
 }
 else{
-echo '{"message":"false"}';
+echo 'false';
 }
-
 ?>

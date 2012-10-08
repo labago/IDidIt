@@ -72,6 +72,6 @@ function check_email() {
 			      document.getElementById("email1").innerHTML = ' <img src="xmark.png" width="15">';
 			      document.getElementById("email4").innerHTML = 'Email is already in use<br>';    
 			      }
-             }
+         }
     });
 }

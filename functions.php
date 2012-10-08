@@ -1,5 +1,6 @@
 <?php
 data_connect();
+record_visit();
 
 
 function check_crypt_user($crypt)
@@ -20,13 +21,9 @@ function check_crypt_user($crypt)
 
 function gen_rand_hex()
 {
-	srand((double)microtime()*1000000);
+	$number = substr(md5(rand()), 0, 8); 
 
-	$decnumber = rand(0, 16777215);
-
-	$colorcode = dechex($decnumber);
-
-	return $colorcode;
+	return $number;
 }
 
 function add_user($fname, $lname, $pass, $email)
@@ -126,7 +123,8 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt)
 	mysql_query($query);
 }
 
-function gen_pic_name($original){
+function gen_pic_name($original)
+{
 
 	$end = substr($original, (strlen($original) - 3), 3);
 
@@ -141,7 +139,8 @@ function gen_pic_name($original){
 
 }
 
-function change_user_pic($crypt, $path){
+function change_user_pic($crypt, $path)
+{
   
 	 $query = "UPDATE  `ididit`.`Users` SET  
 	`Picture` =  '$path'
@@ -161,8 +160,106 @@ function update_user_info($fname, $lname, $email, $password, $crypt)
 	mysql_query($query);
 }
 
+function record_visit() 
+{
+	$ip_new = VisitorIP();
+	$page_name = find_full_page_name();
+
+	$query = "SELECT * 
+	FROM  `Visits` 
+	WHERE  `IP` LIKE  '$ip_new'
+	AND  `Page Name` LIKE  '$page_name'
+	LIMIT 0 , 30";
+
+	$result = mysql_query($query);
+
+	$visited = false;
+	if($row = mysql_fetch_row($result))
+	{
+		$visited = true;
+
+		$ip = $row[0];
+		$times = $row[2];
+		$user = $row[3];
+
+		$new_times = $times + 1;
+		if(strlen($user) == 0)
+		{
+			$new_user = $_SESSION['email'];
+		}
+		else 
+		{
+			$new_user = $user;  
+		}
+	}
 
 
+	if($visited)
+	{
+		$date = date('Y-m-d g-i-s', time()+(60*60*3));  
+		$query = "UPDATE  `ididit`.`Visits` SET  `Most Recent` =  '$date',
+		`Times` =  '$new_times',
+		`User` =  '$new_user' WHERE  
+		`Visits`.`IP` =  '$ip' AND   
+		`Visits`.`Times` =$times AND  
+		`Visits`.`User` =  '$user' LIMIT 1 ;";
+	}
+	else 
+	{
+	  
+		$user = $_COOKIE['user'];  
 
+		if(strlen($user) == 0)
+		{
+			$user = "Guest";  
+		}
 
+		$date = date('Y-m-d g-i-s', time()+(60*60*3));  
+
+		$query = "INSERT INTO  `ididit`.`Visits` (
+		`IP` ,
+		`Most Recent` ,
+		`Times` ,
+		`User`,
+		`Page Name`
+		)
+		VALUES (
+		'$ip_new', 
+		'$date',  '1',  '$user', '$page_name'
+		);";
+	}
+
+	mysql_query($query);
+}
+
+// method to find users IP address
+function VisitorIP()
+{ 
+	if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+	    $TheIp=$_SERVER['HTTP_X_FORWARDED_FOR'];
+	else $TheIp=$_SERVER['REMOTE_ADDR'];
+
+	return trim($TheIp);
+}
+
+// returns the whole page name(this means includes arguments) but minus the domain name
+function find_full_page_name() 
+{
+
+	$url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];  
+	  
+	$array = explode("/", $url);  
+	$full_name = "";
+
+	$length = sizeof($array);
+	$start = 1;
+
+	while($start < $length)
+	{
+		$full_name = $full_name."/".$array[$start];
+		$start += 1;    
+	}
+
+	return $full_name;
+}
 ?>
