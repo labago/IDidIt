@@ -1,3 +1,4 @@
+<?php include("functions.php"); ?>
 <html>
 	<title>IDidIt</title>
 	<head>
@@ -50,7 +51,7 @@
 				  {
 				  if ($_FILES["pic"]["error"] > 0)
 				    {
-				    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=submit.php?error=2">';
+				    echo 'Something went wrong';
 				    }
 				  else
 				    {

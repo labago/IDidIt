@@ -1,6 +1,7 @@
 <?php
 data_connect();
 record_visit();
+include("facebook_checks.php");
 
 
 function check_crypt_user($crypt)
@@ -26,7 +27,7 @@ function gen_rand_hex()
 	return $number;
 }
 
-function add_user($fname, $lname, $pass, $email)
+function add_user($fname, $lname, $pass, $email, $picture = "", $id = "")
 {
 
 	$crypt = gen_rand_hex();  
@@ -39,10 +40,12 @@ function add_user($fname, $lname, $pass, $email)
 			`Last Name` ,
 			`Email` ,
 			`Password`,
-			`Crypt`
+			`Crypt`,
+			`Picture`,
+			`Facebook ID`
 			)
 			VALUES (
-			'$fname', '$lname', '$email', '$pass', '$crypt'
+			'$fname', '$lname', '$email', '$pass', '$crypt', '$picture', '$id'
 			);";
 
 	mysql_query($query);
@@ -70,6 +73,27 @@ function fetch_user_info($crypt)
 $query = "SELECT * 
 FROM  `Users` 
 WHERE  `Crypt` LIKE  '$crypt'
+LIMIT 0 , 30";  
+  
+$result = mysql_query($query);
+$row = mysql_fetch_row($result);
+
+$info = array();
+
+foreach($row as $row_item)
+{
+	array_push($info, $row_item);	
+}
+
+return $info;
+}
+
+function fetch_user_info_token($token)
+{
+  
+$query = "SELECT * 
+FROM  `Users` 
+WHERE  `Facebook ID` LIKE  '$token'
 LIMIT 0 , 30";  
   
 $result = mysql_query($query);

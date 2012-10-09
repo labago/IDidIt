@@ -1,14 +1,16 @@
-<?php include("functions.php"); ?>
 <div class="header">
 	<h1>IDidIt</h1>
 	<div class="login">
-		<?php if(isset($_COOKIE['user'])) { 
+		<?php if(isset($_COOKIE['user']) || $facebook->getSession) { 
 
-			$user_info = fetch_user_info($_COOKIE['user']);
+			if(isset($_COOKIE['user']))			
+				$user_info = fetch_user_info($_COOKIE['user']);
+			else
+				$user_info = fetch_user_info_token($user);	
 
-			echo "Logged in as ".$user_info[0]." <a href='logout.php'>Logout</a>"; 
+			echo "Logged in as ".$user_info[0]." <a href='".$logoutUrl."'>Logout</a>"; 
 		} else { ?>
-			Welcome, login <a href="login.php">here</a>
+			Welcome, login with facebook <a href="<?php echo $loginUrl; ?>">here</a>
 		<?php } ?>
 
 	</div>
