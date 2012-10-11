@@ -240,16 +240,25 @@ function record_visit()
 
 		$date = date('Y-m-d g-i-s', time()+(60*60*3));  
 
+		$location_info = json_decode(file_get_contents("http://api.ipinfodb.com/v3/ip-city/?format=json&key=b49cd6eb6da4c0e429300fd010f02061db560d5b38c2526481abe89bc73f8b3b&ip=".$ip_new));
+		
+		$country = $location_info->{'countryName'};
+		$city = $location_info->{'cityName'};
+		$zip = $location_info->{'zipCode'};
+
 		$query = "INSERT INTO  `ididit`.`Visits` (
 		`IP` ,
 		`Most Recent` ,
 		`Times` ,
 		`User`,
-		`Page Name`
+		`Page Name`,
+		`Country`,
+		`City`,
+		`Zip`
 		)
 		VALUES (
 		'$ip_new', 
-		'$date',  '1',  '$user', '$page_name'
+		'$date',  '1',  '$user', '$page_name', '$country', '$city','$zip'
 		);";
 	}
 
