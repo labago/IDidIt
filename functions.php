@@ -205,6 +205,7 @@ function record_visit()
 		$ip = $row[0];
 		$times = $row[2];
 		$user = $row[3];
+		$page_name = $row[4]; 
 
 		$new_times = $times + 1;
 		if(strlen($user) == 0)
@@ -226,7 +227,8 @@ function record_visit()
 		`User` =  '$new_user' WHERE  
 		`Visits`.`IP` =  '$ip' AND   
 		`Visits`.`Times` =$times AND  
-		`Visits`.`User` =  '$user' LIMIT 1 ;";
+		`Visits`.`User` =  '$user' AND
+		`Visits`.`Page Name` = '$page_name' LIMIT 1 ;";
 	}
 	else 
 	{
