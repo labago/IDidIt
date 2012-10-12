@@ -5,6 +5,7 @@
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="functions.js"></script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -58,6 +59,23 @@
 						echo '<div class="goal_column">';
 							echo '<img src="'.$goal[4].'">';
 						echo '</div>';
+						echo '<div class="info">';
+							echo '<h3>Stats</h3>';
+							if($goal[9] != '')
+								echo 'Nods: '.sizeof(explode(",",$goal[9]));
+							else
+								echo 'Nods: 0';
+							if($goal[6] != '')
+								echo 'Validators: '.sizeof(explode(",",$goal[6]));
+							else
+								echo 'Validators: 0';
+						echo '</div>';
+						if(isset($_COOKIE['user']) && (isset($_GET['id'])) && (strpos($goal[9], $_COOKIE['user']) === false))
+						{
+							$user = "'".$_COOKIE['user']."'";
+							$goal_crypt = "'".$goal[8]."'";
+							echo '<div class="congrats-button"><a onclick="congrats('.$user.', '.$goal_crypt.', this); return false;" href="">Congratulate</a></div>';
+						}
 					echo '</div>';
 					echo '<div class="space"></div>';
 				}

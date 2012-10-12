@@ -75,3 +75,16 @@ function check_email() {
          }
     });
 }
+
+function congrats(user, goal, el) {
+      //var email = document.sign_up_form.email_first.value;
+      //document.getElementById("email1").innerHTML = ' <img src="loading.gif" width="15">';
+     $.ajax({
+            type: "GET",
+            url: "add_congrats.php",
+            data: "user="+user+"&goal="+goal,
+            success: function(data){
+                el.parentNode.innerHTML = "Thanks!";
+            }
+    });
+}
