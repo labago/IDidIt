@@ -10,7 +10,18 @@
 		<div class="page">
 			<div class="content">
 				<h1>Welcome to IDidIt.com!</h1>
+				<br><br><br>
 				
+			<?php
+				$query = "SELECT * 
+						FROM `Users`";
+				$result = mysql_query($query);
+
+				while($row = mysql_fetch_row($result))
+				{
+					echo '<a href="profile.php?id='.$row[4].'"><h2>'.$row[0]." ".$row[1]."</h2></a>";
+				}
+			?>
 
 			</div>
 		</div>
