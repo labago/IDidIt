@@ -20,9 +20,25 @@ function check_crypt_user($crypt)
   
 }
 
+function check_crypt_goal($crypt)
+{
+	$query = "SELECT * 
+	FROM  `Goal` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+	  
+	$result = mysql_query($query);
+
+	if(mysql_num_rows($result) != 0){
+	return false;  
+	}  
+	return true;
+  
+}
+
 function gen_rand_hex()
 {
-	$number = substr(md5(rand()), 0, 8); 
+	$number = substr(md5(rand()), 0, 10); 
 
 	return $number;
 }
@@ -129,8 +145,12 @@ while($row = mysql_fetch_row($result))
 return $goals;
 }
 
-function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt)
+function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $category)
 {
+	$crypt = gen_rand_hex();  
+	while(!check_crypt_goal($crypt)) {  
+	$crypt = gen_rand_hex();
+	}
 
 	$query =  "INSERT INTO `ididit`.`Goal` (
 			`Title` ,
@@ -138,10 +158,12 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt)
 			`Date Achieved` ,
 			`Description` ,
 			`Picture` ,
-			`Crypt of User`
+			`Crypt of User`,
+			`Category`,
+			`Crypt`
 			)
 			VALUES (
-			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt'
+			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt'
 			);";
 
 	mysql_query($query);
@@ -232,8 +254,10 @@ function record_visit()
 	}
 	else 
 	{
-	  
-		$user = $_COOKIE['user'];  
+	  	if(isset($_COOKIE['user']))
+			$user = $_COOKIE['user'];  
+		else
+			$user = '';
 
 		if(strlen($user) == 0)
 		{

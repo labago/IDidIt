@@ -3,7 +3,7 @@
 	<div class="login">
 		<?php if(isset($_COOKIE['user']) || $facebook->getSession) { 
 
-			if(isset($_COOKIE['user']))			
+			if(isset($_COOKIE['user']))		
 				$user_info = fetch_user_info($_COOKIE['user']);
 			else
 				$user_info = fetch_user_info_token($user);	

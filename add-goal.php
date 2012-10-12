@@ -20,10 +20,21 @@
 		    <form action="add-goal.php" method="post" name="add_goal_form">
 		    	Title: <br>
 		    	<input type="text" name="title" ><br>
+		    	Category: <br>
+		    	<select name="category" >
+		    		<option></option>
+		    		<option value="Resume Worthy">Resume Worthy</option>
+		    		<option value="Personal goal">Personal goal</option>
+		    		<option value="Career">Career</option>
+		    		<option value="Athletic">Athletic</option>
+		    		<option value="Financial">Financial</option>
+		    		<option value="Family">Family</option>
+		    		<option value="Other">Other</option>
+		    	</select><br>
 		    	Date Started:<br>
-		    	<input type="datetime" name="date_s"><br>
+		    	<input type="date" name="date_s"><br>
 		    	Date Ended: <br>
-		    	<input type="datetime" name="date_e"><br>
+		    	<input type="date" name="date_e"><br>
 		    	Picture URL: <br>
 		    	<input type="text" name="pic"><br>     
 		    	Description:<br>
@@ -39,9 +50,10 @@
 			$date_e = $_POST['date_e'];
 			$pic = $_POST['pic'];
 			$desc = $_POST['desc'];
+			$category = $_POST['category'];
 			$crypt = $_COOKIE['user'];
 
-			add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt);
+			add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt, $category);
 
 			echo '<META HTTP-EQUIV="Refresh" Content="0; URL=profile.php">'; 
 
