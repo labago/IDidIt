@@ -5,7 +5,14 @@
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.tokeninput.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/token-input.css" />
 	<script type="text/javascript" src="functions.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+	    $("#query").tokenInput("fb_find.php");
+	});
+	</script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -39,6 +46,8 @@
 		    	<input type="text" name="pic"><br>     
 		    	Description:<br>
 		    	<textarea type="text" name="desc"></textarea><br>
+		    	Witness:
+		    	<input type="text" name="witness" id="query" />
 		 
 		    	<input type="submit" name="submit" value="Add Goal">
 		    </form>
@@ -52,8 +61,9 @@
 			$desc = $_POST['desc'];
 			$category = $_POST['category'];
 			$crypt = $_COOKIE['user'];
+			$witness = $_POST['witness'];
 
-			add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt, $category);
+			add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt, $category, $witness);
 
 			echo '<META HTTP-EQUIV="Refresh" Content="0; URL=profile.php">'; 
 

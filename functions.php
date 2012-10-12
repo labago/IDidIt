@@ -145,7 +145,7 @@ while($row = mysql_fetch_row($result))
 return $goals;
 }
 
-function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $category)
+function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $category, $witness)
 {
 	$crypt = gen_rand_hex();  
 	while(!check_crypt_goal($crypt)) {  
@@ -160,10 +160,11 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
 			`Picture` ,
 			`Crypt of User`,
 			`Category`,
-			`Crypt`
+			`Crypt`,
+			`Witness`
 			)
 			VALUES (
-			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt'
+			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt', '$witness'
 			);";
 
 	mysql_query($query);
