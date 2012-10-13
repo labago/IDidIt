@@ -4,7 +4,7 @@
 	<head>
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
-	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<body>
 		<?php include("Components/header.php"); ?>
 

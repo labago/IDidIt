@@ -4,13 +4,13 @@
 	<head>
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
-	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="jquery.tokeninput.js"></script>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/jquery.tokeninput.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/token-input.css" />
-	<script type="text/javascript" src="functions.js"></script>
+	<script type="text/javascript" src="scripts/functions.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function () {
-	    $("#query").tokenInput("fb_find.php");
+	    $("#query").tokenInput("/ajax/fb_find.php");
 	});
 	</script>
 	<body>

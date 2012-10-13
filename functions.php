@@ -33,7 +33,21 @@ function check_crypt_goal($crypt)
 	return false;  
 	}  
 	return true;
-  
+}
+
+function check_crypt_comment($crypt)
+{
+	$query = "SELECT * 
+	FROM  `Comments` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+	  
+	$result = mysql_query($query);
+
+	if(mysql_num_rows($result) != 0){
+	return false;  
+	}  
+	return true;
 }
 
 function gen_rand_hex()
@@ -143,6 +157,38 @@ while($row = mysql_fetch_row($result))
 }
 
 return $goals;
+}
+
+function fetch_user_goal($crypt)
+{
+  
+$query = "SELECT * 
+FROM  `Goal` 
+WHERE  `Crypt` LIKE  '$crypt'
+LIMIT 0 , 30";  
+  
+$result = mysql_query($query);
+
+$row = mysql_fetch_row($result);
+
+return $row;
+}
+
+function is_user_goal($crypt, $user)
+{
+  
+$query = "SELECT * 
+FROM  `Goal` 
+WHERE  `Crypt` LIKE  '$crypt'
+LIMIT 0 , 30";  
+  
+$result = mysql_query($query);
+
+$goals = array();
+
+$row = mysql_fetch_row($result);
+
+return $row[5] == $user;
 }
 
 function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $category, $witness, $youtube)
@@ -322,5 +368,52 @@ function find_full_page_name()
 	}
 
 	return $full_name;
+}
+
+function add_comment($comment, $crypt_user, $crypt_goal)
+{
+
+	$comment = strip_tags($comment);
+
+	$date = date('Y-m-d g-i-s', time()+(60*60*3)); 
+
+	$crypt = gen_rand_hex();  
+	while(!check_crypt_comment($crypt)) {  
+	$crypt = gen_rand_hex();
+	}
+
+	$query = "INSERT INTO `ididit`.`Comments` (
+	`Comment` ,
+	`Date Posted` ,
+	`Crypt of User` ,
+	`Crypt of Goal` ,
+	`Crypt`
+	)
+	VALUES (
+	'$comment', 
+	'$date', '$crypt_user', '$crypt_goal', '$crypt'
+	);";
+
+	mysql_query($query);
+}
+
+function get_comments($goal)
+{
+
+	$query = "SELECT * 
+	FROM `Comments` 
+	WHERE `Crypt of Goal` LIKE '$goal'
+	LIMIT 0 , 30";
+
+	$result = mysql_query($query);
+
+	$comments = array();
+
+	while($row = mysql_fetch_row($result))
+	{
+		array_push($comments, $row);
+	}
+
+	return $comments;
 }
 ?>

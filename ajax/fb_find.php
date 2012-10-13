@@ -6,7 +6,7 @@
 #
 
 # Connect to the database
-include('functions.php');
+include('../functions.php');
 
 $friends = $facebook->api('/me/friends');
 

@@ -4,8 +4,8 @@
 	<head>
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
-	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="functions.js"></script>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/functions.js"></script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -34,7 +34,7 @@
 				{
 					echo '<div class="goal">';
 						echo '<div class="goal_column">';
-							echo '<h1>'.$goal[0].'</h1><p>'.$goal[3].'</p>';
+							echo '<a href="goal.php?id='.$goal[8].'"><h1>'.$goal[0].'</h1></a><p>'.$goal[3].'</p>';
 							echo '<div class="witness">';
 								echo '<h2>Witnesses</h2>';
 
@@ -71,7 +71,7 @@
 							else
 								echo 'Validators: 0';
 						echo '</div>';
-						if(isset($_COOKIE['user']) && (isset($_GET['id'])) && (strpos($goal[9], $_COOKIE['user']) === false))
+						if(isset($_COOKIE['user']) && (isset($_GET['id'])) && (strpos($goal[9], $_COOKIE['user']) === false) && ($_GET['id'] != $_COOKIE['user']))
 						{
 							$user = "'".$_COOKIE['user']."'";
 							$goal_crypt = "'".$goal[8]."'";

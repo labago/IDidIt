@@ -8,7 +8,10 @@
 			else
 				$user_info = fetch_user_info_token($user);	
 
-			echo "Logged in as ".$user_info[0]." <a href='".$logoutUrl."'>Logout</a>"; 
+			if($facebook->getSession)
+				echo "Logged in as ".$user_info[0]." <a href='".$logoutUrl."'>Logout</a>";
+			else
+				echo "Logged in as ".$user_info[0]." <a href='logout.php'>Logout</a>"; 
 		} else { ?>
 			Welcome, login with facebook <a href="<?php echo $loginUrl; ?>">here</a>
 		<?php } ?>

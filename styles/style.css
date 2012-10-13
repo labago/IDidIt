@@ -184,3 +184,17 @@
 	border:5px solid yellow;
 	max-width: 100px;
 }
+
+.goal-comments {
+	width: 800;
+	border:5px solid blue;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.comment {
+	width: 600;
+	border:5px solid red;
+	margin-left: auto;
+	margin-right: auto;
+}
