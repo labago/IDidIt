@@ -61,7 +61,7 @@ function check_email() {
       document.getElementById("email1").innerHTML = ' <img src="styles/images/loading.gif" width="15">';
      $.ajax({
             type: "GET",
-            url: "/ajax/java_check_email.php",
+            url: "resources/ajax/java_check_email.php",
             data: "email="+email,
             success: function(data){
                   if(data == "true"){
@@ -81,7 +81,7 @@ function congrats(user, goal, el) {
       //document.getElementById("email1").innerHTML = ' <img src="loading.gif" width="15">';
      $.ajax({
             type: "GET",
-            url: "/ajax/add_congrats.php",
+            url: "resources/ajax/add_congrats.php",
             data: "user="+user+"&goal="+goal,
             success: function(data){
                 el.parentNode.innerHTML = "Thanks!";
@@ -94,7 +94,7 @@ function get_new_goals() {
     var count = $('.stream-goal').size();
      $.ajax({
             type: "GET",
-            url: "/ajax/get_new_goals.php",
+            url: "resources/ajax/get_new_goals.php",
             data: "count="+count,
             success: function(data){
               if(data != '')

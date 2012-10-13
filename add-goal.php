@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="scripts/functions.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function () {
-	    $("#query").tokenInput("/ajax/fb_find.php");
+	    $("#query").tokenInput("resources/ajax/fb_find.php");
 	});
 	</script>
 	<body>

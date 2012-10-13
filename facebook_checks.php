@@ -1,5 +1,5 @@
 <?php
-require 'api/facebook/facebook.php';
+require 'resources/api/facebook/facebook.php';
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(

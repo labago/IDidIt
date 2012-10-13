@@ -1,5 +1,5 @@
 <?php
-include('../functions.php');
+include('../../functions.php');
 
 $email = $_GET['email'];
 

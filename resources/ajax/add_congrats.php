@@ -1,5 +1,5 @@
 <?php
-include('../functions.php');
+include('../../functions.php');
 
 $user = $_GET['user'];
 $goal = $_GET['goal'];
