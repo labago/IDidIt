@@ -56,11 +56,11 @@
 		    <br>
 		<?php } else { 
 
-			$title = $_POST['title'];
+			$title = htmlentities(strip_tags($_POST['title']), ENT_QUOTES);
 			$date_s = $_POST['date_s'];
 			$date_e = $_POST['date_e'];
 			$youtube = $_POST['youtube'];
-			$desc = $_POST['desc'];
+			$desc = htmlentities(strip_tags($_POST['desc']), ENT_QUOTES);
 			$category = $_POST['category'];
 			$crypt = $_COOKIE['user'];
 			$witness = $_POST['witness'];

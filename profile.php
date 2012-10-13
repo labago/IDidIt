@@ -18,7 +18,7 @@
 
 					$picture = $user_info[5]; 
 			?>
-				<h1><?php echo $user_info[0]." ".$user_info[1]; ?></h1>
+				<h1><?php echo html_entity_decode($user_info[0])." ".html_entity_decode($user_info[1]); ?></h1>
 				<div class="profile-pic">
 					<img src="<?php echo $picture; ?>" alt="profile-picture">
 				</div>
@@ -34,7 +34,7 @@
 				{
 					echo '<div class="goal">';
 						echo '<div class="goal_column">';
-							echo '<a href="goal.php?id='.$goal[8].'"><h1>'.$goal[0].'</h1></a><p>'.$goal[3].'</p>';
+							echo '<a href="goal.php?id='.$goal[8].'"><h1>'.html_entity_decode($goal[0]).'</h1></a><p>'.html_entity_decode($goal[3]).'</p>';
 							echo '<div class="witness">';
 								echo '<h2>Witnesses</h2>';
 
@@ -80,7 +80,7 @@
 					echo '</div>';
 					echo '<div class="space"></div>';
 				}
-				if(isset($_COOKIE['user']) && (!isset($_GET['id'])))
+				if(isset($_COOKIE['user']) && ((!isset($_GET['id'])) || $_GET['id'] == $_COOKIE['user']))
 				{ ?>
 					<a href="add-goal.php"><input type="button" value="Add New Goal"></a>
 				<?php } ?>

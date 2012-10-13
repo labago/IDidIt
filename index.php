@@ -25,7 +25,7 @@
 						while($row = mysql_fetch_row($result))
 						{
 							echo '<div class="stream-goal">';
-								echo '<a href="profile.php?id='.$row[5].'"><h2>'.$row[0]."</h2></a>";
+								echo '<a href="goal.php?id='.$row[8].'"><h2>'.html_entity_decode($row[0])."</h2></a>";
 								echo '<img src="'.$row[4].'">';
 							echo '</div>';
 							echo '<div class="space"></div>';
@@ -41,7 +41,7 @@
 
 						while($row = mysql_fetch_row($result))
 						{
-							echo '<a href="profile.php?id='.$row[4].'"><h2>'.$row[0]." ".$row[1]."</h2></a>";
+							echo '<a href="profile.php?id='.$row[4].'"><h2>'.html_entity_decode($row[0])." ".html_entity_decode($row[1])."</h2></a>";
 						}
 					?>
 				</div>

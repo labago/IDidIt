@@ -24,7 +24,7 @@
 				{
 					$comment = $_POST['comment'];
 
-					add_comment($comment, $_COOKIE['user'], $goal);
+					add_comment(htmlentities(strip_tags($comment), ENT_QUOTES), $_COOKIE['user'], $goal);
 				}
 
 				$user_view = is_user_goal($goal, $_COOKIE['user']);
@@ -36,7 +36,7 @@
 				echo '<div class="space"></div>';
 				echo '<div class="goal">';
 					echo '<div class="goal_column">';
-						echo '<a href="goal.php?id='.$goal[8].'"><h1>'.$goal[0].'</h1></a><p>'.$goal[3].'</p>';
+						echo '<a href="goal.php?id='.$goal[8].'"><h1>'.html_entity_decode($goal[0]).'</h1></a><p>'.html_entity_decode($goal[3]).'</p>';
 						echo '<div class="witness">';
 							echo '<h2>Witnesses</h2>';
 
@@ -108,8 +108,8 @@
 
 					$name = $row[0]." ".$row[1];
 
-						echo '<a href="profile.php?id='.$row[4].'">'.$name.'</a> said: <br>';
-						echo $comment[0];
+						echo '<a href="profile.php?id='.$row[4].'">'.html_entity_decode($name).'</a> said: <br>';
+						echo html_entity_decode($comment[0]);
 					echo '</div>';
 					echo '<div class="space"></div>';
 				}

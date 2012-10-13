@@ -37,8 +37,8 @@
 		    <br>
 		<?php } else { 
 
-			$fname = $_POST['fname'];
-			$lname = $_POST['lname'];
+			$fname = htmlentities(strip_tags($_POST['fname']), ENT_QUOTES);
+			$lname = htmlentities(strip_tags($_POST['lname']), ENT_QUOTES);
 			$email_1 = $_POST['email_first'];
 			$email_2 = $_POST['email_second'];
 			$pass_1 = $_POST['pass_first'];
@@ -51,10 +51,10 @@
 				$confirm = false;
 				echo "Emails do not match, please go back and try again";
 			}
-			if($pass_2 != $pass_1)
+			if($pass_2 != $pass_1 || (str_replace('"', '', str_replace("'", "", strip_tags($pass_1))) != $pass_1))
 			{
 				$confirm = false;
-				echo "Passwords do not match, please go back and try again";
+				echo "Passwords do not match or prohibited characters were use, please go back and try again";
 			}
 
 			if($confirm){
