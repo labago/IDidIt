@@ -16,7 +16,8 @@
 				   	   if(isset($_GET['id']))
 				   	   		$user_info = fetch_user_info($_GET['id']);
 
-					$picture = $user_info[5]; ?>
+					$picture = $user_info[5]; 
+			?>
 				<h1><?php echo $user_info[0]." ".$user_info[1]; ?></h1>
 				<div class="profile-pic">
 					<img src="<?php echo $picture; ?>" alt="profile-picture">
@@ -62,9 +63,9 @@
 						echo '<div class="info">';
 							echo '<h3>Stats</h3>';
 							if($goal[9] != '')
-								echo 'Nods: '.sizeof(explode(",",$goal[9]));
+								echo 'Nods: <span id="'.$goal[8].'">'.sizeof(explode(",",$goal[9]))."</span>";
 							else
-								echo 'Nods: 0';
+								echo 'Nods: <span id="'.$goal[8].'">0'."</span>";
 							if($goal[6] != '')
 								echo 'Validators: '.sizeof(explode(",",$goal[6]));
 							else
@@ -79,8 +80,10 @@
 					echo '</div>';
 					echo '<div class="space"></div>';
 				}
-			?>
-			<a href="add-goal.php"><input type="button" value="Add New Goal"></a>
+				if(isset($_COOKIE['user']) && (!isset($_GET['id'])))
+				{ ?>
+					<a href="add-goal.php"><input type="button" value="Add New Goal"></a>
+				<?php } ?>
 
 
 			<?php } else 

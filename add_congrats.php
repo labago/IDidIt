@@ -27,4 +27,6 @@ if(strpos($congradulators, $user) === false)
 $query = "UPDATE `ididit`.`Goal` SET `Congradulators` = '$new_congradulators' WHERE `Goal`.`Crypt` = '$goal' LIMIT 1 ;";
 
 mysql_query($query);
+
+echo sizeof(explode(",",$new_congradulators));
 ?>

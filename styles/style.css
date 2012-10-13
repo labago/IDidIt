@@ -46,6 +46,7 @@
 	margin-right: auto;
 	min-height: 600px;
 	background-color: #39ABC4;
+	overflow: hidden; 
 }
 
 .content h1 {
@@ -158,4 +159,28 @@
 
 .witness h2{
 	
+}
+
+.users {
+	width: 500;
+	float: right;
+}
+
+.stream {
+	width: 1000;
+	float: left;
+}
+
+.stream-goal {
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:5px solid green;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.stream-goal img{
+	border:5px solid yellow;
+	max-width: 100px;
 }

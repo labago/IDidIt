@@ -85,6 +85,23 @@ function congrats(user, goal, el) {
             data: "user="+user+"&goal="+goal,
             success: function(data){
                 el.parentNode.innerHTML = "Thanks!";
+                document.getElementById(goal).innerHTML = data; 
+            }
+    });
+}
+
+function get_new_goals() {
+    var count = $('.stream-goal').size();
+     $.ajax({
+            type: "GET",
+            url: "get_new_goals.php",
+            data: "count="+count,
+            success: function(data){
+              if(data != '')
+              {
+                var stream = document.getElementById("stream");
+                $('div.stream').hide().html(data+stream.innerHTML).fadeIn();
+              }
             }
     });
 }
