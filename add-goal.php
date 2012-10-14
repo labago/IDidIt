@@ -25,10 +25,10 @@
 
 		<?php if(!isset($_POST['submit'])) { ?>		
 		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
-		    	Title*: <br>
-		    	<input type="text" name="title" ><br>
-		    	Category*: <br>
-		    	<select name="category" >
+		    	Title*: <span id="title" ></span><br>
+		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
+		    	Category*: <span id="category" ></span><br>
+		    	<select name="category" onchange="check_el(this, 'category');">
 		    		<option></option>
 		    		<option value="Resume Worthy">Resume Worthy</option>
 		    		<option value="Personal goal">Personal goal</option>
@@ -38,20 +38,20 @@
 		    		<option value="Family">Family</option>
 		    		<option value="Other">Other</option>
 		    	</select><br>
-		    	Date Started*:<br>
-		    	<input type="date" name="date_s"><br>
+		    	Date Started*: <span id="date" ></span><br>
+		    	<input type="date" name="date_s" onchange="check_el(this, 'date');"><br>
 		    	Date Ended: <br>
 		    	<input type="date" name="date_e"><br>
 		    	Picture: <br>
 		    	<input id="local" type="file" name="pic" size="10000000"><br>
 		    	YouTube Video: <br>
 		    	<input type="text" name="youtube"><br>    
-		    	Description*:<br>
-		    	<textarea type="text" name="desc"></textarea><br>
-		    	Witness*:
-		    	<input type="text" name="witness" id="query" />
+		    	Description*: <span id="desc" ></span><br>
+		    	<textarea type="text" name="desc" onchange="check_el(this, 'desc');"></textarea><br>
+		    	Witness*: <span id="witness" ></span><br>
+		    	<input type="text" name="witness" id="query" onchange="check_el(this, 'witness');"/>
 		 
-		    	<input type="submit" name="submit" value="Add Goal">
+		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
 		    </form>
 		    <br>
 		<?php } else { 

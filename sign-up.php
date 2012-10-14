@@ -17,9 +17,9 @@
 		<?php if(!isset($_POST['submit'])) { ?>		
 		    <form action="sign-up.php" method="post" name="sign_up_form">
 		    	First Name: <span id="first" ></span><br>
-		    	<input type="text" name="fname" onChange="check_first();"><br>
+		    	<input type="text" name="fname" onchange="check_el(this, 'first');"><br>
 		    	Last Name:<span id="last" ></span><br>
-		    	<input type="text" name="lname" onChange="check_last();"><br>
+		    	<input type="text" name="lname" onchange="check_el(this, 'last');"><br>
 		    	<b id="email4"></b> 
 		    	Email: <span id="email1" ></span><br>
 		    	<input type="text" name="email_first" onChange="check_email();"><br><span id="first" ></span>
@@ -32,7 +32,7 @@
 		    	<input type="password" name="pass_second" onChange="check_passwords();"><br>
 		    	<b id="pass3"></b>
 
-		    	<input type="submit" name="submit" value="Sign Up">
+		    	<input type="submit" name="submit" value="Sign Up" onclick="return check_sign_up_form()">
 		    </form>
 		    <br>
 		<?php } else { 
