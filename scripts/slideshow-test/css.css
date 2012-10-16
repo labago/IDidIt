@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*Home page*/
+.b-block {width:960px; overflow:hidden; text-align:center; margin-top:15px}
+.b-block img {border:3px solid white;}
+.b-block .first {float:left} 
+.b-block .last {float:right}
+
+.c-block {margin-top:15px; background:#FFF; position:relative}
+.c-image {position:relative; display:inline-block; vertical-align:top}
+.c-copy {display:inline-block; vertical-align:top; margin-left:30px; width:270px; padding-top:20px}
+.c-copy h2 {color:#f98a0a; font:200%/1.4 Memimas-Medium, serif; font-weight:normal; }
+.c-copy a {text-decoration:none}
+.c-copy span {color:#666; font-size:90%; text-transform:uppercase}
+.c-copy p {color:#666666; font-size:75%; line-height:1.4; margin:20px 0; width:240px;}
+.c-copy .grey-link {text-transform:uppercase; color:#666; background:url(../../test-images/grey-link-arrow.png) no-repeat right center; padding-right:10px; text-decoration:none; font-size:80%; font-family:SofiaProRegular, Verdana, Geneva, Helvetica, sans-serif;}
+.c-product {margin:20px; line-height:1.5; position:absolute; right:15px; top:15px}
+.c-product img {margin-bottom:5px}
+.c-product {display:inline-block; width:180px; margin-left:25px; text-align:center; margin-top:20px;}
+.c-product h2 {color:#333; font-size:75%; font-weight:normal; margin:15px 0 5px 0; line-height:1.5}
+.c-product a, .d-products li a {color:#333; text-decoration:none}
+.price {color:#999999; font-size:75%; margin-bottom:7px}
+
+.d-block {background:url(../../test-images/discover-world-market.png) no-repeat top center; margin:40px 0 25px 0; padding:70px 0 0 0;}
+.d-block .new-arrival {display:inline-block; width:260px; color:#666; font-size:75%; vertical-align:bottom; margin:32px 10px 2px 0}
+.d-block .new-arrival h2 {color:#b81d24; font-size:290%; font-family: Memimas-Medium, serif; font-weight:normal; line-height:1.5}
+.d-block .new-arrival p {margin:5px 0 15px 0; line-height:1.4}
+.d-block .seecollection {text-transform:uppercase; color:#b22a2d; background:url(../../test-images/seecollection-arrow.png) no-repeat right center; padding-right:10px; text-decoration:none; font-size:110%}
+.d-block .grey-link {text-transform:uppercase; color:#666; background:url(../../test-images/grey-link-arrow.png) no-repeat right center; padding-right:10px; text-decoration:none; font-size:110%; font-family:SofiaProRegular, Verdana, Geneva, Helvetica, sans-serif;}
+.d-products {display:inline-block;}
+.d-products a {text-decoration:none}
+.d-products li {list-style-type:none; display:inline-block; width:150px; text-align:center; margin-right:5px}
+.d-products li h2 {color:#333; font-weight:normal; margin:10px 0 6px 0; font-size:75%; line-height:1.3}
+.d-products li span {color:#999; font-size:75%;}
+.d-ecat {margin-top:-20px; display:inline-block; margin-left:46px; background:url(../../test-images/devider.png) no-repeat left center; padding-left:38px; margin-left:20px}
+.d-ecat > img {margin-bottom:10px; display:block}
+
+.disabled {display:none;}
+.homeslider {position:relative; visibility:hidden}
+.homeslider ul {position:relative}
+.homeslider li {position:relative; float:left; overflow: hidden;padding:0; margin:0; text-align:left;}
+.homeslider .preload {height0px; position:absolute;}
+.trans {z-index: 10; position:absolute; width:337px;}
+#transleft {left:0; background:url(../../test-images/trans.png) repeat-y left}
+#transright {right:0; background:url(../../test-images/trans2.png) repeat-y right}
+.slideOverlays {display:none;}
+img {border: 0}
+.arrow {z-index:25; position:absolute; display:none;}
+#arrowleft {background:url(../../test-images/arrows.png) no-repeat left center; width:58px; height:100%}
+#arrowright {background:url(../../test-images/arrows.png) no-repeat right center; width:58px; height:100%}
+#cpwm_hero_wrapper {visibility:hidden; overflow:hidden; position:relative; height:450px;}
+#homeslider ul {z-index:5; margin:0; padding:0; height:450px;}

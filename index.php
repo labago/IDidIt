@@ -8,7 +8,8 @@
 	<script type="text/javascript" src="scripts/functions.js"></script>
 	<?php
 		$query = "SELECT * 
-				FROM `Goal`";
+				FROM `Goal`
+				ORDER BY `Date Posted` DESC";
 		$result = mysql_query($query);
 		$count = mysql_num_rows($result);
 	?>
@@ -36,7 +37,7 @@
 				<div class="users">
 					<?php
 						$query = "SELECT * 
-								FROM `Users`";
+								FROM `Users` ";
 						$result = mysql_query($query);
 
 						while($row = mysql_fetch_row($result))

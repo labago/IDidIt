@@ -4,7 +4,8 @@ include('../../functions.php');
 $count = $_GET['count'];
 
 $query = "SELECT * 
-		FROM  `Goal`"; 
+		FROM  `Goal`
+		ORDER BY `Date Posted` DESC"; 
 
 $result = mysql_query($query);
 
@@ -12,19 +13,22 @@ $new_count = mysql_num_rows($result);
 
 if($new_count > $count)
 {
+	$diff = $new_count - $count;
+	$count = 0;
 	while($row = mysql_fetch_row($result))
 	{
-		if($count == 0)
+		if($count != $diff)
 		{
 			echo '<div class="stream-goal">';
-				echo '<a href="profile.php?id='.$row[5].'"><h2>'.$row[0]."</h2></a>";
+				echo '<a href="goal.php?id='.$row[8].'"><h2>'.$row[0]."</h2></a>";
 				echo '<img src="'.$row[4].'">';
 			echo '</div>';
 			echo '<div class="space"></div>';
+			$count = $count + 1;
 		}
 		else
 		{
-			$count = $count - 1;
+			break;
 		}
 	}
 }
