@@ -34,22 +34,63 @@
 
 								echo '<a href="goal.php?id='.$row[8].'"><h2>'.html_entity_decode($row[0])."</h2></a>";
 								echo '<img src="'.$row[4].'">';
+								echo '<div class="small-space"></div>';
+							echo '</div>';
+						}
+
+						function gen_large_goal($row)
+						{
+							echo '<div class="stream-goal">';
+								echo '<a href="goal.php?id='.$row[8].'"><h2>'.html_entity_decode($row[0])."</h2></a>";
+								echo '<img src="'.$row[4].'">';
+								echo '<div class="small-space"></div>';
 							echo '</div>';
 							echo '<div class="space"></div>';
 						}
 
 						$float = false;
+						$small = true;
+						$break = false;
 						while($row = mysql_fetch_row($result))
 						{
-							if(!$float)
-								echo '<div class="stream-goal-small-wrapper">';
+							if($small)
+							{
+								for ($i=0; $i < 2; $i++) 
+								{ 
+									if(!$float)
+										echo '<div class="stream-goal-small-wrapper">';
 
-							gen_small_goal($row, $float);
+									gen_small_goal($row, $float);
 
-							if($float)
-								echo '</div>';
+									if($float)
+									{
+										echo '<div style="display: block; clear: both;"></div>';
+										echo '</div>';
+										echo '<div class="space"></div>';
+									}
 
-							$float = !$float;
+									$float = !$float;
+
+									if($i != 1 && !($row = mysql_fetch_row($result)))
+									{
+										break 2;
+									}
+								}
+							}
+							else
+							{
+								gen_large_goal($row);
+							}
+
+							$small = !$small;
+						}
+
+						// if a second column was not placed close up the loose end
+						if($float)
+						{
+							echo '<div style="display: block; clear: both;"></div>';
+							echo '</div>';
+							echo '<div class="space"></div>';
 						}
 					?>
 				</div>
