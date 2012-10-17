@@ -185,6 +185,21 @@
 	max-width: 100px;
 }
 
+.stream-goal-small-wrapper{
+	width: 800px;
+	margin: 0 auto;
+}
+
+.stream-goal-small {
+width: 40%;
+background-color: #ff0000;
+}
+
+.stream-goal-small img{
+	border:5px solid yellow;
+	max-width: 100px;
+}
+
 .goal-comments {
 	width: 800;
 	border:5px solid blue;

@@ -14,7 +14,8 @@
 		$count = mysql_num_rows($result);
 	?>
 
-	<body onload="check = setInterval(function (){ get_new_goals();}, 5000);">
+	<!-- <body onload="check = setInterval(function (){ get_new_goals();}, 5000);"> -->
+	<body>
 		<?php include("Components/header.php"); ?>
 
 		<div class="page">
@@ -23,13 +24,32 @@
 				<br><br><br>
 				<div id="stream" class="stream">
 					<?php
-						while($row = mysql_fetch_row($result))
+
+						function gen_small_goal($row, $float)
 						{
-							echo '<div class="stream-goal">';
+							if($float)
+								echo '<div class="stream-goal-small" style="float: right;">';
+							else
+								echo '<div class="stream-goal-small" style="float: left;">';
+
 								echo '<a href="goal.php?id='.$row[8].'"><h2>'.html_entity_decode($row[0])."</h2></a>";
 								echo '<img src="'.$row[4].'">';
 							echo '</div>';
 							echo '<div class="space"></div>';
+						}
+
+						$float = false;
+						while($row = mysql_fetch_row($result))
+						{
+							if(!$float)
+								echo '<div class="stream-goal-small-wrapper">';
+
+							gen_small_goal($row, $float);
+
+							if($float)
+								echo '</div>';
+
+							$float = !$float;
 						}
 					?>
 				</div>
