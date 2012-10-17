@@ -29,16 +29,16 @@
 						<div class="preload" id="preloadimgs"><img src="test-images/trans.png"/><img src="test-images/trans2.png"/></div>
 						<ul>
 							<li>
-						        <img src="test-images/a1.jpg" width="960" height="450" alt="" class="showLoading"/>
+						        <img src="test-images/birth-baby-test.jpg" width="960" height="450" alt="" class="showLoading"/>
 							</li>
 							<li>
-						        <img src="test-images/a2.jpg" width="960" height="450" alt="" class="showLoading"/>
+						        <img src="test-images/first-marathon-test.jpg" width="960" height="450" alt="" class="showLoading"/>
 							</li>
 							<li>
-						        <img src="test-images/a3.jpg" width="960" height="450" alt="" class="showLoading"/>
+						        <img src="test-images/graduation-test.jpg" width="960" height="450" alt="" class="showLoading"/>
 							</li>
 							<li>
-						        <img src="test-images/a4.jpg" width="960" height="450" alt="" class="showLoading"/>
+						        <img src="test-images/tied-the-knot-test.jpg" width="960" height="450" alt="" class="showLoading"/>
 							</li>
 					    </ul>
 					</div>
