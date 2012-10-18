@@ -8,11 +8,6 @@
 	<script type="text/javascript" src="scripts/jquery.tokeninput.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/token-input.css" />
 	<script type="text/javascript" src="scripts/functions.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function () {
-	    $("#query").tokenInput("resources/ajax/fb_find.php");
-	});
-	</script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -23,7 +18,20 @@
 		<?php if(isset($_COOKIE['user']))
 				   { ?>
 
-		<?php if(!isset($_POST['submit'])) { ?>		
+		<?php if(!isset($_POST['submit'])) {
+		 ?>		
+
+		 <div class="goal-form-header">
+		 	<img src="styles/images/achievement-header-test.jpg">
+
+		 	<div class="buttons">
+			 	<a class="personal" href="#"></a>
+			 	<a class="educational" href="#"></a>
+			 	<a class="professional" href="#"></a>
+			 	<a class="philanthropic" href="#"></a>
+		 	</div>
+		 </div>
+		 <div class="add-goal-form">
 		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
 		    	Title*: <span id="title" ></span><br>
 		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
@@ -53,8 +61,9 @@
 		 
 		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
 		    </form>
+		</div>
 		    <br>
-		<?php } else { 
+		<?php } else if(isset($_POST['submit'])) { 
 
 			$title = htmlentities(strip_tags($_POST['title']), ENT_QUOTES);
 			$date_s = $_POST['date_s'];
@@ -115,5 +124,31 @@
 		</div>
 
 		<?php include("Components/footer.php"); ?>
+	<script type="text/javascript">
+	$(document).ready(function () {
+	    $("#query").tokenInput("resources/ajax/fb_find.php");
+	    $(".add-goal-form").hide();
+
+	    $(".personal").click( function(){
+			$(".add-goal-form").slideDown('slow');
+			return false;
+	    });
+
+	    $(".philanthropic").click( function(){
+			$(".add-goal-form").slideUp('slow');
+			return false;
+	    });
+
+	    $(".educational").click( function(){
+			$(".add-goal-form").slideUp('slow');
+			return false;
+	    });
+
+	    $(".professional").click( function(){
+			$(".add-goal-form").slideUp('slow');
+			return false;
+	    });
+	});
+	</script>
 	</body>
 </html>

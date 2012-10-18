@@ -222,3 +222,70 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.goal-form-header {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+}
+
+.goal-form-header img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.buttons{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: inline;
+}
+
+.personal{
+	 margin-bottom: 10px;
+	 width: 240px;
+	 height: 85px;
+	 display:inline-block;
+	 background: url('images/personal-button.jpg') center top no-repeat;
+}
+
+.personal:hover {
+   background-image: url('images/personal-rollover.jpg');
+}
+
+.professional{
+	 margin-bottom: 10px;
+	 width: 240px;
+	 height: 85px;
+	 display:inline-block;
+	 background: url('images/professional-button.jpg') center top no-repeat;
+}
+
+.professional:hover {
+   background-image: url('images/professional-rollover.jpg');
+}
+
+.educational{
+	 margin-bottom: 10px;
+	 width: 235px;
+	 height: 83px;
+	 display:inline-block;
+	 background: url('images/educational-button.jpg') center top no-repeat;
+}
+
+.educational:hover {
+   background-image: url('images/educational-rollover.jpg');
+}
+
+.philanthropic{
+	 margin-bottom: 10px;
+	 width: 240px;
+	 height: 85px;
+	 display:inline-block;
+	 background: url('images/philanthropic-button.jpg') center top no-repeat;
+}
+
+.philanthropic:hover {
+   background-image: url('images/philanthropic-rollover.jpg');
+}
