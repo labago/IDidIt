@@ -141,7 +141,7 @@ function check_el(el, span)
 
 function check_add_goal_form(form)
 {
-  if((form.title.value != '') && (form.category.value != '') && (form.date_s.value != '') && (form.desc.value != '') && (form.witness.value != ''))
+  if((form.title.value != '') && (form.category.value != '') && (form.date_s.value != '') && (form.desc.value != ''))
   {
     return true;
   }

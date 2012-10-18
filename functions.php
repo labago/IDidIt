@@ -145,6 +145,7 @@ function fetch_user_goals($crypt)
 $query = "SELECT * 
 FROM  `Goal` 
 WHERE  `Crypt of User` LIKE  '$crypt'
+ORDER BY `Date Posted` DESC
 LIMIT 0 , 30";  
   
 $result = mysql_query($query);
