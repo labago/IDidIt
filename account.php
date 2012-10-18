@@ -60,7 +60,7 @@
 				move_uploaded_file($_FILES["pic"]["tmp_name"], "uploads/" . $pic_name);
 
 
-				change_user_pic($_COOKIE['user'], "http://www.justdidthat.com/uploads/".$pic_name);
+				change_user_pic($_COOKIE['user'], "http://www.i-did-it.net/uploads/".$pic_name);
 
 				//need to update database here and refresh page
 				}

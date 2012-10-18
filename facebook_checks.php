@@ -27,10 +27,10 @@ if ($user) {
   }
 }
 
-$logout_params = array( 'next' => 'http://www.justdidthat.com/logout.php' );
+$logout_params = array( 'next' => 'http://www.i-did-it.net/logout.php' );
 $login_params = array(
   'scope' => 'email',
-  'redirect_uri' => 'http://www.justdidthat.com/fb_login.php'
+  'redirect_uri' => 'http://www.i-did-it.net/fb_login.php'
   );
 $loginUrl = $facebook->getLoginUrl($login_params);
 $logoutUrl = $facebook->getLogoutUrl($logout_params);
