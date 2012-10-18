@@ -40,6 +40,12 @@
 							<li>
 						        <img src="test-images/tied-the-knot-test.jpg" width="960" height="450" alt="" class="showLoading"/>
 							</li>
+							<li>
+						        <img src="test-images/national-scholar-award-test.jpg" width="960" height="450" alt="" class="showLoading"/>
+							</li>
+							<li>
+						        <img src="test-images/soca-league-champs-test.jpg" width="960" height="450" alt="" class="showLoading"/>
+							</li>
 					    </ul>
 					</div>
 				</div>
