@@ -13,6 +13,7 @@
 			<div class="content">
 			<?php 
 			
+			// see if the user has a cookie
 			if(isset($_COOKIE['user']))
 			{
 
