@@ -5,7 +5,7 @@
 # responses suitable for use with jquery-tokeninput
 #
 
-include("../../facebook_checks.php");
+include("../../functions.php");
 
 
 $friends = $facebook->api('/me/friends', array('access_token' => $facebook->getAccessToken()));

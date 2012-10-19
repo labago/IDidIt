@@ -7,7 +7,6 @@
 	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/jquery.tokeninput.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/token-input.css" />
-	<script type="text/javascript" src="scripts/functions.js"></script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -152,46 +151,6 @@
 		</div>
 
 		<?php include("Components/footer.php"); ?>
-	<script type="text/javascript">
-	$(document).ready(function () {
-	    $("#query").tokenInput("resources/ajax/fb_find.php");
-	    $(".add-goal-form-personal").hide();
-	    $(".add-goal-form-professional").hide();
-	    $(".add-goal-form-educational").hide();
-	    $(".add-goal-form-philanthropic").hide();
-
-	    $(".personal").click( function(){
-	    	$(".add-goal-form-professional").slideUp('slow');
-	    	$(".add-goal-form-philanthropic").slideUp('slow');
-	    	$(".add-goal-form-educational").slideUp('slow');
-			$(".add-goal-form-personal").slideDown('slow');
-			return false;
-	    });
-
-	    $(".philanthropic").click( function(){
-	    	$(".add-goal-form-professional").slideUp('slow');
-	    	$(".add-goal-form-philanthropic").slideDown('slow');
-	    	$(".add-goal-form-educational").slideUp('slow');
-			$(".add-goal-form-personal").slideUp('slow');
-			return false;
-	    });
-
-	    $(".educational").click( function(){
-	    	$(".add-goal-form-professional").slideUp('slow');
-	    	$(".add-goal-form-philanthropic").slideUp('slow');
-	    	$(".add-goal-form-educational").slideDown('slow');
-			$(".add-goal-form-personal").slideUp('slow');
-			return false;
-	    });
-
-	    $(".professional").click( function(){
-	    	$(".add-goal-form-professional").slideDown('slow');
-	    	$(".add-goal-form-philanthropic").slideUp('slow');
-	    	$(".add-goal-form-educational").slideUp('slow');
-			$(".add-goal-form-personal").slideUp('slow');
-			return false;
-	    });
-	});
-	</script>
+	<script type="text/javascript" src="scripts/functions.js"></script>
 	</body>
 </html>

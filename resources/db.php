@@ -14,7 +14,7 @@ class db_functions
 
 	function db_functions()
 	{
-		require("Private/creds.php");
+		require($_SERVER['DOCUMENT_ROOT']."/Private/creds.php");
 		$this->server = $db_server;
 		$this->user   = $db_user;
 		$this->pass   = $db_pass;
