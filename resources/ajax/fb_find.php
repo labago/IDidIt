@@ -5,10 +5,10 @@
 # responses suitable for use with jquery-tokeninput
 #
 
-# Connect to the database
-include('../../functions.php');
+include("../../facebook_checks.php");
 
-$friends = $facebook->api('/me/friends');
+
+$friends = $facebook->api('/me/friends', array('access_token' => $facebook->getAccessToken()));
 
 $search = strtolower(trim($_GET["q"]));
 
