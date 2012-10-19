@@ -30,6 +30,11 @@
 				else
 					$goals = fetch_user_goals($_COOKIE['user']);
 
+				if(isset($_COOKIE['user']) && ((!isset($_GET['id'])) || $_GET['id'] == $_COOKIE['user']))
+				{ ?>
+					<a href="add-goal.php"><input type="button" value="Add Achievement"></a>
+				<?php }
+
 				foreach($goals as $goal)
 				{
 					echo '<div class="goal">';
@@ -80,13 +85,9 @@
 					echo '</div>';
 					echo '<div class="space"></div>';
 				}
-				if(isset($_COOKIE['user']) && ((!isset($_GET['id'])) || $_GET['id'] == $_COOKIE['user']))
-				{ ?>
-					<a href="add-goal.php"><input type="button" value="Add New Goal"></a>
-				<?php } ?>
 
 
-			<?php } else 
+			} else 
 					{ 
 
 						echo "Please <a href='login.php'>login</a> to view your profile";
