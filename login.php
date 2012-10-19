@@ -47,11 +47,11 @@
 				WHERE `Email` LIKE '$email'
 				LIMIT 0 , 30";
 
-			$result = mysql_query($query);
+			$result = $db->db_query($query);
 
-			if(mysql_num_rows($result) > 0)
+			if($db->db_num_rows($result) > 0)
 			{
-				$row = mysql_fetch_row($result);
+				$row = $db->db_fetch_row($result);
 
 				if($password != $row[3])
 				{

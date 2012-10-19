@@ -11,9 +11,9 @@ FROM  `Goal`
 WHERE  `Crypt` LIKE  '$goal'
 LIMIT 0 , 30";
 
-$result = mysql_query($query);
+$result = $db->db_query($query);
 
-$row = mysql_fetch_row($result);
+$row = $db->db_fetch_row($result);
 
 $congradulators = $row[9];
 
@@ -28,7 +28,7 @@ if(strpos($congradulators, $user) === false)
 
 $query = "UPDATE `ididit`.`Goal` SET `Congradulators` = '$new_congradulators' WHERE `Goal`.`Crypt` = '$goal' LIMIT 1 ;";
 
-mysql_query($query);
+$db->db_query($query);
 
 echo sizeof(explode(",",$new_congradulators));
 ?>

@@ -17,9 +17,9 @@ function check_crypt_user($crypt)
 	WHERE  `Crypt` LIKE  '$crypt'
 	LIMIT 0 , 30";  
 	  
-	$result = mysql_query($query);
+	$result = $db->db_query($query);
 
-	if(mysql_num_rows($result) != 0)
+	if($db->db_num_rows($result) != 0)
 	{
 		return false;  
 	}  
@@ -36,9 +36,9 @@ function check_crypt_goal($crypt)
 	WHERE  `Crypt` LIKE  '$crypt'
 	LIMIT 0 , 30";  
 	  
-	$result = mysql_query($query);
+	$result = $db->db_query($query);
 
-	if(mysql_num_rows($result) != 0)
+	if($db->db_num_rows($result) != 0)
 	{
 		return false;  
 	}  
@@ -56,9 +56,9 @@ function check_crypt_comment($crypt)
 	WHERE  `Crypt` LIKE  '$crypt'
 	LIMIT 0 , 30";  
 	  
-	$result = mysql_query($query);
+	$result = $db->db_query($query);
 
-	if(mysql_num_rows($result) != 0)
+	if($db->db_num_rows($result) != 0)
 	{
 		return false;  
 	}  
@@ -97,7 +97,7 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "")
 			'$fname', '$lname', '$email', '$pass', '$crypt', '$picture', '$id'
 			);";
 
-	mysql_query($query);
+	$db->db_query($query);
 
 
 	return $crypt;
@@ -113,8 +113,8 @@ function fetch_user_info($crypt)
 	WHERE  `Crypt` LIKE  '$crypt'
 	LIMIT 0 , 30";  
 	  
-	$result = mysql_query($query);
-	$row = mysql_fetch_row($result);
+	$result = $db->db_query($query);
+	$row = $db->db_fetch_row($result);
 
 	$info = array();
 
@@ -138,8 +138,8 @@ function fetch_user_info_token($token)
 	WHERE  `Facebook ID` LIKE  '$token'
 	LIMIT 0 , 30";  
 	  
-	$result = mysql_query($query);
-	$row = mysql_fetch_row($result);
+	$result = $db->db_query($query);
+	$row = $db->db_fetch_row($result);
 
 	$info = array();
 
@@ -163,11 +163,11 @@ function fetch_user_goals($crypt)
 	ORDER BY `Date Posted` DESC
 	LIMIT 0 , 30";  
 	  
-	$result = mysql_query($query);
+	$result = $db->db_query($query);
 
 	$goals = array();
 
-	while($row = mysql_fetch_row($result))
+	while($row = $db->db_fetch_row($result))
 	{
 		array_push($goals, $row);	
 	}
@@ -186,9 +186,9 @@ function fetch_user_goal($crypt)
 	WHERE  `Crypt` LIKE  '$crypt'
 	LIMIT 0 , 30";  
 	  
-	$result = mysql_query($query);
+	$result = $db->db_query($query);
 
-	$row = mysql_fetch_row($result);
+	$row = $db->db_fetch_row($result);
 
 
 	return $row;
@@ -204,11 +204,11 @@ function is_user_goal($crypt, $user)
 	WHERE  `Crypt` LIKE  '$crypt'
 	LIMIT 0 , 30";  
 	  
-	$result = mysql_query($query);
+	$result = $db->db_query($query);
 
 	$goals = array();
 
-	$row = mysql_fetch_row($result);
+	$row = $db->db_fetch_row($result);
 
 	return $row[5] == $user;
 
@@ -241,7 +241,7 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
 			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt', '$witness', '$youtube'
 			);";
 
-	mysql_query($query);
+	$db->db_query($query);
 
 }
 
@@ -271,7 +271,7 @@ function change_user_pic($crypt, $path)
 	WHERE  `Users`.`Crypt` =  '$crypt' 
 	LIMIT 1 ;";
 
-	mysql_query($query);
+	$db->db_query($query);
 
 }
 
@@ -285,7 +285,7 @@ function update_user_info($fname, $lname, $email, $password, $crypt)
 			`Email` = '$email',
 			`Password` = '$password' WHERE `Users`.`Crypt` = '$crypt' LIMIT 1 ;";
 
-	mysql_query($query);
+	$db->db_query($query);
 
 }
 
@@ -303,10 +303,10 @@ function record_visit()
 	AND  `Page Name` LIKE  '$page_name'
 	LIMIT 0 , 30";
 
-	$result = mysql_query($query);
+	$result = $db->db_query($query);
 
 	$visited = false;
-	if($row = mysql_fetch_row($result))
+	if($row = $db->db_fetch_row($result))
 	{
 		$visited = true;
 
@@ -354,9 +354,10 @@ function record_visit()
 
 		$location_info = json_decode(file_get_contents("http://api.ipinfodb.com/v3/ip-city/?format=json&key=b49cd6eb6da4c0e429300fd010f02061db560d5b38c2526481abe89bc73f8b3b&ip=".$ip_new));
 		
-		$country = $location_info->{'countryName'};
-		$city = $location_info->{'cityName'};
-		$zip = $location_info->{'zipCode'};
+		@$country = @$location_info->{'countryName'};
+		@$city = @$location_info->{'cityName'};
+		@$zip = @$location_info->{'zipCode'};
+		@$state = @$location_info->{'regionName'};
 
 		$query = "INSERT INTO  `ididit`.`Visits` (
 		`IP` ,
@@ -366,15 +367,16 @@ function record_visit()
 		`Page Name`,
 		`Country`,
 		`City`,
-		`Zip`
+		`Zip`,
+		`State`
 		)
 		VALUES (
 		'$ip_new', 
-		'$date',  '1',  '$user', '$page_name', '$country', '$city','$zip'
+		'$date',  '1',  '$user', '$page_name', '$country', '$city','$zip', '$state'
 		);";
 	}
 
-	mysql_query($query);
+	$db->db_query($query);
 
 }
 
@@ -435,7 +437,7 @@ function add_comment($comment, $crypt_user, $crypt_goal)
 	'$date', '$crypt_user', '$crypt_goal', '$crypt'
 	);";
 
-	mysql_query($query);
+	$db->db_query($query);
 
 }
 
@@ -449,11 +451,11 @@ function get_comments($goal)
 	WHERE `Crypt of Goal` LIKE '$goal'
 	LIMIT 0 , 30";
 
-	$result = mysql_query($query);
+	$result = $db->db_query($query);
 
 	$comments = array();
 
-	while($row = mysql_fetch_row($result))
+	while($row = $db->db_fetch_row($result))
 	{
 		array_push($comments, $row);
 	}

@@ -107,7 +107,7 @@
 					WHERE `Crypt` LIKE '".$comment[2]."'
 					LIMIT 0 , 30";
 
-					$row = mysql_fetch_row(mysql_query($query));
+					$row = $db->db_fetch_row($db->db_query($query));
 
 					$name = $row[0]." ".$row[1];
 

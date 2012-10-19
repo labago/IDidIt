@@ -16,14 +16,14 @@ FROM  `Users`
 WHERE  `Email` LIKE  '$email'
 LIMIT 0 , 30";
 
-$result = mysql_query($query);
+$result = $db->db_query($query);
 
 $no_account = true;
 
-if(mysql_num_rows($result) > 0)
+if($db->db_num_rows($result) > 0)
 {
 	$no_account = false;	
-	$row = mysql_fetch_row($result);
+	$row = $db->db_fetch_row($result);
 	$crypt = $row[4];
 }
 

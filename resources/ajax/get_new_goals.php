@@ -9,15 +9,15 @@ $query = "SELECT *
 		FROM  `Goal`
 		ORDER BY `Date Posted` DESC"; 
 
-$result = mysql_query($query);
+$result = $db->db_query($query);
 
-$new_count = mysql_num_rows($result);
+$new_count = $db->db_num_rows($result);
 
 if($new_count > $count)
 {
 	$diff = $new_count - $count;
 	$count = 0;
-	while($row = mysql_fetch_row($result))
+	while($row = $db->db_fetch_row($result))
 	{
 		if($count != $diff)
 		{
