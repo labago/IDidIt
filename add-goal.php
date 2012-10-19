@@ -31,8 +31,9 @@
 			 	<a class="philanthropic" href="#"></a>
 		 	</div>
 		 </div>
-		 <div class="add-goal-form">
+		 <div class="add-goal-form-personal">
 		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
+		    	<h3>Personal</h3>
 		    	Title*: <span id="title" ></span><br>
 		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
 		    	Category*: <span id="category" ></span><br>
@@ -58,6 +59,33 @@
 		    	<textarea type="text" name="desc" onchange="check_el(this, 'desc');"></textarea><br>
 		    	Witness*: <span id="witness" ></span><br>
 		    	<input type="text" name="witness" id="query" onchange="check_el(this, 'witness');"/>
+		 
+		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
+		    </form>
+		</div>
+		<div class="add-goal-form-professional">
+		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
+		    	<h3>Professional</h3>
+		    	Title*: <span id="title" ></span><br>
+		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
+		 
+		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
+		    </form>
+		</div>
+ 		<div class="add-goal-form-educational">
+		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
+		    	<h3>Educational</h3>
+		    	Title*: <span id="title" ></span><br>
+		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
+		 
+		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
+		    </form>
+		</div>
+		 <div class="add-goal-form-philanthropic">
+		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
+		    	<h3>Philanthropic</h3>
+		    	Title*: <span id="title" ></span><br>
+		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
 		 
 		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
 		    </form>
@@ -127,25 +155,40 @@
 	<script type="text/javascript">
 	$(document).ready(function () {
 	    $("#query").tokenInput("resources/ajax/fb_find.php");
-	    $(".add-goal-form").hide();
+	    $(".add-goal-form-personal").hide();
+	    $(".add-goal-form-professional").hide();
+	    $(".add-goal-form-educational").hide();
+	    $(".add-goal-form-philanthropic").hide();
 
 	    $(".personal").click( function(){
-			$(".add-goal-form").slideDown('slow');
+	    	$(".add-goal-form-professional").slideUp('slow');
+	    	$(".add-goal-form-philanthropic").slideUp('slow');
+	    	$(".add-goal-form-educational").slideUp('slow');
+			$(".add-goal-form-personal").slideDown('slow');
 			return false;
 	    });
 
 	    $(".philanthropic").click( function(){
-			$(".add-goal-form").slideUp('slow');
+	    	$(".add-goal-form-professional").slideUp('slow');
+	    	$(".add-goal-form-philanthropic").slideDown('slow');
+	    	$(".add-goal-form-educational").slideUp('slow');
+			$(".add-goal-form-personal").slideUp('slow');
 			return false;
 	    });
 
 	    $(".educational").click( function(){
-			$(".add-goal-form").slideUp('slow');
+	    	$(".add-goal-form-professional").slideUp('slow');
+	    	$(".add-goal-form-philanthropic").slideUp('slow');
+	    	$(".add-goal-form-educational").slideDown('slow');
+			$(".add-goal-form-personal").slideUp('slow');
 			return false;
 	    });
 
 	    $(".professional").click( function(){
-			$(".add-goal-form").slideUp('slow');
+	    	$(".add-goal-form-professional").slideDown('slow');
+	    	$(".add-goal-form-philanthropic").slideUp('slow');
+	    	$(".add-goal-form-educational").slideUp('slow');
+			$(".add-goal-form-personal").slideUp('slow');
 			return false;
 	    });
 	});
