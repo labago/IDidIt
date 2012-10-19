@@ -3,6 +3,8 @@ include('../../functions.php');
 
 $email = $_GET['email'];
 
+$db->db_connect();
+
 $query_check = "SELECT * 
 FROM  `Users` 
 WHERE  `Email` LIKE  '$email'

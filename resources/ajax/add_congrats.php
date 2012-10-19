@@ -4,6 +4,8 @@ include('../../functions.php');
 $user = $_GET['user'];
 $goal = $_GET['goal'];
 
+$db->db_connect();
+
 $query = "SELECT * 
 FROM  `Goal` 
 WHERE  `Crypt` LIKE  '$goal'

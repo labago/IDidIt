@@ -40,6 +40,8 @@
 			$email = $_POST['email'];
 			$password = $_POST['pass'];
 
+			$db->db_connect();
+
 			$query = "SELECT * 
 				FROM `Users` 
 				WHERE `Email` LIKE '$email'
@@ -78,6 +80,7 @@
 
 
 		}
+
 	 	?>
 
 			</div>

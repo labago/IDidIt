@@ -1,11 +1,17 @@
 <?php
-data_connect();
-record_visit();
 include("facebook_checks.php");
+include("resources/db.php");
+record_visit();
+
+
+$db = new db_functions();
 
 
 function check_crypt_user($crypt)
 {
+	$db = new db_functions();
+    $db->db_connect();
+
 	$query = "SELECT * 
 	FROM  `Users` 
 	WHERE  `Crypt` LIKE  '$crypt'
@@ -13,15 +19,18 @@ function check_crypt_user($crypt)
 	  
 	$result = mysql_query($query);
 
-	if(mysql_num_rows($result) != 0){
-	return false;  
+	if(mysql_num_rows($result) != 0)
+	{
+		return false;  
 	}  
 	return true;
-  
 }
 
 function check_crypt_goal($crypt)
 {
+	$db = new db_functions();
+    $db->db_connect();
+
 	$query = "SELECT * 
 	FROM  `Goal` 
 	WHERE  `Crypt` LIKE  '$crypt'
@@ -29,14 +38,19 @@ function check_crypt_goal($crypt)
 	  
 	$result = mysql_query($query);
 
-	if(mysql_num_rows($result) != 0){
-	return false;  
+	if(mysql_num_rows($result) != 0)
+	{
+		return false;  
 	}  
+
 	return true;
 }
 
 function check_crypt_comment($crypt)
 {
+	$db = new db_functions();
+    $db->db_connect();
+
 	$query = "SELECT * 
 	FROM  `Comments` 
 	WHERE  `Crypt` LIKE  '$crypt'
@@ -44,9 +58,11 @@ function check_crypt_comment($crypt)
 	  
 	$result = mysql_query($query);
 
-	if(mysql_num_rows($result) != 0){
-	return false;  
+	if(mysql_num_rows($result) != 0)
+	{
+		return false;  
 	}  
+
 	return true;
 }
 
@@ -59,6 +75,9 @@ function gen_rand_hex()
 
 function add_user($fname, $lname, $pass, $email, $picture = "", $id = "")
 {
+
+	$db = new db_functions();
+    $db->db_connect();
 
 	$crypt = gen_rand_hex();  
 	while(!check_crypt_user($crypt)) {  
@@ -80,120 +99,127 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "")
 
 	mysql_query($query);
 
+
 	return $crypt;
-}
-
-function data_connect() 
-{
-  
-$host = "data.justdidthat.com"; 
-$user = "jlane09"; 
-$pass = "counter";  
-$db = "ididit";
-
-// open connection 
-$connection = mysql_connect($host, $user, $pass) or die ("Unable to connect!"); 
-    
-mysql_select_db($db) or die ("Unable to select database!");    
 }
 
 function fetch_user_info($crypt)
 {
-  
-$query = "SELECT * 
-FROM  `Users` 
-WHERE  `Crypt` LIKE  '$crypt'
-LIMIT 0 , 30";  
-  
-$result = mysql_query($query);
-$row = mysql_fetch_row($result);
+ 	$db = new db_functions();
+    $db->db_connect();
 
-$info = array();
+	$query = "SELECT * 
+	FROM  `Users` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+	  
+	$result = mysql_query($query);
+	$row = mysql_fetch_row($result);
 
-foreach($row as $row_item)
-{
-	array_push($info, $row_item);	
-}
+	$info = array();
 
-return $info;
+	foreach($row as $row_item)
+	{
+		array_push($info, $row_item);	
+	}
+
+
+	return $info;
 }
 
 function fetch_user_info_token($token)
 {
   
-$query = "SELECT * 
-FROM  `Users` 
-WHERE  `Facebook ID` LIKE  '$token'
-LIMIT 0 , 30";  
-  
-$result = mysql_query($query);
-$row = mysql_fetch_row($result);
+	$db = new db_functions();
+    $db->db_connect();
 
-$info = array();
+	$query = "SELECT * 
+	FROM  `Users` 
+	WHERE  `Facebook ID` LIKE  '$token'
+	LIMIT 0 , 30";  
+	  
+	$result = mysql_query($query);
+	$row = mysql_fetch_row($result);
 
-foreach($row as $row_item)
-{
-	array_push($info, $row_item);	
-}
+	$info = array();
 
-return $info;
+	foreach($row as $row_item)
+	{
+		array_push($info, $row_item);	
+	}
+
+
+	return $info;
 }
 
 function fetch_user_goals($crypt)
 {
-  
-$query = "SELECT * 
-FROM  `Goal` 
-WHERE  `Crypt of User` LIKE  '$crypt'
-ORDER BY `Date Posted` DESC
-LIMIT 0 , 30";  
-  
-$result = mysql_query($query);
+	$db = new db_functions();
+    $db->db_connect();
+	  
+	$query = "SELECT * 
+	FROM  `Goal` 
+	WHERE  `Crypt of User` LIKE  '$crypt'
+	ORDER BY `Date Posted` DESC
+	LIMIT 0 , 30";  
+	  
+	$result = mysql_query($query);
 
-$goals = array();
+	$goals = array();
 
-while($row = mysql_fetch_row($result))
-{
-	array_push($goals, $row);	
-}
+	while($row = mysql_fetch_row($result))
+	{
+		array_push($goals, $row);	
+	}
 
-return $goals;
+
+	return $goals;
 }
 
 function fetch_user_goal($crypt)
 {
+	$db = new db_functions();
+    $db->db_connect();
   
-$query = "SELECT * 
-FROM  `Goal` 
-WHERE  `Crypt` LIKE  '$crypt'
-LIMIT 0 , 30";  
-  
-$result = mysql_query($query);
+	$query = "SELECT * 
+	FROM  `Goal` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+	  
+	$result = mysql_query($query);
 
-$row = mysql_fetch_row($result);
+	$row = mysql_fetch_row($result);
 
-return $row;
+
+	return $row;
 }
 
 function is_user_goal($crypt, $user)
 {
+	$db = new db_functions();
+    $db->db_connect();
   
-$query = "SELECT * 
-FROM  `Goal` 
-WHERE  `Crypt` LIKE  '$crypt'
-LIMIT 0 , 30";  
-  
-$result = mysql_query($query);
+	$query = "SELECT * 
+	FROM  `Goal` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+	  
+	$result = mysql_query($query);
 
-$goals = array();
+	$goals = array();
 
-$row = mysql_fetch_row($result);
+	$row = mysql_fetch_row($result);
 
-return $row[5] == $user;
+	return $row[5] == $user;
+
 }
 
 function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $category, $witness, $youtube)
 {
+
+	$db = new db_functions();
+    $db->db_connect();
+
 	$crypt = gen_rand_hex();  
 	while(!check_crypt_goal($crypt)) {  
 	$crypt = gen_rand_hex();
@@ -216,6 +242,7 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
 			);";
 
 	mysql_query($query);
+
 }
 
 function gen_pic_name($original)
@@ -236,27 +263,37 @@ function gen_pic_name($original)
 
 function change_user_pic($crypt, $path)
 {
-  
+  	$db = new db_functions();
+    $db->db_connect();
+
 	 $query = "UPDATE  `ididit`.`Users` SET  
 	`Picture` =  '$path'
 	WHERE  `Users`.`Crypt` =  '$crypt' 
 	LIMIT 1 ;";
 
 	mysql_query($query);
+
 }
 
 function update_user_info($fname, $lname, $email, $password, $crypt)
 {
+	$db = new db_functions();
+    $db->db_connect();
+
 	$query = "UPDATE `ididit`.`Users` SET `First Name` = '$fname',
 			`Last Name` = '$lname',
 			`Email` = '$email',
 			`Password` = '$password' WHERE `Users`.`Crypt` = '$crypt' LIMIT 1 ;";
 
 	mysql_query($query);
+
 }
 
 function record_visit() 
 {
+	$db = new db_functions();
+    $db->db_connect();
+
 	$ip_new = VisitorIP();
 	$page_name = find_full_page_name();
 
@@ -338,6 +375,7 @@ function record_visit()
 	}
 
 	mysql_query($query);
+
 }
 
 // method to find users IP address
@@ -373,6 +411,8 @@ function find_full_page_name()
 
 function add_comment($comment, $crypt_user, $crypt_goal)
 {
+	$db = new db_functions();
+    $db->db_connect();
 
 	$comment = strip_tags($comment);
 
@@ -396,10 +436,13 @@ function add_comment($comment, $crypt_user, $crypt_goal)
 	);";
 
 	mysql_query($query);
+
 }
 
 function get_comments($goal)
 {
+	$db = new db_functions();
+    $db->db_connect();
 
 	$query = "SELECT * 
 	FROM `Comments` 
@@ -414,6 +457,7 @@ function get_comments($goal)
 	{
 		array_push($comments, $row);
 	}
+
 
 	return $comments;
 }

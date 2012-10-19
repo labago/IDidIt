@@ -7,11 +7,15 @@
 	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/functions.js"></script>
 	<?php
+
+    	$db->db_connect();
+
 		$query = "SELECT * 
 				FROM `Goal`
 				ORDER BY `Date Posted` DESC";
-		$result = mysql_query($query);
-		$count = mysql_num_rows($result);
+
+		$result = $db->db_query($query);
+		$count  = $db->db_num_rows($result);
 	?>
 
 	<!-- <body onload="check = setInterval(function (){ get_new_goals();}, 5000);"> -->
@@ -51,7 +55,7 @@
 						$float = false;
 						$small = true;
 						$break = false;
-						while($row = mysql_fetch_row($result))
+						while($row = $db->db_fetch_row($result))
 						{
 							if($small)
 							{
@@ -71,7 +75,7 @@
 
 									$float = !$float;
 
-									if($i != 1 && !($row = mysql_fetch_row($result)))
+									if($i != 1 && !($row = $db->db_fetch_row($result)))
 									{
 										break 2;
 									}
@@ -99,9 +103,9 @@
 					<?php
 						$query = "SELECT * 
 								FROM `Users` ";
-						$result = mysql_query($query);
+						$result = $db->db_query($query);
 
-						while($row = mysql_fetch_row($result))
+						while($row = $db->db_fetch_row($result))
 						{
 							echo '<a href="profile.php?id='.$row[4].'"><h2>'.html_entity_decode($row[0])." ".html_entity_decode($row[1])."</h2></a>";
 						}

@@ -9,7 +9,7 @@ $id = $facebook->getUser();
 $password = "changeme";
 $pic = "http://graph.facebook.com/".$id."/picture?type=large";
 
-
+$db->db_connect();
 
 $query = "SELECT * 
 FROM  `Users` 
@@ -26,8 +26,6 @@ if(mysql_num_rows($result) > 0)
 	$row = mysql_fetch_row($result);
 	$crypt = $row[4];
 }
-
-
 
 
 if($no_account){

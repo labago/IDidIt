@@ -100,6 +100,8 @@
 				{
 					echo '<div class="comment">';
 
+    				$db->db_connect();
+
 					$query = "SELECT * 
 					FROM `Users` 
 					WHERE `Crypt` LIKE '".$comment[2]."'

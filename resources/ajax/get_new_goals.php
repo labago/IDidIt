@@ -3,6 +3,8 @@ include('../../functions.php');
 
 $count = $_GET['count'];
 
+$db->db_connect();
+
 $query = "SELECT * 
 		FROM  `Goal`
 		ORDER BY `Date Posted` DESC"; 
