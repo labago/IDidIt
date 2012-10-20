@@ -108,7 +108,7 @@ function congrats(user, goal, el)
 }
 
 function get_new_goals() {
-    var count = $('.stream-goal').size();
+    var count = $('.stream-goal').size() + $('.stream-goal-small').size();
      $.ajax({
             type: "GET",
             url: "resources/ajax/get_new_goals.php",

@@ -463,4 +463,27 @@ function get_comments($goal)
 
 	return $comments;
 }
+
+function gen_small_goal($row, $float)
+{
+	if($float)
+		echo '<div class="stream-goal-small" style="float: right;">';
+	else
+		echo '<div class="stream-goal-small" style="float: left;">';
+
+		echo '<a href="goal.php?id='.$row[8].'"><h2>'.html_entity_decode($row[0])."</h2></a>";
+		echo '<img src="'.$row[4].'">';
+		echo '<div class="small-space"></div>';
+	echo '</div>';
+}
+
+function gen_large_goal($row)
+{
+	echo '<div class="stream-goal">';
+		echo '<a href="goal.php?id='.$row[8].'"><h2>'.html_entity_decode($row[0])."</h2></a>";
+		echo '<img src="'.$row[4].'">';
+		echo '<div class="small-space"></div>';
+	echo '</div>';
+	echo '<div class="space"></div>';
+}
 ?>

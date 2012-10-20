@@ -17,15 +17,43 @@ if($new_count > $count)
 {
 	$diff = $new_count - $count;
 	$count = 0;
+	$float = false;
+	$small = true;
+	$break = false;
 	while($row = $db->db_fetch_row($result))
 	{
 		if($count != $diff)
 		{
-			echo '<div class="stream-goal">';
-				echo '<a href="goal.php?id='.$row[8].'"><h2>'.$row[0]."</h2></a>";
-				echo '<img src="'.$row[4].'">';
-			echo '</div>';
-			echo '<div class="space"></div>';
+			if($small)
+			{
+				for ($i=0; $i < 2; $i++) 
+				{ 
+					if(!$float)
+						echo '<div class="stream-goal-small-wrapper">';
+
+					gen_small_goal($row, $float);
+
+					if($float)
+					{
+						echo '<div style="display: block; clear: both;"></div>';
+						echo '</div>';
+						echo '<div class="space"></div>';
+					}
+
+					$float = !$float;
+
+					if($i != 1 && !($row = $db->db_fetch_row($result)))
+					{
+						break 2;
+					}
+				}
+			}
+			else
+			{
+				gen_large_goal($row);
+			}
+
+			$small = !$small;
 			$count = $count + 1;
 		}
 		else
