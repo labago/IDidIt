@@ -17,15 +17,41 @@
 		<?php } ?>
 
 	</div>
-	<div class="nav">
-		<table>
-			<tr>
-				<td><a href="index.php">Home</a></td>
-				<td><a href="profile.php">Profile</a></td>
-				<td><a href="sign-up.php">Sign Up</a></td>
-				<td><a href="account.php">Account</a></td>
-				<td><a href="twitter-feed.php">#ididit</a></td>
-			</tr>
-		</table>
+	<div class="main-nav">
+		<div class="notifications">
+			<table>
+				<tr>
+					<td><a href="#" class="notification-click">Notifications</a></td>
+				</tr>
+			</table>
+			<div class="notification-overlay">
+				<table>
+					<tr class="notification">
+						<td><a href="#">Notification 1</a></td>
+					</tr>
+					<tr class="notification">
+						<td><a href="#">Notification 2</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="nav">
+			<table>
+				<tr>
+					<td><a href="index.php">Home</a></td>
+					<td><a href="profile.php">Profile</a></td>
+					<td><a href="sign-up.php">Sign Up</a></td>
+					<td><a href="account.php">Account</a></td>
+					<td><a href="twitter-feed.php">#ididit</a></td>
+				</tr>
+			</table>
+		</div>
 	</div>
+	<script type="text/javascript">
+	$(".notification").hide();
+	$(".notification-click").click( function(){
+		$(".notification").fadeToggle();
+		return false;
+	});
+	</script>
 </div>
