@@ -24,6 +24,7 @@
 			<li><a href="profile.php">Profile</a></li>
 			<li><a href="sign-up.php">Sign Up</a></li>
 			<li><a href="account.php">Account</a></li>
+			<li><a href="twitter-feed.php">#ididit</a></li>
 		</ul>
 	</span>
 </div>

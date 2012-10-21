@@ -8,7 +8,7 @@
 .header-nav {
 	position: absolute; 
     bottom: 10;
-    right: 100;
+    right: 1;
 }
 
 .nav {
@@ -288,4 +288,13 @@
 
 .philanthropic:hover {
    background-image: url('images/philanthropic-rollover.jpg');
+}
+
+.tweet{
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:3px solid blue;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
 }
