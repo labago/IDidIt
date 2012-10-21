@@ -1,5 +1,5 @@
 <div class="header">
-	<h1>IDidIt</h1>
+	<h1>#IDIDIT</h1>
 	<div class="login">
 		<?php if(isset($_COOKIE['user']) || $facebook->getSession) { 
 
@@ -17,14 +17,15 @@
 		<?php } ?>
 
 	</div>
-
-	<span class="header-nav">
-		<ul class="nav">
-			<li><a href="index.php">Home</a></li>
-			<li><a href="profile.php">Profile</a></li>
-			<li><a href="sign-up.php">Sign Up</a></li>
-			<li><a href="account.php">Account</a></li>
-			<li><a href="twitter-feed.php">#ididit</a></li>
-		</ul>
-	</span>
+	<div class="nav">
+		<table>
+			<tr>
+				<td><a href="index.php">Home</a></td>
+				<td><a href="profile.php">Profile</a></td>
+				<td><a href="sign-up.php">Sign Up</a></td>
+				<td><a href="account.php">Account</a></td>
+				<td><a href="twitter-feed.php">#ididit</a></td>
+			</tr>
+		</table>
+	</div>
 </div>

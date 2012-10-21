@@ -1,35 +1,35 @@
 .header {
-	height: 100px;
 	background-image:url('images/glass.jpg');
 	background-repeat:repeat;
-	position: relative;
-}
-
-.header-nav {
-	position: absolute; 
-    bottom: 10;
-    right: 1;
+	overflow: hidden; 
 }
 
 .nav {
-	display:inline;
+	width: 100%;
+	padding-top: 10px;
 }
 
-.nav li {
-	display:inline;
-	padding-left: 20px;
+.nav table{
+	width: 100%;
+	border-collapse: collapse; 
 }
 
-.nav li a {
-	text-decoration:none;
-	padding:4px 0;
-	width:169px;
-	height:19px;
-	background:#0080C0;
-	color:#eee;
-	float:left;
-	text-align:center;
-	border-left:1px solid #fff;
+.nav td{
+	height: 30px;
+	border: none;
+	text-align: center;
+}
+
+.nav td a{
+   display: block;
+   background-color: #0080C0;
+   padding: 3px;
+   text-decoration: none;
+   color: white;
+}
+
+.nav td a:hover{
+   background-color: #5BB8BD;
 }
 
 .header h1 {
@@ -99,8 +99,7 @@
 }
 
 .login {
-	position: absolute; 
-    right: 200;
+	float: right;
 }
 
 .profile-pic {
