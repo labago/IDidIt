@@ -53,12 +53,10 @@
 		return false;
 	});
 
-	if($(".notification").length != 0)
-		$(".not-count").html("("+$(".notification").length+")");
-	else
-		$(".not-count").html("(None)");
+	$(".not-count").html("("+$(".notification").length+")");
+
 	<?php if(isset($_COOKIE['user'])){ ?>
-	check = setInterval(function (){ get_notifications(<?php echo '"'.$_COOKIE['user'].'"'; ?>);}, 10000);
+	notification = setInterval(function (){ get_notifications(<?php echo '"'.$_COOKIE['user'].'"'; ?>);}, 10000);
 	<?php } ?>
 	</script>
 </div>

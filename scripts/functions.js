@@ -129,11 +129,8 @@ function get_notifications(crypt) {
             url: "resources/ajax/notification-info.php",
             data: "crypt="+crypt+"&r=get",
             success: function(data){
-              if(data != '')
-              {
-                $('notification-overlay').html("<table>"+data+"</table>");
+                $('.notification-overlay').html("<table>"+data+"</table>");
                 $(".not-count").html("("+$(".notification").length+")");
-              }
             }
     });
 }
