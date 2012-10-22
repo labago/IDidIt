@@ -268,8 +268,9 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
 
 function gen_pic_name($original)
 {
+	$components = explode(".", $original);
 
-	$end = substr($original, (strlen($original) - 3), 3);
+	$end = $components[(sizeof($components)-1)];
 
 	$name = gen_rand_hex();
 
