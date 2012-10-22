@@ -106,7 +106,7 @@
 }
 
 .content {
-	width: 1300px;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 	min-height: 600px;
@@ -230,12 +230,12 @@
 }
 
 .users {
-	width: 300;
+	width: 24%;
 	float: right;
 }
 
 .stream {
-	width: 1000;
+	width: 76%;
 	float: left;
 }
 
