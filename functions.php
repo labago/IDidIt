@@ -210,7 +210,6 @@ function fetch_user_goal($crypt)
 
 	$row = $db->db_fetch_row($result);
 
-
 	return $row;
 }
 
@@ -523,7 +522,7 @@ function get_notifications_html($crypt)
 	{
 		if($row[3] == 'false')
 		{
-			switch ($row[1] ) 
+			switch ($row[1]) 
 			{
 				case 'Congrats':
 					$user_info = fetch_user_info($row[5]);
@@ -531,6 +530,12 @@ function get_notifications_html($crypt)
 						echo '<td><a href="goal.php?id='.$row[4].'&n=true">'.$user_info[0].' Congradulated You!</a></td>';
 					echo '</tr>';
 					break;
+
+				case 'Comment':
+					$user_info = fetch_user_info($row[5]);
+					echo '<tr class="notification">';
+						echo '<td><a href="goal.php?id='.$row[4].'&n=true">'.$user_info[0].' Commented on your Achievement</a></td>';
+					echo '</tr>';
 				
 				default:
 					# code...

@@ -27,7 +27,11 @@
 				{
 					$comment = $_POST['comment'];
 
+					$info = fetch_user_goal($goal);
+
 					add_comment(htmlentities(strip_tags($comment), ENT_QUOTES), $_COOKIE['user'], $goal);
+					if($_COOKIE['user'] != $info[5])
+						new_notification($info[5], $_COOKIE['user'], 'Comment', $goal);
 				}
 
 				$user_view = is_user_goal($goal, $_COOKIE['user']);
