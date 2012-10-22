@@ -47,13 +47,6 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-	$(".notification-overlay").hide();
-	$(".notification-click").click( function(){
-		$(".notification-overlay").slideToggle();
-		return false;
-	});
-
-	$(".not-count").html("("+$(".notification").length+")");
 
 	<?php if(isset($_COOKIE['user'])){ ?>
 	notification = setInterval(function (){ get_notifications(<?php echo '"'.$_COOKIE['user'].'"'; ?>);}, 10000);

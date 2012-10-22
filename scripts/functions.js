@@ -164,6 +164,18 @@ function check_add_goal_form(form)
   }
 }
 
+
+
+
+
+    // notifications
+    $(".notification-overlay").hide();
+    $(".notification-click").click( function(){
+    $(".notification-overlay").slideToggle();
+      return false;
+    });
+    $(".not-count").html("("+$(".notification").length+")");
+
   $(document).ready(function () {
       $("#query").tokenInput("resources/ajax/fb_find.php");
       $(".add-goal-form-personal").hide();
