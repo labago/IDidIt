@@ -57,6 +57,24 @@
 								echo "No Witness Mentioned";
 							}
 							echo "</div>";
+							echo '<div class="witness">';
+							echo '<h2>Congratulators</h2>';
+
+							if($goal[9] != '')
+							{
+								$congradulator = explode(',', $goal[9]);
+
+								foreach ($congradulator as $congrats) {
+									$info = fetch_user_info($congrats);
+
+									echo "<a href='profile.php?id=".$info[4]."'><img src='".$info[5]."' alt=''></a>";
+								}
+							}
+							else
+							{
+								echo "No Congratulators Yet";
+							}
+						echo "</div>";
 						echo '</div>';
 						echo '<div class="goal_column">';
 							echo '<img src="'.$goal[4].'">';

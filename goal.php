@@ -52,14 +52,30 @@
 							$witnesses = explode(',', $goal[6]);
 
 							foreach ($witnesses as $witness) {
-								// this makes the page load way too slowly
-								//$name = json_decode(file_get_contents("https://graph.facebook.com/".$witness."?fields=name"), true);
 								echo "<img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
 							}
 						}
 						else
 						{
 							echo "No Witness Mentioned";
+						}
+						echo "</div>";
+						echo '<div class="witness">';
+							echo '<h2>Congratulators</h2>';
+
+						if($goal[9] != '')
+						{
+							$congradulator = explode(',', $goal[9]);
+
+							foreach ($congradulator as $congrats) {
+								$info = fetch_user_info($congrats);
+
+								echo "<a href='profile.php?id=".$info[4]."'><img src='".$info[5]."' alt=''></a>";
+							}
+						}
+						else
+						{
+							echo "No Congratulators Yet";
 						}
 						echo "</div>";
 					echo '</div>';
