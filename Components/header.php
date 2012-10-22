@@ -21,17 +21,15 @@
 		<div class="notifications">
 			<table>
 				<tr>
-					<td><a href="#" class="notification-click">Notifications</a></td>
+					<td><a href="#" class="notification-click">Notifications <span class="not-count"></span></a></td>
 				</tr>
 			</table>
 			<div class="notification-overlay">
 				<table>
-					<tr class="notification">
-						<td><a href="#">Notification 1</a></td>
-					</tr>
-					<tr class="notification">
-						<td><a href="#">Notification 2</a></td>
-					</tr>
+					<?php
+					if(isset($_COOKIE['user']))	
+						echo get_notifications_html($_COOKIE['user']);
+					?>
 				</table>
 			</div>
 		</div>
@@ -48,10 +46,15 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-	$(".notification").hide();
+	$(".notification-overlay").hide();
 	$(".notification-click").click( function(){
-		$(".notification").fadeToggle();
+		$(".notification-overlay").slideToggle();
 		return false;
 	});
+
+	if($(".notification").length != 0)
+		$(".not-count").html("("+$(".notification").length+")");
+	else
+		$(".not-count").html("(None)");
 	</script>
 </div>

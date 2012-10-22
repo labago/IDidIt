@@ -20,6 +20,9 @@
 
 				$goal = $_GET['id'];
 
+				if($_GET['n'] == 'true')
+					kill_notification("Goal", $goal);
+
 				// if a comment was posted, post it
 				if(isset($_POST['submit']))
 				{

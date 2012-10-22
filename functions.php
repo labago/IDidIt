@@ -486,4 +486,62 @@ function gen_large_goal($row)
 	echo '</div>';
 	echo '<div class="space"></div>';
 }
+
+function get_notifications_html($crypt)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+	$query = "SELECT * 
+	FROM `Goal` 
+	WHERE `Crypt of User` LIKE '$crypt'
+	LIMIT 0 , 30";
+
+	$result = $db->db_query($query);
+
+	while($row = $db->db_fetch_row($result))
+	{
+		if(strpos($row[9], ",") || $row[9] != "")
+			$congrats = explode(",", $row[9]);
+		else
+			$congrats = array();
+
+		if(strpos($row[13], ",") || $row[13] != "")
+			$congrats_seen = explode(",", $row[13]);
+		else
+			$congrats_seen = array();
+
+		if(sizeof($congrats) != sizeof($congrats_seen)){
+			echo '<tr class="notification">';
+				echo '<td><a href="goal.php?id='.$row[8].'&n=true">New Congratulations!</a></td>';
+			echo '</tr>';
+		}
+	}
+}
+
+function kill_notification($type, $crypt)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+    if($type == "Goal")
+    {
+
+		$query = "SELECT * 
+		FROM `Goal` 
+		WHERE `Crypt` LIKE '$crypt'
+		LIMIT 0 , 30";
+
+		$result = $db->db_query($query);
+
+		$row = $db->db_fetch_row($result);
+
+		$congrats = $row[9];
+
+		$query = "UPDATE  `ididit`.`Goal` SET  `Congradulators Seen` =  '$congrats'
+		WHERE  `Goal`.`Crypt` =  '$crypt' LIMIT 1 ;";
+
+		$db->db_query($query);
+	}
+}
 ?>

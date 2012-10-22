@@ -9,6 +9,12 @@
 	width: 100%;
 }
 
+.not-count{
+	color: red;
+	font-weight: bold;
+	font-size: 16px;
+}
+
 .notifications {
 	width: 10%;
 	float: left;
@@ -18,7 +24,8 @@
 .notification-overlay {
 	position: absolute;
 	z-index: 2;   
-	width: 130px;
+	width: inherit;
+	background-color: orange;
 }
 
 .notification {
