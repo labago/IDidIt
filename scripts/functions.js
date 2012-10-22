@@ -123,6 +123,21 @@ function get_new_goals() {
     });
 }
 
+function get_notifications(crypt) {
+     $.ajax({
+            type: "GET",
+            url: "resources/ajax/notification-info.php",
+            data: "crypt="+crypt+"&r=get",
+            success: function(data){
+              if(data != '')
+              {
+                $('notification-overlay').html("<table>"+data+"</table>");
+                $(".not-count").html("("+$(".notification").length+")");
+              }
+            }
+    });
+}
+
 function check_el(el, span)
 {
   var title = el.value;

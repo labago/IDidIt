@@ -57,5 +57,8 @@
 		$(".not-count").html("("+$(".notification").length+")");
 	else
 		$(".not-count").html("(None)");
+	<?php if(isset($_COOKIE['user'])){ ?>
+	check = setInterval(function (){ get_notifications(<?php echo '"'.$_COOKIE['user'].'"'; ?>);}, 10000);
+	<?php } ?>
 	</script>
 </div>
