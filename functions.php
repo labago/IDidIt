@@ -501,17 +501,8 @@ function get_notifications_html($crypt)
 
 	while($row = $db->db_fetch_row($result))
 	{
-		if(strpos($row[9], ",") || $row[9] != "")
-			$congrats = explode(",", $row[9]);
-		else
-			$congrats = array();
-
-		if(strpos($row[13], ",") || $row[13] != "")
-			$congrats_seen = explode(",", $row[13]);
-		else
-			$congrats_seen = array();
-
-		if(sizeof($congrats) != sizeof($congrats_seen)){
+		if($row[9] != $row[13])
+		{
 			echo '<tr class="notification">';
 				echo '<td><a href="goal.php?id='.$row[8].'&n=true">New Congratulations!</a></td>';
 			echo '</tr>';

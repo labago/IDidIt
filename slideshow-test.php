@@ -5,7 +5,6 @@
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
-	<script type="text/javascript" src="scripts/functions.js"></script>
 	<script type="text/javascript" src="scripts/slideshow-test/second.js?20121016-1"></script>
 	<script type="text/javascript" src="scripts/slideshow-test/first.js?20121016-2"></script>
 	<script type="text/javascript" src="scripts/slideshow-test/easing.js"></script>

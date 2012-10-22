@@ -41,6 +41,7 @@
 					<td><a href="sign-up.php">Sign Up</a></td>
 					<td><a href="account.php">Account</a></td>
 					<td><a href="twitter-feed.php">#ididit</a></td>
+					<td><a href="add-goal.php">Add Achievement</a></td>
 				</tr>
 			</table>
 		</div>
