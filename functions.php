@@ -46,6 +46,26 @@ function check_crypt_goal($crypt)
 	return true;
 }
 
+function check_crypt_notification($crypt)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+	$query = "SELECT * 
+	FROM  `Notifications` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+	  
+	$result = $db->db_query($query);
+
+	if($db->db_num_rows($result) != 0)
+	{
+		return false;  
+	}  
+
+	return true;
+}
+
 function check_crypt_comment($crypt)
 {
 	$db = new db_functions();
@@ -493,7 +513,7 @@ function get_notifications_html($crypt)
     $db->db_connect();
 
 	$query = "SELECT * 
-	FROM `Goal` 
+	FROM `Notifications` 
 	WHERE `Crypt of User` LIKE '$crypt'
 	LIMIT 0 , 30";
 
@@ -501,38 +521,71 @@ function get_notifications_html($crypt)
 
 	while($row = $db->db_fetch_row($result))
 	{
-		if($row[9] != $row[13])
+		if($row[3] == 'false')
 		{
-			echo '<tr class="notification">';
-				echo '<td><a href="goal.php?id='.$row[8].'&n=true">New Congratulations!</a></td>';
-			echo '</tr>';
+			switch ($row[1] ) 
+			{
+				case 'Congrats':
+					$user_info = fetch_user_info($row[5]);
+					echo '<tr class="notification">';
+						echo '<td><a href="goal.php?id='.$row[4].'&n=true">'.$user_info[0].' Congradulated You!</a></td>';
+					echo '</tr>';
+					break;
+				
+				default:
+					# code...
+					break;
+			}
 		}
 	}
 }
 
-function kill_notification($type, $crypt)
+function kill_notifications($object)
 {
 	$db = new db_functions();
     $db->db_connect();
 
-    if($type == "Goal")
-    {
+	$query = "SELECT * 
+	FROM `Notifications` 
+	WHERE `Crypt of Object` LIKE '$object'";
 
-		$query = "SELECT * 
-		FROM `Goal` 
-		WHERE `Crypt` LIKE '$crypt'
-		LIMIT 0 , 30";
+	$result = $db->db_query($query);
 
-		$result = $db->db_query($query);
+	while($row = $db->db_fetch_row($result))
+	{
+		$crypt = $row[6];
 
-		$row = $db->db_fetch_row($result);
-
-		$congrats = $row[9];
-
-		$query = "UPDATE  `ididit`.`Goal` SET  `Congradulators Seen` =  '$congrats'
-		WHERE  `Goal`.`Crypt` =  '$crypt' LIMIT 1 ;";
+		$query = "UPDATE  `ididit`.`Notifications` SET  `Seen` =  'true'
+		WHERE  `Notifications`.`Crypt` =  '$crypt' LIMIT 1 ;";
 
 		$db->db_query($query);
 	}
+}
+
+function new_notification($user, $interact, $type, $object)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+	$crypt = gen_rand_hex();  
+	while(!check_crypt_notification($crypt)) {  
+	$crypt = gen_rand_hex();
+	}
+
+	$query = "INSERT INTO `ididit`.`Notifications` (
+		`Date` ,
+		`Type` ,
+		`Crypt of User` ,
+		`Seen` ,
+		`Crypt of Object` ,
+		`Crypt of Issuing User`,
+		`Crypt`
+		)
+		VALUES (
+
+		CURRENT_TIMESTAMP , '$type', '$user', 'false', '$object', '$interact', '$crypt'
+		);";
+
+	$db->db_query($query);
 }
 ?>

@@ -16,6 +16,7 @@ $result = $db->db_query($query);
 $row = $db->db_fetch_row($result);
 
 $congradulators = $row[9];
+$owner = $row[5];
 
 $new_congradulators = $congradulators;
 if(strpos($congradulators, $user) === false)
@@ -29,6 +30,8 @@ if(strpos($congradulators, $user) === false)
 $query = "UPDATE `ididit`.`Goal` SET `Congradulators` = '$new_congradulators' WHERE `Goal`.`Crypt` = '$goal' LIMIT 1 ;";
 
 $db->db_query($query);
+
+new_notification($owner, $user, 'Congrats', $goal);
 
 echo sizeof(explode(",",$new_congradulators));
 ?>

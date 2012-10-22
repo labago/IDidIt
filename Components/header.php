@@ -47,7 +47,6 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-
 	<?php if(isset($_COOKIE['user'])){ ?>
 	notification = setInterval(function (){ get_notifications(<?php echo '"'.$_COOKIE['user'].'"'; ?>);}, 10000);
 	<?php } ?>

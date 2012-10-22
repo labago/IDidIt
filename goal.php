@@ -5,7 +5,6 @@
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
-	<script type="text/javascript" src="scripts/functions.js"></script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -21,7 +20,7 @@
 				$goal = $_GET['id'];
 
 				if($_GET['n'] == 'true')
-					kill_notification("Goal", $goal);
+					kill_notifications($goal);
 
 				// if a comment was posted, post it
 				if(isset($_POST['submit']))
@@ -134,7 +133,7 @@
 			?>
 			</div>
 		</div>
-
+		<script type="text/javascript" src="scripts/functions.js"></script>
 		<?php include("Components/footer.php"); ?>
 	</body>
 </html>
