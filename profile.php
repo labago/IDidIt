@@ -46,10 +46,14 @@
 							{
 								$witnesses = explode(',', $goal[6]);
 
-								foreach ($witnesses as $witness) {
-									// this makes the page load way too slowly
-									//$name = json_decode(file_get_contents("https://graph.facebook.com/".$witness."?fields=name"), true);
-									echo "<img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
+								foreach ($witnesses as $witness) 
+								{
+									$info = fetch_user_info_token($witness);
+
+									if(sizeof($info) > 0)
+										echo "<a href='profile.php?id=".$info[4]."'><img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
+									else
+										echo "<img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
 								}
 							}
 							else

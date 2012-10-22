@@ -163,11 +163,13 @@ function fetch_user_info_token($token)
 
 	$info = array();
 
-	foreach($row as $row_item)
+	if($db->db_num_rows($result) > 0)
 	{
-		array_push($info, $row_item);	
+		foreach($row as $row_item)
+		{
+			array_push($info, $row_item);	
+		}
 	}
-
 
 	return $info;
 }
