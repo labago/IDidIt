@@ -1,10 +1,4 @@
-<?
-
-#
-# Example PHP server-side script for generating
-# responses suitable for use with jquery-tokeninput
-#
-
+<?php
 include("../../functions.php");
 
 
@@ -19,15 +13,10 @@ foreach ($friends['data'] as $friend) {
 		array_push($found, $friend);
 }
 
-# JSON-encode the response
+// JSON-encode the response
 $json_response = json_encode($found);
 
-# Optionally: Wrap the response in a callback function for JSONP cross-domain support
-if($_GET["callback"]) {
-    $json_response = $_GET["callback"] . "(" . $json_response . ")";
-}
-
-# Return the response
+// Return the response
 echo $json_response;
 
 ?>

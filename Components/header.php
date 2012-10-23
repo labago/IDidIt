@@ -8,7 +8,7 @@
 			else
 				$user_info = fetch_user_info_token($user);	
 
-			if($facebook->getSession)
+			if(@$facebook->getSession)
 				echo "Logged in as ".$user_info[0]." <a href='".$logoutUrl."'>Logout</a>";
 			else
 				echo "Logged in as ".$user_info[0]." <a href='logout.php'>Logout</a>"; 
