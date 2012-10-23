@@ -123,6 +123,20 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "")
 	return $crypt;
 }
 
+function update_user_facebook_info($fname, $lname, $pass, $email, $picture = "", $id = "", $crypt)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+	$query = "UPDATE `ididit`.`Users` SET `First Name` = '$fname',
+			`Last Name` = '$lname',
+			`Email` = '$email',
+			`Picture` = '$picture',
+			`Facebook ID` = '$id' WHERE `Users`.`Crypt` = '$crypt' LIMIT 1 ;";
+
+	$db->db_query($query);
+}
+
 function fetch_user_info($crypt)
 {
  	$db = new db_functions();

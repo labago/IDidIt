@@ -27,12 +27,11 @@ if($db->db_num_rows($result) > 0)
 	$crypt = $row[4];
 }
 
+if($no_account)
+	$crypt = add_user($fname, $lname, $password, $email, $pic, $id);
+else
+	update_user_facebook_info($fname, $lname, $password, $email, $pic, $id, $crypt);
 
-if($no_account){
-
-$crypt = add_user($fname, $lname, $password, $email, $pic, $id);
-
-}
 
 setcookie("user", $crypt, time()+2592000);
 
