@@ -1,7 +1,8 @@
 <?php
 // provides a set of functions abstracting over
-// the FreeTDS functions. In case they were ever to change
-// this makes it much simpler to make changes to our code
+// the mysql functions in case
+// we ever decide to switch databases or
+// implement error logging etc
 
 class db_functions
 {

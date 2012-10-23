@@ -30,22 +30,42 @@
 			 	<a class="philanthropic" href="#"></a>
 		 	</div>
 		 </div>
-		 <div class="add-goal-form-personal">
+		 <div class="add-goal-form">
 		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
-		    	<h3>Personal</h3>
+		    	<h3 class="form-title">Personal</h3>
 		    	Title*: <span id="title" ></span><br>
 		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
-		    	Category*: <span id="category" ></span><br>
-		    	<select name="category" onchange="check_el(this, 'category');">
-		    		<option></option>
-		    		<option value="Resume Worthy">Resume Worthy</option>
-		    		<option value="Personal goal">Personal goal</option>
-		    		<option value="Career">Career</option>
-		    		<option value="Athletic">Athletic</option>
-		    		<option value="Financial">Financial</option>
-		    		<option value="Family">Family</option>
-		    		<option value="Other">Other</option>
-		    	</select><br>
+		    	<div class="add-goal-form-personal">
+			    	Category*: <span id="cat" ></span><br>
+			    	<select name="cat" onchange="check_el(this, 'cat');">
+			    		<option></option>
+			    		<option value="Resume Worthy">Resume Worthy</option>
+			    		<option value="Personal goal">Personal goal</option>
+			    		<option value="Career">Career</option>
+			    		<option value="Athletic">Athletic</option>
+			    		<option value="Financial">Financial</option>
+			    		<option value="Family">Family</option>
+			    		<option value="Other">Other</option>
+			    	</select><br>
+		    	</div>
+		    	<div class="add-goal-form-professional">
+			    	Company: <span id="prof" ></span><br>
+			    	<input type="text" name="prof" onchange="check_el(this, 'prof');"><br>
+			    	<!-- The Chosen Category -->
+			    	<input type="hidden" name="cat" value="Professional" >
+		    	</div>
+		    	<div class="add-goal-form-educational">
+			    	School/College/University: <span id="school" ></span><br>
+			    	<input type="text" name="school" onchange="check_el(this, 'school');"><br>
+			    	<!-- The Chosen Category -->
+			    	<input type="hidden" name="cat" value="Educational" >
+		    	</div>
+		    	<div class="add-goal-form-philanthropic">
+			    	Orginization: <span id="org" ></span><br>
+			    	<input type="text" name="org" onchange="check_el(this, 'org');"><br>
+			    	<!-- The Chosen Category -->
+			    	<input type="hidden" name="cat" value="Educational" >
+		    	</div>
 		    	Date Started*: <span id="date" ></span><br>
 		    	<input type="date" name="date_s" onchange="check_el(this, 'date');"><br>
 		    	Date Ended: <br>
@@ -56,35 +76,8 @@
 		    	<input type="text" name="youtube"><br>    
 		    	Description*: <span id="desc" ></span><br>
 		    	<textarea type="text" name="desc" onchange="check_el(this, 'desc');"></textarea><br>
-		    	Witness*: <span id="witness" ></span><br>
+		    	Witness: <span id="witness" ></span><br>
 		    	<input type="text" name="witness" id="query" onchange="check_el(this, 'witness');"/>
-		 
-		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
-		    </form>
-		</div>
-		<div class="add-goal-form-professional">
-		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
-		    	<h3>Professional</h3>
-		    	Title*: <span id="title" ></span><br>
-		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
-		 
-		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
-		    </form>
-		</div>
- 		<div class="add-goal-form-educational">
-		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
-		    	<h3>Educational</h3>
-		    	Title*: <span id="title" ></span><br>
-		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
-		 
-		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
-		    </form>
-		</div>
-		 <div class="add-goal-form-philanthropic">
-		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
-		    	<h3>Philanthropic</h3>
-		    	Title*: <span id="title" ></span><br>
-		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
 		 
 		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
 		    </form>
@@ -97,9 +90,13 @@
 			$date_e = $_POST['date_e'];
 			$youtube = $_POST['youtube'];
 			$desc = htmlentities(strip_tags($_POST['desc']), ENT_QUOTES);
-			$category = $_POST['category'];
+			$category = $_POST['cat'];
 			$crypt = $_COOKIE['user'];
 			$witness = $_POST['witness'];
+
+			$school = $_POST['school'];
+			$org = $_POST['org'];
+			$prof = $_POST['prof'];
 			if(isset($_FILES['pic'])){
 
 				if ((($_FILES["pic"]["type"] == "image/gif")
@@ -133,7 +130,23 @@
 				$pic_name = '';
 			}
 
-			add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube);
+			switch ($category) {
+				case 'Philanthropic':
+					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, $org);
+					break;
+
+				case 'Professional':
+					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, '', $prof);
+					break;
+				
+				case 'Educational':
+					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, '', '', $school);
+					break;
+
+				default:
+					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube);
+					break;
+			}
 
 			echo '<META HTTP-EQUIV="Refresh" Content="0; URL=profile.php">'; 
 

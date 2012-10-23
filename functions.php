@@ -235,7 +235,7 @@ function is_user_goal($crypt, $user)
 
 }
 
-function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $category, $witness, $youtube)
+function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $category, $witness, $youtube, $org = '', $prof = '', $school = '')
 {
 
 	$db = new db_functions();
@@ -256,10 +256,13 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
 			`Category`,
 			`Crypt`,
 			`Witness`,
-			`Youtube`
+			`Youtube`,
+			`School`,
+			`Orginization`,
+			`Company`
 			)
 			VALUES (
-			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt', '$witness', '$youtube'
+			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt', '$witness', '$youtube', '$school', '$org', '$prof'
 			);";
 
 	$db->db_query($query);
