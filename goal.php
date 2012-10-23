@@ -87,12 +87,15 @@
 						}
 						echo "</div>";
 					echo '</div>';
-					echo '<div class="goal_column">';
-						echo '<img src="'.$goal[4].'">';
-					echo '</div>';
-					echo '<div class="goal_column">';
-						echo '<img src="'.$goal[4].'">';
-					echo '</div>';
+					if($goal[4] != '')
+					{
+						echo '<div class="goal_column">';
+							echo '<img src="'.$goal[4].'">';
+						echo '</div>';
+						echo '<div class="goal_column">';
+							echo '<img src="'.$goal[4].'">';
+						echo '</div>';
+					}
 					echo '<div class="info">';
 						echo '<h3>Stats</h3>';
 						if($goal[9] != '')
@@ -112,6 +115,21 @@
 					}
 				echo '</div>';
 				echo '<div class="space"></div>';
+
+				// album view
+				if($goal[16] != '')
+				{
+		            $album = $goal[16];
+		            $album = explode(",", str_replace('"', "", substr($album, 4)));
+
+		            echo '<div class="photo-selector">';
+		            foreach ($album as $image)
+		            {
+		            	echo "<div class='photo-select'><img src='".$image."' class='not-selected'></div>";
+		            }
+		           	echo '</div>'; 
+		           	echo '<div class="space"></div>';
+		        }
 
 				$comments = get_comments($goal[8]);
 
