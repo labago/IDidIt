@@ -51,7 +51,7 @@
 									$info = fetch_user_info_token($witness);
 
 									if(sizeof($info) > 0)
-										echo "<a href='profile.php?id=".$info[4]."'><img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
+										echo "<a href='profile.php?id=".$info[4]."'><img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''></a>";
 									else
 										echo "<img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
 								}
@@ -80,12 +80,15 @@
 							}
 						echo "</div>";
 						echo '</div>';
-						echo '<div class="goal_column">';
-							echo '<img src="'.$goal[4].'">';
-						echo '</div>';
-						echo '<div class="goal_column">';
-							echo '<img src="'.$goal[4].'">';
-						echo '</div>';
+						if($goal[4] != '')
+						{
+							echo '<div class="goal_column">';
+								echo '<img src="'.$goal[4].'">';
+							echo '</div>';
+							echo '<div class="goal_column">';
+								echo '<img src="'.$goal[4].'">';
+							echo '</div>';
+						}
 						echo '<div class="info">';
 							echo '<h3>Stats</h3>';
 							if($goal[9] != '')
