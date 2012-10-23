@@ -24,7 +24,6 @@ class db_functions
 	function db_connect()
 	{
 		mysql_connect($this->server, $this->user, $this->pass) or die ("Unable to connect!"); 
-		    
 		mysql_select_db($this->db) or die ("Unable to select database!");  
 	}
 

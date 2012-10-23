@@ -1,7 +1,7 @@
 <div class="header">
 	<h1>#IDIDIT</h1>
 	<div class="login">
-		<?php if(isset($_COOKIE['user']) || $facebook->getSession) { 
+		<?php if(isset($_COOKIE['user']) || @$facebook->getSession) { 
 
 			if(isset($_COOKIE['user']))		
 				$user_info = fetch_user_info($_COOKIE['user']);

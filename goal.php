@@ -19,7 +19,7 @@
 
 				$goal = $_GET['id'];
 
-				if($_GET['n'] == 'true')
+				if(isset($_GET['n']) && $_GET['n'] == 'true')
 					kill_notifications($goal);
 
 				// if a comment was posted, post it
@@ -30,6 +30,8 @@
 					$info = fetch_user_goal($goal);
 
 					add_comment(htmlentities(strip_tags($comment), ENT_QUOTES), $_COOKIE['user'], $goal);
+					notify_commenters($goal, $_COOKIE['user']);
+					
 					if($_COOKIE['user'] != $info[5])
 						new_notification($info[5], $_COOKIE['user'], 'Comment', $goal);
 				}

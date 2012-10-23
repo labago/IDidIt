@@ -539,9 +539,15 @@ function get_notifications_html($crypt)
 					echo '<tr class="notification">';
 						echo '<td><a href="goal.php?id='.$row[4].'&n=true">'.$user_info[0].' Commented on your Achievement</a></td>';
 					echo '</tr>';
+
+				case 'Reply':
+					$user_info = fetch_user_info($row[5]);
+					$other_user_info = fetch_user_info($row[2]);
+					echo '<tr class="notification">';
+						echo '<td><a href="goal.php?id='.$row[4].'&n=true">'.$user_info[0].' also commented on '.$other_user_info[0]."'s Achievement</a></td>";
+					echo '</tr>';
 				
 				default:
-					# code...
 					break;
 			}
 		}
@@ -595,5 +601,32 @@ function new_notification($user, $interact, $type, $object)
 		);";
 
 	$db->db_query($query);
+}
+
+function notify_commenters($goal, $user)
+{
+
+	$db = new db_functions();
+    $db->db_connect();
+
+	$query = "SELECT * 
+	FROM  `Comments` 
+	WHERE  `Crypt of Goal` LIKE  '$goal'
+	LIMIT 0 , 30";
+
+	$result = $db->db_query($query);
+
+	$users = array();
+
+	while($row = $db->db_fetch_row($result))
+	{
+		if(!in_array($row[2], $users) && $row[2] != $user)
+			array_push($users, $row[2]);
+	}
+
+	foreach($users as $not_user) 
+	{
+		new_notification($not_user, $user, 'Reply', $goal);
+	}
 }
 ?>
