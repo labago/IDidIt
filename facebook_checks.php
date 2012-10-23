@@ -30,7 +30,7 @@ if ($user) {
 
 $logout_params = array( 'next' => $fb_logout);
 $login_params = array(
-  'scope' => 'email',
+  'scope' => 'email, user_photos',
   'redirect_uri' => $fb_login
   );
 $loginUrl = $facebook->getLoginUrl($login_params);

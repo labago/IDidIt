@@ -58,7 +58,7 @@
 							}
 							else
 							{
-								echo "No Witness Mentioned";
+									echo "No Witness Mentioned";
 							}
 							echo "</div>";
 							echo '<div class="witness">';
@@ -103,6 +103,10 @@
 							$goal_crypt = "'".$goal[8]."'";
 							echo '<div class="congrats-button"><a onclick="congrats('.$user.', '.$goal_crypt.', this); return false;" href="">Congratulate</a></div>';
 						}
+					if($goal[16] == '')
+						echo '<a href="add_album.php?g='.$goal[8].'">Add Album</a>';
+					else
+						echo '<a href="view_album.php?g='.$goal[8].'">View Album</a>';
 					echo '</div>';
 					echo '<div class="space"></div>';
 				}

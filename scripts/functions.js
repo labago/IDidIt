@@ -135,6 +135,33 @@ function get_notifications(crypt) {
     });
 }
 
+function add_pictures(crypt, pictures) {
+    $('.submit').html("<img src='styles/images/loading.gif'>");
+     $.ajax({
+            type: "GET",
+            url: "resources/ajax/add_pics.php",
+            data: "crypt="+crypt+"&p="+pictures,
+            success: function(data){
+                $('.submit').html("Added!");
+                window.location = "view_album.php?g="+crypt
+            }
+    });
+}
+
+function get_and_add_pictures(crypt)
+{
+  var imgs = $('img.selected');
+
+  var value = '';
+
+  for(var i = 0; i < imgs.length; i++) 
+  {
+    value = value + "," + imgs[i].src;
+  }
+
+  add_pictures(crypt, value);
+}
+
 function check_el(el, span)
 {
   var title = el.value;
@@ -177,6 +204,12 @@ function check_add_goal_form(form)
     $(".not-count").html("("+$(".notification").length+")");
 
   $(document).ready(function () {
+
+     $("div.photo-select").find('img').click(function() {
+          $(this).toggleClass("selected");
+          return false;
+      });
+
       $("#query").tokenInput("resources/ajax/fb_find.php");
 
       $(".add-goal-form").hide();
