@@ -16,8 +16,9 @@
 			<?php 
 
 				require_once ("resources/api/twitter/twitteroauth.php");
+				require_once ('Private/creds.php');
 
-				$twitter = new TwitterOAuth("jdZBZzna7KmUuwUSFPZkw", "tKcUNrlgnQVx0bj7bUWaH3wKLS434gMm47bUEewkSw", "245096759-MFLFmuF9tGnFdwFajg1Nq0SM2aVdV6muZCFbiBDg", "eHht8TbYkXHCjIHwrGoZyQCrnjE0mpdX8mBN9LmVzE");
+				$twitter = new TwitterOAuth($twitter_app_key, $twitter_app_secret, $twitter_oauth_key, $twitter_oauth_secret);
 
 				// The fetch url with the given username appended to it.
 				// $trends_url = "http://twitter.com/statuses/user_timeline/".$u.".xml";

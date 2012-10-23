@@ -1,10 +1,11 @@
 <?php
-require 'resources/api/facebook/facebook.php';
+require_once('resources/api/facebook/facebook.php');
+require_once('Private/creds.php');
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
-  'appId'  => '204806049653341',
-  'secret' => 'e5a3bb77981baae5711ec31d1355da4b',
+  'appId'  => $fb_app_key,
+  'secret' => $fb_app_secret,
   'cookie' => true,
 ));
 
