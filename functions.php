@@ -518,6 +518,7 @@ function get_comments($goal)
 	$query = "SELECT * 
 	FROM `Comments` 
 	WHERE `Crypt of Goal` LIKE '$goal'
+	ORDER BY `Date Posted` DESC
 	LIMIT 0 , 30";
 
 	$result = $db->db_query($query);

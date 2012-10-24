@@ -148,6 +148,32 @@ function add_pictures(crypt, pictures, album) {
     });
 }
 
+function htmlEncode(value){
+    if (value) {
+        return $('<div />').text(value).html();
+    } else {
+        return '';
+    }
+}
+
+function add_comment(goal) {
+  var comment = document.getElementById('comment-text').value;
+  document.getElementById('comment-text').value = '';
+  comment = htmlEncode(comment);
+     $.ajax({
+            type: "GET",
+            url: "resources/ajax/add_comment.php",
+            data: "g="+goal+"&c="+comment,
+            success: function(data){
+              if(data.trim() != '')
+              {
+                $('div.comment-content').hide().html(data).fadeIn();
+              }
+            }
+    });
+    return false;
+}
+
 function get_and_add_pictures(crypt, album)
 {
   var imgs = $('img.selected');

@@ -15,8 +15,6 @@
 			// see if the user has a cookie
 			if(isset($_COOKIE['user']))
 			{
-
-
 				$goal = $_GET['id'];
 
 				if(isset($_GET['n']) && $_GET['n'] == 'true')
@@ -140,12 +138,13 @@
 				?>	
 				<form name="comment-form" method="post" action="goal.php?id=<?php echo $goal[8]; ?>">
 					Post a Comment:<br>
-					<textarea type="text" name="comment"></textarea><br>
+					<textarea id="comment-text" type="text" name="comment"></textarea><br>
 
-					<input type="submit" name="submit" value="Post">
+					<input type="submit" name="submit" value="Post" onclick="return add_comment('<?php echo $goal[8]; ?>');">
 				</form>
 				<?php
 
+				echo '<div id="comment-content" class="comment-content">';
 				foreach ($comments as $comment) 
 				{
 					echo '<div class="comment">';
@@ -167,6 +166,7 @@
 					echo '<div class="space"></div>';
 				}
 
+				echo '</div>';
 				echo '</div>';
 
 
