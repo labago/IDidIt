@@ -112,7 +112,7 @@
 						if($goal[16] == '')
 							echo '<a href="add_album.php?g='.$goal[8].'">Add Album</a>';
 						else
-							echo '<a href="view_album.php?g='.$goal[8].'">View Album</a>';
+							echo '<a href="add_album.php?g='.$goal[8].'&id='.$goal[17].'&mode=edit">Edit Album</a>';
 					}
 					else if($goal[16] != '')
 						echo '<a href="view_album.php?g='.$goal[8].'">View Album</a>';

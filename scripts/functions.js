@@ -135,12 +135,12 @@ function get_notifications(crypt) {
     });
 }
 
-function add_pictures(crypt, pictures) {
-    $('.submit').html("<img src='styles/images/loading.gif'>");
+function add_pictures(crypt, pictures, album) {
+    $('.submit').html("<img src='styles/images/loading.gif' style='width: 70px;'>");
      $.ajax({
             type: "GET",
             url: "resources/ajax/add_pics.php",
-            data: "crypt="+crypt+"&p="+pictures,
+            data: "crypt="+crypt+"&p="+pictures+"&a="+album,
             success: function(data){
                 $('.submit').html("Added!");
                 window.location = "view_album.php?g="+crypt
@@ -148,18 +148,26 @@ function add_pictures(crypt, pictures) {
     });
 }
 
-function get_and_add_pictures(crypt)
+function get_and_add_pictures(crypt, album)
 {
   var imgs = $('img.selected');
 
   var value = '';
 
-  for(var i = 0; i < imgs.length; i++) 
+  if(imgs.length != 0)
   {
-    value = value + "," + imgs[i].src;
+    for(var i = 0; i < imgs.length; i++) 
+    {
+      value = value + "," + imgs[i].src;
+    }
+    add_pictures(crypt, value, album);
+  }
+  else
+  {
+    alert("No pictures selected!");
+    return false;
   }
 
-  add_pictures(crypt, value);
 }
 
 function check_el(el, span)
@@ -189,6 +197,26 @@ function check_add_goal_form(form)
     alert("All required fields must be filled out");
     return false;
   }
+}
+
+function select_all_pics_toggle(){
+  if(!all_selected())
+  {
+    $("div.photo-select").find('img').removeClass("selected");
+  }
+  $("div.photo-select").find('img').toggleClass("selected");
+}
+
+function all_selected(){
+  var imgs = $("div.photo-select").find('img');
+  for (var i = 0; i < imgs.length; i++) 
+  {
+    if(imgs[i].className != 'selected')
+    {
+      return false;
+    }
+  }
+  return true;
 }
 
 

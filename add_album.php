@@ -48,17 +48,47 @@
             }
             else
             {
-              $user_album = $facebook->api('/'.$_GET['id'].'/photos');
+              $album_id = $_GET['id'];
+
+              $user_album = $facebook->api('/'.$album_id.'/photos');
+
+              if(!isset($_GET['mode']))
+                echo "<p>Click on the pictures you would like to add to this achievement, then click the 'Add Pictures' buttton.</p><br>";
+              else
+                echo "<p>Click on the pictures you would like to add to this achievement, then click the 'Update' button.</p><br>";
+
+              if(!isset($_GET['mode']))
+              {
+                ?><br><br><div class='submit'><input type='submit' value='Add Pictures!' onclick='get_and_add_pictures("<?php echo $goal; ?>", "<?php echo $album_id; ?>")'></div><?php
+              }
+              else
+              {
+                ?><br><br><div class='submit'><input type='submit' value='Update' onclick='get_and_add_pictures("<?php echo $goal; ?>", "<?php echo $album_id; ?>")'></div><?php
+              }
+              echo "<br>";
+              echo "<br>";
+              echo "<br>";
+              echo "<input type='submit' value='Select All' onclick='select_all_pics_toggle()'>";
 
               echo '<div class="photo-selector">';
+
+              $goal_info = fetch_user_goal($goal);
+
+              $album = $goal_info[16];
+              $album = explode(",", str_replace('"', "", substr($album, 4)));
+
               foreach ($user_album['data'] as $image) 
               {
-                echo "<div class='photo-select'><a href='#'><img src='".$image['source']."' class='not-selected'></a></div>";
+                if(isset($_GET['mode']) && in_array($image['source'], $album))
+                {
+                  echo "<div class='photo-select'><a href='#'><img src='".$image['source']."' class='selected'></a></div>";
+                }
+                else
+                {
+                  echo "<div class='photo-select'><a href='#'><img src='".$image['source']."'></a></div>";
+                }
               }
               echo '</div>'; 
-
-              ?><br><br><div class='submit'><input type='submit' value='Add Pictures!' onclick='get_and_add_pictures("<?php echo $goal; ?>")'></div><?php
-
             }
           }
           else
