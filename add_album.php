@@ -22,11 +22,14 @@
 
             if(!isset($_GET['id']))
             {
+              $user_info = fetch_user_info($_COOKIE['user']);
 
-              $permissions = $facebook->api("/me/permissions");
+              $token = $user_info[7];
+
+              $permissions = $facebook->api("/me/permissions", array('access_token' => $token));
               if (array_key_exists('user_photos', $permissions['data'][0])) 
               {
-                  $user_albums = $facebook->api('/me/albums');
+                  $user_albums = $facebook->api('/me/albums', array('access_token' => $token));
 
                   echo "<p>Pick which album you would like to add photos from</p><br>";
 
@@ -50,7 +53,7 @@
             {
               $album_id = $_GET['id'];
 
-              $user_album = $facebook->api('/'.$album_id.'/photos');
+              $user_album = $facebook->api('/'.$album_id.'/photos', array('access_token' => $token));
 
               if(!isset($_GET['mode']))
                 echo "<p>Click on the pictures you would like to add to this achievement, then click the 'Add Pictures' buttton.</p><br>";

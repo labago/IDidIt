@@ -58,7 +58,7 @@
 								$info = fetch_user_info_token($witness);
 
 								if(sizeof($info) > 0)
-									echo "<a href='profile.php?id=".$info[4]."'><img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
+									echo "<a href='profile.php?id=".$info[4]."'><img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''></a>";
 								else
 									echo "<img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
 							}

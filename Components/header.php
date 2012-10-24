@@ -1,14 +1,14 @@
 <div class="header">
 	<h1>#IDIDIT</h1>
 	<div class="login">
-		<?php if(isset($_COOKIE['user']) || @$facebook->getSession) { 
+		<?php if(isset($_COOKIE['user'])) { 
 
-			if(isset($_COOKIE['user']))		
-				$user_info = fetch_user_info($_COOKIE['user']);
+			if($fb_user)		
+				$user_info = fetch_user_info_token($fb_user);
 			else
-				$user_info = fetch_user_info_token($user);	
+				$user_info = fetch_user_info($_COOKIE['user']);	
 
-			if(@$facebook->getSession)
+			if($fb_user)
 				echo "Logged in as ".$user_info[0]." <a href='".$logoutUrl."'>Logout</a>";
 			else
 				echo "Logged in as ".$user_info[0]." <a href='logout.php'>Logout</a>"; 

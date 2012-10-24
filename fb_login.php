@@ -1,11 +1,19 @@
 <?php
 include('functions.php'); 
-$user_profile = $facebook->api('/me', 'GET');
+
+$user_info = fetch_user_info_token($fb_user);
+
+$token = $user_info[7];
+if(!(strlen($token) > 0))
+	$token = $facebook->getAccessToken();
+
+$user_profile = $facebook->api('/me', array('access_token' => $token));
 
 $fname = $user_profile['first_name'];
 $lname = $user_profile['last_name'];
 $email = $user_profile['email'];
 $id = $facebook->getUser();
+$access_token = $facebook->getAccessToken();
 $password = "changeme";
 $pic = "http://graph.facebook.com/".$id."/picture?type=large";
 
@@ -28,12 +36,13 @@ if($db->db_num_rows($result) > 0)
 }
 
 if($no_account)
-	$crypt = add_user($fname, $lname, $password, $email, $pic, $id);
+	$crypt = add_user($fname, $lname, $password, $email, $pic, $id, $access_token);
 else
-	update_user_facebook_info($fname, $lname, $password, $email, $pic, $id, $crypt);
+	update_user_facebook_info($fname, $lname, $password, $email, $pic, $id, $crypt, $access_token);
 
 
 setcookie("user", $crypt, time()+2592000);
+change_log_out_status_fb($crypt, "false");
 
 echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';
 ?>

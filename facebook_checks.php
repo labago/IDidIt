@@ -1,6 +1,7 @@
 <?php
 require_once('resources/api/facebook/facebook.php');
 require_once('Private/creds.php');
+session_start();
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
@@ -9,24 +10,34 @@ $facebook = new Facebook(array(
   'cookie' => true,
 ));
 
+//$new_token = file_get_contents("https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=".$fb_app_key."&client_secret=".$fb_app_secret."&fb_exchange_token=".$old_token);
+
 // Get User ID
-$user = $facebook->getUser();
+$fb_user = $facebook->getUser();
 
-// We may or may not have this data based on whether the user is logged in.
-//
-// If we have a $user id here, it means we know the user is logged into
-// Facebook, but we don't know if the access token is valid. An access
-// token is invalid if the user logged out of Facebook.
-
-if ($user) {
+if ($fb_user) {
   try {
     // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me');
+    $user_info = fetch_user_info_token($fb_user);
+    $token = $user_info[7];
+    $crypt = $user_info[4];
+
+    $user_profile = $facebook->api('/me', array('access_token' => $token));
   } catch (FacebookApiException $e) {
     error_log($e);
-    $user = null;
+    $fb_user = false;
   }
 }
+
+if($fb_user && !(is_logged_out_fb($crypt) == 'true'))
+{
+  setcookie("user", $crypt, time()+2592000);
+}
+else
+{
+  $fb_user = false;
+}
+
 
 $logout_params = array( 'next' => $fb_logout);
 $login_params = array(

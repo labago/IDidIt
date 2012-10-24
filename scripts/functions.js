@@ -114,7 +114,7 @@ function get_new_goals() {
             url: "resources/ajax/get_new_goals.php",
             data: "count="+count,
             success: function(data){
-              if(data != '')
+              if(data.trim() != '')
               {
                 var stream = document.getElementById("stream");
                 $('div.stream').hide().html(data+stream.innerHTML).fadeIn();
@@ -200,23 +200,47 @@ function check_add_goal_form(form)
 }
 
 function select_all_pics_toggle(){
-  if(!all_selected())
+  if(one_selected())
+  {
+    $("div.photo-select").find('img').removeClass("selected");
+    $("div.photo-select").find('img').addClass("selected");
+  }
+  else if(all_selected())
   {
     $("div.photo-select").find('img').removeClass("selected");
   }
-  $("div.photo-select").find('img').toggleClass("selected");
+  else
+   {
+    $("div.photo-select").find('img').addClass("selected");
+   } 
 }
 
 function all_selected(){
   var imgs = $("div.photo-select").find('img');
   for (var i = 0; i < imgs.length; i++) 
   {
-    if(imgs[i].className != 'selected')
+    if(imgs[i].className.indexOf("selected") == -1)
     {
       return false;
     }
   }
   return true;
+}
+
+function one_selected(){
+  if(all_selected())
+  {
+    return false
+  }
+  var imgs = $("div.photo-select").find('img');
+  for (var i = 0; i < imgs.length; i++) 
+  {
+    if(imgs[i].className.indexOf("selected") != -1)
+    {
+      return true;
+    }
+  }
+  return false;
 }
 
 

@@ -1,11 +1,40 @@
 <?php
-include("facebook_checks.php");
 include("resources/db.php");
+include("facebook_checks.php");
 record_visit();
 
 
 $db = new db_functions();
 
+
+function is_logged_out_fb($crypt)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+	$query = "SELECT * 
+	FROM  `Users` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	AND  `Force Logout` LIKE  'true'
+	LIMIT 0 , 30";
+
+	$result = $db->db_query($query);
+
+	if($row = $db->db_fetch_row($result))
+		return true;
+	else
+		return false;
+}
+
+function change_log_out_status_fb($crypt, $status)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+	$query = "UPDATE `ididit`.`Users` SET `Force Logout` = '$status' WHERE `Users`.`Crypt` = '$crypt';";
+
+	$db->db_query($query);
+}
 
 function check_crypt_user($crypt)
 {
@@ -93,7 +122,7 @@ function gen_rand_hex()
 	return $number;
 }
 
-function add_user($fname, $lname, $pass, $email, $picture = "", $id = "")
+function add_user($fname, $lname, $pass, $email, $picture = "", $id = "", $access_token)
 {
 
 	$db = new db_functions();
@@ -111,10 +140,11 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "")
 			`Password`,
 			`Crypt`,
 			`Picture`,
-			`Facebook ID`
+			`Facebook ID`,
+			`Access`
 			)
 			VALUES (
-			'$fname', '$lname', '$email', '$pass', '$crypt', '$picture', '$id'
+			'$fname', '$lname', '$email', '$pass', '$crypt', '$picture', '$id', '$access_token'
 			);";
 
 	$db->db_query($query);
@@ -123,7 +153,7 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "")
 	return $crypt;
 }
 
-function update_user_facebook_info($fname, $lname, $pass, $email, $picture = "", $id = "", $crypt)
+function update_user_facebook_info($fname, $lname, $pass, $email, $picture = "", $id = "", $crypt, $access_token)
 {
 	$db = new db_functions();
     $db->db_connect();
@@ -132,6 +162,7 @@ function update_user_facebook_info($fname, $lname, $pass, $email, $picture = "",
 			`Last Name` = '$lname',
 			`Email` = '$email',
 			`Picture` = '$picture',
+			`Access` = '$access_token',
 			`Facebook ID` = '$id' WHERE `Users`.`Crypt` = '$crypt' LIMIT 1 ;";
 
 	$db->db_query($query);
@@ -173,11 +204,10 @@ function fetch_user_info_token($token)
 	LIMIT 0 , 30";  
 	  
 	$result = $db->db_query($query);
-	$row = $db->db_fetch_row($result);
 
 	$info = array();
 
-	if($db->db_num_rows($result) > 0)
+	if($row = $db->db_fetch_row($result))
 	{
 		foreach($row as $row_item)
 		{
@@ -647,3 +677,4 @@ function notify_commenters($goal, $user)
 	}
 }
 ?>
+
