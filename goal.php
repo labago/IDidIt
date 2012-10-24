@@ -120,7 +120,9 @@
 				if($goal[16] != '')
 				{
 		            $album = $goal[16];
-		            $album = explode(",", str_replace('"', "", substr($album, 4)));
+		            $album = str_replace('"', "", substr($album, 4));
+              		$album = substr($album, 0, (strlen($album)-1));
+              		$album = explode(",", $album);
 
 		            echo '<div class="photo-selector">';
 		            foreach ($album as $image)

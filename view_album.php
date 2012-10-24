@@ -20,7 +20,9 @@
               $goal_info = fetch_user_goal($goal);
 
               $album = $goal_info[16];
-              $album = explode(",", str_replace('"', "", substr($album, 4)));
+              $album = str_replace('"', "", substr($album, 4));
+              $album = substr($album, 0, (strlen($album)-1));
+              $album = explode(",", $album);
 
               echo '<div class="photo-selector">';
               foreach ($album as $image) 
