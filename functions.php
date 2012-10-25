@@ -7,6 +7,25 @@ record_visit();
 $db = new db_functions();
 
 
+function check_email($email)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+	$query = "SELECT * 
+	FROM `Users` 
+	WHERE `Email` LIKE '$email'
+	LIMIT 0 , 30";
+
+	$result = $db->db_query($query);
+
+	if($row = $db->db_fetch_row($result))
+		return false;
+	else
+		return true;
+
+}
+
 function is_logged_out_fb($crypt)
 {
 	$db = new db_functions();

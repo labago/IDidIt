@@ -72,15 +72,21 @@
 
 			$confirm = true;
 
+			if(check_email($email_1))
+			{
+				$confirm = false;
+				echo "Email is already in use, please go back and try again<br>";
+			}
+
 			if($email_1 != $email_2)
 			{
 				$confirm = false;
-				echo "Emails do not match, please go back and try again";
+				echo "Emails do not match, please go back and try again<br>";
 			}
 			if($pass_2 != $pass_1 || (str_replace('"', '', str_replace("'", "", strip_tags($pass_1))) != $pass_1))
 			{
 				$confirm = false;
-				echo "Passwords do not match or prohibited characters were use, please go back and try again";
+				echo "Passwords do not match or prohibited characters were use, please go back and try again<br>";
 			}
 
 			if($confirm){
@@ -90,7 +96,6 @@
 			}
 		}
 	 	?>
-
 			</div>
 		</div>
 
