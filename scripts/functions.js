@@ -51,16 +51,18 @@ function check_email()
             url: "resources/ajax/java_check_email.php",
             data: "email="+email,
             success: function(data){
-            if(data == "true")
+            if(data.trim() == "true")
             {
   			      document.getElementById("email1").innerHTML = ' <img src="styles/images/check.png" width="15">';
   			      document.getElementById("email4").innerHTML = ''; 
+              document.getElementById("valid_email").value = 'true';
               return true; 
 			      }
 			      else 
             {
   			      document.getElementById("email1").innerHTML = ' <img src="styles/images/xmark.png" width="15">';
   			      document.getElementById("email4").innerHTML = 'Email is already in use<br>';    
+              document.getElementById("valid_email").value = '';
               return false;
 			      }
          }
@@ -268,10 +270,6 @@ function one_selected(){
   }
   return false;
 }
-
-
-
-
 
     // notifications
     $(".notification-overlay").hide();

@@ -5,6 +5,7 @@
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -14,27 +15,53 @@
 				<br><br>
 
 		<?php if(!isset($_POST['submit'])) { ?>		
-		    <form action="sign-up.php" method="post" name="sign_up_form">
-		    	First Name: <span id="first" ></span><br>
-		    	<input type="text" name="fname" onchange="check_el(this, 'first');"><br>
-		    	Last Name:<span id="last" ></span><br>
-		    	<input type="text" name="lname" onchange="check_el(this, 'last');"><br>
+		    <form action="sign-up.php" method="post" name="sign_up_form" id="commentForm">
+		    	First Name <br>
+		    	<input type="text" name="fname" id="fname"><br>
+		    	Last Name:<br>
+		    	<input type="text" name="lname" id="lname"><br>
 		    	<b id="email4"></b> 
 		    	Email: <span id="email1" ></span><br>
-		    	<input type="text" name="email_first" onChange="check_email();"><br><span id="first" ></span>
+		    	<input type="text" name="email_first" id="email_first" class="email"><br><span id="first" ></span>
 		    	Email Confirmation: <span id="email2" ></span> <br>
-		    	<input type="text" name="email_second" onChange="check_emails();"><br>     
+		    	<input type="text" name="email_second"><br>     
 	            <b id="email3"></b>
-		    	Password:<span id="pass1" ></span><br>
-		    	<input type="password" name="pass_first"><br><b id="pass1"></b>
-		    	Password Confirmation:<span id="pass2" ></span><br>
-		    	<input type="password" name="pass_second" onChange="check_passwords();"><br>
+		    	Password:<br>
+		    	<input type="password" name="pass_first" id="pass_first"><br>
+		    	Password Confirmation:<br>
+		    	<input type="password" name="pass_second" id="pass_second"><br>
 		    	<b id="pass3"></b>
-
-		    	<input type="submit" name="submit" value="Sign Up" onclick="return check_sign_up_form()">
+				<input type="hidden" name="valid_email" id="valid_email" value="">
+		    	<input type="submit" name="submit" value="Sign Up">
 		    </form>
+
+		    <script>
+		    	      // for sign up form
+	      jQuery.validator.addMethod("emailcheck", function(value, element) { 
+	          check_email();
+	        return (document.getElementById("valid_email").value == 'true');
+	      }, "Email is already in use");
+
+	        $("#commentForm").validate({
+	        rules: {
+	          fname: "required",
+	          lname: "required",
+	          email_first: "required",
+	          email_first: "emailcheck",
+	          email_second: "required",
+	          email_second: {
+	            equalTo: "#email_first"
+	          },
+	          pass_first: "required",
+	          pass_second: "required",
+	          pass_second: {
+	            equalTo: "#pass_first"
+	          }
+	        }
+	      });
+		    </script>
 		    <br>
-		<?php } else { 
+			<?php } else { 
 
 			$fname = htmlentities(strip_tags($_POST['fname']), ENT_QUOTES);
 			$lname = htmlentities(strip_tags($_POST['lname']), ENT_QUOTES);
@@ -61,20 +88,14 @@
 
 				echo '<META HTTP-EQUIV="Refresh" Content="0; URL=login_user.php?c='.$crypt.'">'; 
 			}
-
-
-
-
-
-
-
 		}
 	 	?>
 
 			</div>
 		</div>
 
-		<script type="text/javascript" src="scripts/functions.js"></script>
+		<script type="text/javascript" src="scripts/functions.js">
+		</script>
 		<?php include("Components/footer.php"); ?>
 	</body>
 </html>
