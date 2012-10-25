@@ -22,10 +22,9 @@
 		    	<input type="text" name="lname" id="lname"><br>
 		    	<b id="email4"></b> 
 		    	Email: <span id="email1" ></span><br>
-		    	<input type="text" name="email_first" id="email_first" class="email"><br><span id="first" ></span>
-		    	Email Confirmation: <span id="email2" ></span> <br>
+		    	<input type="text" name="email_first" id="email_first" class="email"><br>
+		    	Email Confirmation: <br>
 		    	<input type="text" name="email_second"><br>     
-	            <b id="email3"></b>
 		    	Password:<br>
 		    	<input type="password" name="pass_first" id="pass_first"><br>
 		    	Password Confirmation:<br>
@@ -36,29 +35,29 @@
 		    </form>
 
 		    <script>
-		    	      // for sign up form
-	      jQuery.validator.addMethod("emailcheck", function(value, element) { 
-	          check_email();
-	        return (document.getElementById("valid_email").value == 'true');
-	      }, "Email is already in use");
+		       // for sign up form
+		      jQuery.validator.addMethod("emailcheck", function(value, element) { 
+		          check_email();
+		        return (document.getElementById("valid_email").value == 'true');
+		      }, "Email is already in use");
 
-	        $("#commentForm").validate({
-	        rules: {
-	          fname: "required",
-	          lname: "required",
-	          email_first: "required",
-	          email_first: "emailcheck",
-	          email_second: "required",
-	          email_second: {
-	            equalTo: "#email_first"
-	          },
-	          pass_first: "required",
-	          pass_second: "required",
-	          pass_second: {
-	            equalTo: "#pass_first"
-	          }
-	        }
-	      });
+		        $("#commentForm").validate({
+		        rules: {
+		          fname: "required",
+		          lname: "required",
+		          email_first: "required",
+		          email_first: "emailcheck",
+		          email_second: "required",
+		          email_second: {
+		            equalTo: "#email_first"
+		          },
+		          pass_first: "required",
+		          pass_second: "required",
+		          pass_second: {
+		            equalTo: "#pass_first"
+		          }
+		        }
+		      });
 		    </script>
 		    <br>
 			<?php } else { 

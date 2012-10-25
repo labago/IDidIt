@@ -53,14 +53,14 @@ function check_email()
             success: function(data){
             if(data.trim() == "true")
             {
-  			      document.getElementById("email1").innerHTML = ' <img src="styles/images/check.png" width="15">';
+  			      document.getElementById("email1").innerHTML = '';
   			      document.getElementById("email4").innerHTML = ''; 
               document.getElementById("valid_email").value = 'true';
               return true; 
 			      }
 			      else 
             {
-  			      document.getElementById("email1").innerHTML = ' <img src="styles/images/xmark.png" width="15">';
+  			      document.getElementById("email1").innerHTML = '';
   			      document.getElementById("email4").innerHTML = 'Email is already in use<br>';    
               document.getElementById("valid_email").value = '';
               return false;

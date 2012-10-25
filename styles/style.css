@@ -125,8 +125,13 @@
 	margin-right: auto;
 	display: block;
 	width: 400px;
-	background-color: grey;
+	background-color: #B3B5A8;
 	border:5px solid black;
+}
+
+.content form input{
+	float: left;
+	margin-left: 45px;
 }
 
 .footer {
@@ -391,4 +396,10 @@
 
 .selected{
 	border:5px solid red;
+}
+
+.error{
+	float: right;
+	margin-right: 10px;
+	color: red;
 }
