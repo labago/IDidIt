@@ -136,7 +136,7 @@
 				echo '<div class="goal-comments">';
 					echo '<h2>Comments</h2>';
 				?>	
-				<form name="comment-form" method="post" action="goal.php?id=<?php echo $goal[8]; ?>">
+				<form class="comment-form" name="comment-form" method="post" action="goal.php?id=<?php echo $goal[8]; ?>">
 					Post a Comment:<br>
 					<textarea id="comment-text" type="text" name="comment"></textarea><br>
 

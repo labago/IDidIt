@@ -11,7 +11,7 @@ function check_emails()
     document.getElementById("email3").innerHTML = '';  
     return true;
   }
-  else 
+  else
   {
     document.getElementById("email1").innerHTML = ' <img src="styles/images/xmark.png" width="15">';  
     document.getElementById("email2").innerHTML = ' <img src="styles/images/xmark.png" width="15">';  

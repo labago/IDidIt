@@ -23,7 +23,7 @@
 
 
 		<?php if(!isset($_POST['submit'])) { ?>		
-		    <form action="login.php" method="post" name="login_form">
+		    <form class="login-form" action="login.php" method="post" name="login_form">
 		    <?php if($error){ echo "<b>Incorrect Email or Password</b><br>";} ?>
 		    	Email: <br>
 		    	<input type="text" name="email"><br>

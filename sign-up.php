@@ -15,7 +15,7 @@
 				<br><br>
 
 		<?php if(!isset($_POST['submit'])) { ?>		
-		    <form action="sign-up.php" method="post" name="sign_up_form" id="commentForm">
+		    <form class="sign-up" action="sign-up.php" method="post" name="sign_up_form" id="commentForm">
 		    	First Name <br>
 		    	<input type="text" name="fname" id="fname"><br>
 		    	Last Name:<br>

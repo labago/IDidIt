@@ -31,7 +31,7 @@
 		 	</div>
 		 </div>
 		 <div class="add-goal-form">
-		    <form action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
+		    <form class="add-goal" action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
 		    	<h3 class="form-title">Personal</h3>
 		    	Title*: <span id="title" ></span><br>
 		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
