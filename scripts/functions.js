@@ -137,15 +137,15 @@ function get_notifications(crypt) {
     });
 }
 
-function add_pictures(crypt, pictures, album) {
+function add_pictures(goal, fb_pics, locals, album, crypt) {
     $('.submit').html("<img src='styles/images/loading.gif' style='width: 70px;'>");
      $.ajax({
             type: "GET",
             url: "resources/ajax/add_pics.php",
-            data: "crypt="+crypt+"&p="+pictures+"&a="+album,
+            data: "goal="+goal+"&p="+fb_pics+"&a="+album+"&l="+locals+"&crypt="+crypt,
             success: function(data){
                 $('.submit').html("Added!");
-                window.location = "view_album.php?g="+crypt
+                window.location = "view_album.php?g="+goal
             }
     });
 }
@@ -176,25 +176,23 @@ function add_comment(goal) {
     return false;
 }
 
-function get_and_add_pictures(crypt, album)
+function get_and_add_pictures(goal, album, crypt)
 {
   var imgs = $('img.selected');
+  var local_imgs = $('img.local_selected');
 
-  var value = '';
+  var fb_pics = '';
+  var locals = '';
 
-  if(imgs.length != 0)
+  for(var i = 0; i < imgs.length; i++) 
   {
-    for(var i = 0; i < imgs.length; i++) 
-    {
-      value = value + "," + imgs[i].src;
-    }
-    add_pictures(crypt, value, album);
+    fb_pics = fb_pics + "," + imgs[i].src;
   }
-  else
+  for(var i = 0; i < local_imgs.length; i++) 
   {
-    alert("No pictures selected!");
-    return false;
+    locals = locals + "," + local_imgs[i].src;
   }
+  add_pictures(goal, fb_pics, locals, album, crypt);
 
 }
 
@@ -274,17 +272,18 @@ function one_selected(){
     // notifications
     $(".notification-overlay").hide();
     $(".notification-click").click( function(){
-    $(".notification-overlay").slideToggle();
+      $(".notification-overlay").slideToggle();
       return false;
     });
     $(".not-count").html("("+$(".notification").length+")");
+
 
   $(document).ready(function () {
 
      $("div.photo-select").find('img').click(function() {
           $(this).toggleClass("selected");
           return false;
-      });
+      });  
 
       $("#query").tokenInput("resources/ajax/fb_find.php");
 

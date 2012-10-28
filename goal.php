@@ -114,16 +114,23 @@
 				echo '</div>';
 				echo '<div class="space"></div>';
 
-				// album view
-				if($goal[16] != '')
+				// fb_pics view
+				$album_info = fetch_album($goal[8]);
+
+				if(isset($album_info[5]))
+					$fb_pics = $album_info[5];
+				else
+					$fb_pics = '';
+
+				if($fb_pics != '')
 				{
-		            $album = $goal[16];
-		            $album = str_replace('"', "", substr($album, 4));
-              		$album = substr($album, 0, (strlen($album)-1));
-              		$album = explode(",", $album);
+		            
+		            $fb_pics = str_replace('"', "", substr($fb_pics, 4));
+              		$fb_pics = substr($fb_pics, 0, (strlen($fb_pics)-1));
+              		$fb_pics = explode(",", $fb_pics);
 
 		            echo '<div class="photo-selector">';
-		            foreach ($album as $image)
+		            foreach ($fb_pics as $image)
 		            {
 		            	echo "<div class='photo-select'><img src='".$image."' class='not-selected'></div>";
 		            }

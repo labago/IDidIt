@@ -134,6 +134,26 @@ function check_crypt_comment($crypt)
 	return true;
 }
 
+function check_crypt_album($crypt)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+	$query = "SELECT * 
+	FROM  `Album` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+	  
+	$result = $db->db_query($query);
+
+	if($db->db_num_rows($result) != 0)
+	{
+		return false;  
+	}  
+
+	return true;
+}
+
 function gen_rand_hex()
 {
 	$number = substr(md5(rand()), 0, 10); 
@@ -695,6 +715,77 @@ function notify_commenters($goal, $user)
 	{
 		new_notification($not_user, $user, 'Reply', $goal);
 	}
+}
+
+
+function delete_album($crypt)
+{
+	$db = new db_functions();
+    $db->db_connect();
+
+    $query = "DELETE FROM `ididit`.`Album` WHERE `Album`.`Crypt` = '$crypt' LIMIT 1";
+
+	$db->db_query($query);    	
+}
+
+
+function add_album($locals, $fbs, $fb_albums, $user, $goal, $crypt)
+{
+	$temp = fetch_album($goal);
+
+	if(isset($temp[0]))
+	{
+		$crypt = $temp[0];
+		$date = $temp[1];
+		delete_album($crypt);
+	}
+
+	$db = new db_functions();
+    $db->db_connect();
+
+    if(!isset($date))
+		$date = date('Y-m-d g-i-s', time()+(60*60*3)); 
+
+	$query = "INSERT INTO `ididit`.`Album` (
+	`Crypt` ,
+	`Date Added` ,
+	`Local Pictures` ,
+	`Crypt of Goal` ,
+	`Crypt of User`,
+	`FB Pictures`,
+	`FB Album ID's`
+	)
+	VALUES (
+	'$crypt', 
+	'$date', '$locals', '$goal', '$user', '$fbs', '$fb_albums'
+	);";
+
+	$db->db_query($query);
+}
+
+function fetch_album($crypt)
+{
+ 	$db = new db_functions();
+    $db->db_connect();
+
+	$query = "SELECT * 
+	FROM  `Album` 
+	WHERE  `Crypt of Goal` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+	  
+	$result = $db->db_query($query);	
+
+	$info = array();
+
+	if($row = $db->db_fetch_row($result))
+	{
+		foreach($row as $row_item)
+		{
+			array_push($info, $row_item);	
+		}
+	}
+
+	return $info;
 }
 ?>
 

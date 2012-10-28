@@ -118,11 +118,6 @@
 	display: inline;
 }
 
-.content form input{
-	float: left;
-	margin-left: 45px;
-}
-
 .footer {
 	line-height: 1.8em;
 	padding: 8px 0;
@@ -364,17 +359,28 @@
 	margin-right: auto;
 }
 
+.fb-album-buttons{
+	width: 47%;
+	margin-left: 5px;
+	float: left;
+}
+
+.fb-album-buttons input{
+	display: inline;
+	float: left;
+}
+
 .photo-selector{
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	border:3px solid black;
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
+	width: 47%;
+	margin-left: 5px;
+	float: left;
 }
 
 .photo-selector img{
-	width: 22%;
+	width: 20%;
 }
 
 .photo-select{
@@ -437,4 +443,24 @@
 	background-color: #B3B5A8;
 	border:5px solid black;
 }
+
+.multi-file-upload-wrapper{
+	width: 50%;	
+	margin-right: 5px;
+	float: right;
+}
+
+.table{
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:3px solid black;
+	float: right;
+}
+
+.multi-buttons{
+	width: 50%;	
+	margin-right: 5px;
+	float: right;
+}
 /* END FORMS */
+

@@ -1,15 +1,14 @@
 <?php
 include('../../functions.php');
 
-$goal = $_GET['crypt'];
-$raw_pictures = $_GET['p'];
+$goal = $_GET['goal'];
+$raw_fb_pics = $_GET['p'];
+$raw_local_pics = $_GET['l'];
 $album_id = $_GET['a'];
+$crypt = $_GET['crypt'];
 
-$album = json_encode(explode(",", $raw_pictures));
+$album = json_encode(explode(",", $raw_fb_pics));
+$locals = json_encode(explode(",", $raw_local_pics));
 
-$db->db_connect();
-
-$query = "UPDATE `ididit`.`Goal` SET `Album` = '$album', `From FB Album` = '$album_id' WHERE `Goal`.`Crypt` = '$goal' LIMIT 1 ;";
-
-$db->db_query($query);
+add_album($locals, $album, $album_id, $_COOKIE['user'], $goal, $crypt);
 ?>

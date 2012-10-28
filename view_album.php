@@ -18,14 +18,24 @@
               $goal = $_GET['g'];
 
               $goal_info = fetch_user_goal($goal);
+              $album_info = fetch_album($goal_info[8]);
 
-              $album = $goal_info[16];
-              $album = str_replace('"', "", substr($album, 4));
-              $album = substr($album, 0, (strlen($album)-1));
-              $album = explode(",", $album);
+              $fb_pics = $album_info[5];
+              $fb_pics = str_replace('"', "", substr($fb_pics, 4));
+              $fb_pics = substr($fb_pics, 0, (strlen($fb_pics)-1));
+              $fb_pics = explode(",", $fb_pics);
+
+              $local_pics = $album_info[2];
+              $local_pics = str_replace('"', "", substr($local_pics, 4));
+              $local_pics = substr($local_pics, 0, (strlen($local_pics)-1));
+              $local_pics = explode(",", $local_pics);
 
               echo '<div class="photo-selector">';
-              foreach ($album as $image) 
+              foreach ($fb_pics as $image) 
+              {
+                echo "<div class='photo-select'><img src='".$image."' class='not-selected'></div>";
+              }
+              foreach ($local_pics as $image) 
               {
                 echo "<div class='photo-select'><img src='".$image."' class='not-selected'></div>";
               }

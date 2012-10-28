@@ -34,10 +34,12 @@ class UploadHandler
     );
 
     function __construct($options = null, $initialize = true) {
+        $folder = $_COOKIE['album_id'];
+
         $this->options = array(
             'script_url' => $this->get_full_url().'/',
-            'upload_dir' => '../../../../uploads/new/',
-            'upload_url' => $this->get_full_url().'../../../../../uploads/new/',
+            'upload_dir' => '../../../../uploads/new/'.$folder.'/',
+            'upload_url' => $this->get_full_url().'../../../../../uploads/new/'.$folder.'/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',

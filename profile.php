@@ -107,18 +107,19 @@
 							echo '<div class="congrats-button"><a onclick="congrats('.$user.', '.$goal_crypt.', this); return false;" href="">Congratulate</a></div>';
 						}
 
-					if(isset($_COOKIE['user']) && ((!isset($_GET['id'])) || $_GET['id'] == $_COOKIE['user']))
-					{
-						if($goal[16] == '')
-							echo '<a href="add_album.php?g='.$goal[8].'">Add Album</a>';
-						else
-							echo '<a href="add_album.php?g='.$goal[8].'&id='.$goal[17].'&mode=edit">Edit Album</a>';
+						$album_info = fetch_album($goal[8]);
+						if(isset($_COOKIE['user']) && ((!isset($_GET['id'])) || $_GET['id'] == $_COOKIE['user']))
+						{
+							if(!isset($album_info[1]))
+								echo '<a href="add_album.php?g='.$goal[8].'">Add Album</a>';
+							else
+								echo '<a href="add_album.php?g='.$goal[8].'&id='.$album_info[6].'&mode=edit">Edit Album</a>';
+						}
+						else if(isset($album_info[1]))
+							echo '<a href="view_album.php?g='.$goal[8].'">View Album</a>';
+						echo '</div>';
+						echo '<div class="space"></div>';
 					}
-					else if($goal[16] != '')
-						echo '<a href="view_album.php?g='.$goal[8].'">View Album</a>';
-					echo '</div>';
-					echo '<div class="space"></div>';
-				}
 
 
 			} else 

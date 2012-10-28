@@ -21,6 +21,7 @@
       <div class="content">
         <h1>Multi File Upload</h1>
         <br><br><br>
+        <div class="multi-file-upload-wrapper">
               <!-- The file upload form used as target for the file upload widget -->
               <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
                   <!-- Redirect browsers with JavaScript disabled to the origin page -->
@@ -152,7 +153,7 @@
               </tr>
           {% } %}
           </script>
-
+          </div>
       </div>
     </div>
     <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
