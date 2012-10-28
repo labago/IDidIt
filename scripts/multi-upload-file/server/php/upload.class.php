@@ -38,8 +38,8 @@ class UploadHandler
 
         $this->options = array(
             'script_url' => $this->get_full_url().'/',
-            'upload_dir' => '../../../../uploads/new/'.$folder.'/',
-            'upload_url' => $this->get_full_url().'../../../../../uploads/new/'.$folder.'/',
+            'upload_dir' => '../../../../uploads/albums/'.$folder.'/',
+            'upload_url' => $this->get_full_url().'../../../../../uploads/albums/'.$folder.'/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
