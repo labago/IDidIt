@@ -5,6 +5,7 @@
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -16,25 +17,24 @@
 				   { ?>
 
 		<?php if(!isset($_POST['submit'])) { ?>		
-		    <form action="account.php" method="post" name="sign_up_form" enctype="multipart/form-data">
-		    	First Name: <span id="first" ></span><br>
-		    	<input type="text" name="fname" onChange="check_first();" value="<?php echo $user_info[0]; ?>"><br>
-		    	Last Name:<span id="last" ></span><br>
-		    	<input type="text" name="lname" onChange="check_last();" value="<?php echo $user_info[1]; ?>"><br>
+		    <form class="account-form" action="account.php" method="post" name="sign_up_form" enctype="multipart/form-data" id="account_form">
+		    	First Name: <br>
+		    	<input type="text" name="fname" id="fname" value="<?php echo $user_info[0]; ?>"><br>
+		    	Last Name: <br>
+		    	<input type="text" name="lname" id="lname" value="<?php echo $user_info[1]; ?>"><br>
 		    	<b id="email4"></b> 
 		    	Email: <span id="email1" ></span><br>
-		    	<input type="text" name="email_first" onChange="check_email();" value="<?php echo $user_info[2]; ?>"><br><span id="first" ></span>
-		    	Email Confirmation: <span id="email2" ></span> <br>
-		    	<input type="text" name="email_second" onChange="check_emails();" value="<?php echo $user_info[2]; ?>"><br>     
-	            <b id="email3"></b>
-		    	Password:<span id="pass1" ></span><br>
-		    	<input type="password" name="pass_first"><br><b id="pass1"></b>
-		    	Password Confirmation:<span id="pass2" ></span><br>
-		    	<input type="password" name="pass_second" onChange="check_passwords();"><br>
-		    	<b id="pass3"></b>
+		    	<input type="text" name="email_first" id="email_first" value="<?php echo $user_info[2]; ?>" class="email"><br>
+		    	Email Confirmation: <br>
+		    	<input type="text" name="email_second" id="email_second" value="<?php echo $user_info[2]; ?>"><br>     
+		    	Password:<br>
+		    	<input type="password" name="pass_first" id="pass_first"><br>
+		    	Password Confirmation:<br>
+		    	<input type="password" name="pass_second" id="pass_second"><br>
 		    	Profile Picture: <br>
 		    	<img src="<?php echo $user_info[5]; ?>" alt="current profile pic" style="max-width: 200px;"><br><br>
 				<input id="local" type="file" name="pic" size="10000000"><br>
+				<input type="hidden" name="valid_email" id="valid_email" value="">
 
 		    	<input type="submit" name="submit" value="Update">
 		    <br>
@@ -106,7 +106,7 @@
 
 			update_user_info($fname, $lname, $email, $pass, $crypt);
 
-			echo 'Valid user info has been updated, refresh page to see changes';
+			echo '<META HTTP-EQUIV="Refresh" Content="0; URL=account.php">';
 
 		}
 

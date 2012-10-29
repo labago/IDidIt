@@ -1,47 +1,3 @@
-function check_emails()
-{
-  
-  var pwd1 = document.sign_up_form.email_first.value;
-  var pwd2 = document.sign_up_form.email_second.value;
-  
-  if(pwd1 == pwd2)
-  {
-    document.getElementById("email1").innerHTML = ' <img src="styles/images/check.png" width="15">';
-    document.getElementById("email2").innerHTML = ' <img src="styles/images/check.png" width="15">';
-    document.getElementById("email3").innerHTML = '';  
-    return true;
-  }
-  else
-  {
-    document.getElementById("email1").innerHTML = ' <img src="styles/images/xmark.png" width="15">';  
-    document.getElementById("email2").innerHTML = ' <img src="styles/images/xmark.png" width="15">';  
-    document.getElementById("email3").innerHTML = ' Emails do not match, please re-enter<br>';  
-    return false;
-  } 
-}
-
-function check_passwords()
-{
-  
-  var pwd1 = document.sign_up_form.pass_first.value;
-  var pwd2 = document.sign_up_form.pass_second.value;
-  
-  if(pwd1 == pwd2)
-  {
-    document.getElementById("pass1").innerHTML = ' <img src="styles/images/check.png" width="15">';
-    document.getElementById("pass2").innerHTML = ' <img src="styles/images/check.png" width="15">';
-    document.getElementById("pass3").innerHTML = '';    
-    return true;
-  }
-  else 
-  {
-    document.getElementById("pass1").innerHTML = ' <img src="styles/images/xmark.png" width="15">';  
-    document.getElementById("pass2").innerHTML = ' <img src="styles/images/xmark.png" width="15">';  
-    document.getElementById("pass3").innerHTML = 'Passwords do not match, please re-enter<br>';  
-    return false;
-  } 
-}
-
 function check_email() 
 {
       var email = document.sign_up_form.email_first.value;
@@ -67,31 +23,6 @@ function check_email()
 			      }
          }
     });
-}
-
-function check_email2() 
-{
-  if(document.getElementById("email4").innerHTML == '')
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
-}
-
-function check_sign_up_form()
-{
-  if(check_email2() && check_emails() && check_last() && check_first() && check_passwords())
-  {
-    return true;
-  }
-  else
-  {
-    alert("All required fields must be filled out");
-    return false;
-  }
 }
 
 function congrats(user, goal, el) 
@@ -285,7 +216,78 @@ function one_selected(){
           return false;
       });  
 
-      $("#query").tokenInput("resources/ajax/fb_find.php");
+     if($.isFunction($.fn.tokenInput))
+     {
+        $("#query").tokenInput("resources/ajax/fb_find.php");
+     }
+
+     if($.isFunction($.fn.validate))
+     {
+        // LOGIN FORM
+        $("#login_form").validate({ 
+          rules: {
+            email: "required"
+          }
+        });
+        // END LOGIN FORM
+
+        // SIGN UP FORM
+          jQuery.validator.addMethod("emailcheck", function(value, element) { 
+              check_email();
+            return (document.getElementById("valid_email").value == 'true');
+          }, "Email is already in use");
+
+        $("#sign_up_form").validate({
+        rules: {
+          fname: "required",
+          lname: "required",
+          email_first: "required",
+          email_first: "emailcheck",
+          email_second: "required",
+          email_second: {
+            equalTo: "#email_first"
+          },
+          pass_first: "required",
+          pass_second: "required",
+          pass_second: {
+            equalTo: "#pass_first"
+            }
+          }
+        });
+        // END SIGN UP FORM
+
+        // ADD GOAL FORM(s)
+        $("#add_goal_form").validate({
+          rules: {
+            title: "required",
+            cat: "required",
+            date_s: "required",
+            desc: "required"
+          }
+        });
+        // END ADD GOAL FORM(s)
+
+        // ACCOUNT FORM
+        $("#account_form").validate({
+        rules: {
+          fname: "required",
+          lname: "required",
+          email_first: "required",
+          email_first: "emailcheck",
+          email_second: "required",
+          email_second: {
+            equalTo: "#email_first"
+          },
+          pass_first: "required",
+          pass_second: "required",
+          pass_second: {
+            equalTo: "#pass_first"
+            }
+          }
+        });
+        // END ACCOUNT FORM
+
+     }
 
       $(".add-goal-form").hide();
       $(".add-goal-form-professional").hide();
@@ -336,4 +338,5 @@ function one_selected(){
         return false;
       });
   });
+
 

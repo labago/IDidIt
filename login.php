@@ -5,6 +5,7 @@
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -23,7 +24,7 @@
 
 
 		<?php if(!isset($_POST['submit'])) { ?>		
-		    <form class="login-form" action="login.php" method="post" name="login_form">
+		    <form class="login-form" action="login.php" method="post" name="login_form" id="login_form">
 		    <?php if($error){ echo "<b>Incorrect Email or Password</b><br>";} ?>
 		    	Email: <br>
 		    	<input type="text" name="email"><br>

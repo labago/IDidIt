@@ -6,6 +6,7 @@
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/jquery.tokeninput.js"></script>
+	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/token-input.css" />
 	<body>
 		<?php include("Components/header.php"); ?>
@@ -31,13 +32,13 @@
 		 	</div>
 		 </div>
 		 <div class="add-goal-form">
-		    <form class="add-goal" action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data">
+		    <form class="add-goal" action="add-goal.php" method="post" name="add_goal_form" enctype="multipart/form-data" id="add_goal_form">
 		    	<h3 class="form-title">Personal</h3>
-		    	Title*: <span id="title" ></span><br>
-		    	<input type="text" name="title" onchange="check_el(this, 'title');"><br>
+		    	Title*: <br>
+		    	<input type="text" name="title" id="title"><br>
 		    	<div class="add-goal-form-personal">
-			    	Category*: <span id="cat" ></span><br>
-			    	<select name="cat" onchange="check_el(this, 'cat');">
+			    	Category*: <br>
+			    	<select name="cat" id="cat">
 			    		<option></option>
 			    		<option value="Resume Worthy">Resume Worthy</option>
 			    		<option value="Personal goal">Personal goal</option>
@@ -49,37 +50,37 @@
 			    	</select><br>
 		    	</div>
 		    	<div class="add-goal-form-professional">
-			    	Company: <span id="prof" ></span><br>
-			    	<input type="text" name="prof" onchange="check_el(this, 'prof');"><br>
+			    	Company: <br>
+			    	<input type="text" name="prof"><br>
 			    	<!-- The Chosen Category -->
 			    	<input type="hidden" name="cat" value="Professional" >
 		    	</div>
 		    	<div class="add-goal-form-educational">
-			    	School/College/University: <span id="school" ></span><br>
-			    	<input type="text" name="school" onchange="check_el(this, 'school');"><br>
+			    	School/College/University: <br>
+			    	<input type="text" name="school"><br>
 			    	<!-- The Chosen Category -->
 			    	<input type="hidden" name="cat" value="Educational" >
 		    	</div>
 		    	<div class="add-goal-form-philanthropic">
-			    	Orginization: <span id="org" ></span><br>
-			    	<input type="text" name="org" onchange="check_el(this, 'org');"><br>
+			    	Orginization: <br>
+			    	<input type="text" name="org"><br>
 			    	<!-- The Chosen Category -->
 			    	<input type="hidden" name="cat" value="Educational" >
 		    	</div>
-		    	Date Started*: <span id="date" ></span><br>
-		    	<input type="date" name="date_s" onchange="check_el(this, 'date');"><br>
+		    	Date Started*: <br>
+		    	<input type="date" name="date_s" id="date_s"><br>
 		    	Date Ended: <br>
 		    	<input type="date" name="date_e"><br>
 		    	Picture: <br>
 		    	<input id="local" type="file" name="pic" size="10000000"><br>
 		    	YouTube Video: <br>
 		    	<input type="text" name="youtube"><br>    
-		    	Description*: <span id="desc" ></span><br>
-		    	<textarea type="text" name="desc" onchange="check_el(this, 'desc');"></textarea><br>
-		    	Witness: <span id="witness" ></span><br>
-		    	<input type="text" name="witness" id="query" onchange="check_el(this, 'witness');"/>
+		    	Description*: <br>
+		    	<textarea type="text" name="desc" id="desc"></textarea><br>
+		    	Witness: <br>
+		    	<input type="text" name="witness" id="query"/>
 		 
-		    	<input type="submit" name="submit" value="Add Goal" onclick="return check_add_goal_form(document.add_goal_form);">
+		    	<input type="submit" name="submit" value="Add Goal">
 		    </form>
 		</div>
 		    <br>

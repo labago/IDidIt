@@ -15,7 +15,7 @@
 				<br><br>
 
 		<?php if(!isset($_POST['submit'])) { ?>		
-		    <form class="sign-up" action="sign-up.php" method="post" name="sign_up_form" id="commentForm">
+		    <form class="sign-up" action="sign-up.php" method="post" name="sign_up_form" id="sign_up_form">
 		    	First Name <br>
 		    	<input type="text" name="fname" id="fname"><br>
 		    	Last Name:<br>
@@ -29,36 +29,9 @@
 		    	<input type="password" name="pass_first" id="pass_first"><br>
 		    	Password Confirmation:<br>
 		    	<input type="password" name="pass_second" id="pass_second"><br>
-		    	<b id="pass3"></b>
 				<input type="hidden" name="valid_email" id="valid_email" value="">
 		    	<input type="submit" name="submit" value="Sign Up">
 		    </form>
-
-		    <script>
-		       // for sign up form
-		      jQuery.validator.addMethod("emailcheck", function(value, element) { 
-		          check_email();
-		        return (document.getElementById("valid_email").value == 'true');
-		      }, "Email is already in use");
-
-		        $("#commentForm").validate({
-		        rules: {
-		          fname: "required",
-		          lname: "required",
-		          email_first: "required",
-		          email_first: "emailcheck",
-		          email_second: "required",
-		          email_second: {
-		            equalTo: "#email_first"
-		          },
-		          pass_first: "required",
-		          pass_second: "required",
-		          pass_second: {
-		            equalTo: "#pass_first"
-		          }
-		        }
-		      });
-		    </script>
 		    <br>
 			<?php } else { 
 
