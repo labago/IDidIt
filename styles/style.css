@@ -540,7 +540,7 @@
 }
 
 .row-large-single{
-	width: 24%;
+	width: 25%;
 	height: 100%;
 	border: 1px solid white;
 	display: inline-block;
@@ -548,18 +548,38 @@
 
 .row-large-single img{
 	height: 100%;
+	text-align: center;
+}
+
+.row-large-single a{
+	color: black;
+	text-decoration: none;
+}
+
+.row-half-single-wrapper{
+	width: 10%;
+	height: 100%;
+	display: inline-block;
 }
 
 .row-half-single{
-	width: 10%;
+	width: 100%;
 	height: 50%;
 	border: 1px solid white;
-	display: inline-block;
 	vertical-align: top;
 }
 
 .row-half-single img{
 	height: 100%;
+}
+
+.panel-content{
+	border:3px solid green;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	vertical-align: bottom;
+	text-align: ;
 }
 
 

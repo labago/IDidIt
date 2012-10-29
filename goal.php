@@ -41,77 +41,7 @@
 
 				echo '<div class="space"></div>';
 				echo '<div class="space"></div>';
-				echo '<div class="goal">';
-					echo '<div class="goal_column">';
-						echo '<a href="goal.php?id='.$goal[8].'"><h1>'.html_entity_decode($goal[0]).'</h1></a><p>'.html_entity_decode($goal[3]).'</p>';
-						echo '<div class="witness">';
-							echo '<h2>Witnesses</h2>';
-
-						if($goal[6] != '')
-						{
-							$witnesses = explode(',', $goal[6]);
-
-							foreach ($witnesses as $witness) 
-							{
-								$info = fetch_user_info_token($witness);
-
-								if(sizeof($info) > 0)
-									echo "<a href='profile.php?id=".$info[4]."'><img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''></a>";
-								else
-									echo "<img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
-							}
-						}
-						else
-						{
-							echo "No Witness Mentioned";
-						}
-						echo "</div>";
-						echo '<div class="witness">';
-							echo '<h2>Congratulators</h2>';
-
-						if($goal[9] != '')
-						{
-							$congradulator = explode(',', $goal[9]);
-
-							foreach ($congradulator as $congrats) {
-								$info = fetch_user_info($congrats);
-
-								echo "<a href='profile.php?id=".$info[4]."'><img src='".$info[5]."' alt=''></a>";
-							}
-						}
-						else
-						{
-							echo "No Congratulators Yet";
-						}
-						echo "</div>";
-					echo '</div>';
-					if($goal[4] != '')
-					{
-						echo '<div class="goal_column">';
-							echo '<img src="'.$goal[4].'">';
-						echo '</div>';
-						echo '<div class="goal_column">';
-							echo '<img src="'.$goal[4].'">';
-						echo '</div>';
-					}
-					echo '<div class="info">';
-						echo '<h3>Stats</h3>';
-						if($goal[9] != '')
-							echo 'Nods: <span id="'.$goal[8].'">'.sizeof(explode(",",$goal[9]))."</span>";
-						else
-							echo 'Nods: <span id="'.$goal[8].'">0'."</span>";
-						if($goal[6] != '')
-							echo 'Validators: '.sizeof(explode(",",$goal[6]));
-						else
-							echo 'Validators: 0';
-					echo '</div>';
-					if(isset($_COOKIE['user']) && (!$user_view) && (strpos($goal[9], $_COOKIE['user']) === false))
-					{
-						$user = "'".$_COOKIE['user']."'";
-						$goal_crypt = "'".$goal[8]."'";
-						echo '<div class="congrats-button"><a onclick="congrats('.$user.', '.$goal_crypt.', this); return false;" href="">Congratulate</a></div>';
-					}
-				echo '</div>';
+					gen_large_detailed_goal($goal);
 				echo '<div class="space"></div>';
 
 				// fb_pics view
@@ -185,15 +115,11 @@
 				echo '</div>';
 				echo '</div>';
 
-
-
-
-				 } else 
-					{ 
-
-						echo "Please <a href='login.php'>login</a> to view this page";
-
-					}
+				 } 
+				 else 
+				{ 
+					echo "Please <a href='login.php'>login</a> to view this page";
+				}
 			?>
 			</div>
 		</div>

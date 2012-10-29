@@ -228,6 +228,17 @@ function one_selected(){
       });
      }
 
+     $(".panel-content").hide();
+     $("div.row-large-single").hover(function(){
+        $(this).find("img").hide();
+        $(this).find("span.panel-content").show();
+      }, 
+      function(){
+        $(this).find("img").show();
+        $(this).find("span.panel-content").hide();
+      });
+     // END SLIDESHOW
+
       // NOTIFICATIONS
       $(".notification-overlay").hide();
       $(".notification-click").click( function(){
