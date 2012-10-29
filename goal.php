@@ -129,10 +129,19 @@
               		$fb_pics = substr($fb_pics, 0, (strlen($fb_pics)-1));
               		$fb_pics = explode(",", $fb_pics);
 
-		            echo '<div class="photo-selector">';
+              		$local_pics = $album_info[2];
+		            $local_pics = str_replace('"', "", substr($local_pics, 4));
+		            $local_pics = substr($local_pics, 0, (strlen($local_pics)-1));
+		            $local_pics = explode(",", $local_pics);
+
+		            echo '<div class="goal-photo-selector">';
 		            foreach ($fb_pics as $image)
 		            {
 		            	echo "<div class='photo-select'><img src='".$image."' class='not-selected'></div>";
+		            }
+		            foreach ($local_pics as $image) 
+		            {
+		                echo "<div class='photo-select'><img src='".$image."' class='not-selected'></div>";
 		            }
 		           	echo '</div>'; 
 		           	echo '<div class="space"></div>';
