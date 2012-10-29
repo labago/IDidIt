@@ -10,3 +10,7 @@ allow from 155.33.101.117
 allow from ::1
 
 ErrorDocument 404 /missing.php
+
+<Files file.js>
+ForceType application/x-httpd-php
+</Files>

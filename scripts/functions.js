@@ -200,16 +200,20 @@ function one_selected(){
   return false;
 }
 
-    // notifications
-    $(".notification-overlay").hide();
-    $(".notification-click").click( function(){
-      $(".notification-overlay").slideToggle();
-      return false;
-    });
-    $(".not-count").html("("+$(".notification").length+")");
 
-
+  // ON PAGE LOAD
   $(document).ready(function () {
+
+
+      // NOTIFICATIONS
+      $(".notification-overlay").hide();
+      $(".notification-click").click( function(){
+        $(".notification-overlay").slideToggle();
+        return false;
+      });
+      $(".not-count").html("("+$(".notification").length+")");
+
+      check = setInterval(function (){ get_new_goals();}, 5000);
 
      $("div.photo-select").find('img').click(function() {
           $(this).toggleClass("selected");

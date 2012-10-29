@@ -17,7 +17,7 @@
 		$count  = $db->db_num_rows($result);
 	?>
 
-	<body onload="check = setInterval(function (){ get_new_goals();}, 5000);">
+	<body>
 		<?php include("Components/header.php"); ?>
 
 		<div class="page">
