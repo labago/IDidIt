@@ -71,7 +71,7 @@
                 if(!isset($_GET['mode']))
                 {
                     $crypt = gen_rand_hex();  
-                    while(!check_crypt_album($crypt)) 
+                    while(!check_crypt($crypt, 'Album'))
                     {  
                       $crypt = gen_rand_hex();
                     }

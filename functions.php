@@ -55,13 +55,14 @@ function change_log_out_status_fb($crypt, $status)
 	$db->db_query($query);
 }
 
-function check_crypt_user($crypt)
+
+function check_crypt($crypt, $type)
 {
 	$db = new db_functions();
     $db->db_connect();
 
 	$query = "SELECT * 
-	FROM  `Users` 
+	FROM  `$type` 
 	WHERE  `Crypt` LIKE  '$crypt'
 	LIMIT 0 , 30";  
 	  
@@ -71,86 +72,6 @@ function check_crypt_user($crypt)
 	{
 		return false;  
 	}  
-	return true;
-}
-
-function check_crypt_goal($crypt)
-{
-	$db = new db_functions();
-    $db->db_connect();
-
-	$query = "SELECT * 
-	FROM  `Goal` 
-	WHERE  `Crypt` LIKE  '$crypt'
-	LIMIT 0 , 30";  
-	  
-	$result = $db->db_query($query);
-
-	if($db->db_num_rows($result) != 0)
-	{
-		return false;  
-	}  
-
-	return true;
-}
-
-function check_crypt_notification($crypt)
-{
-	$db = new db_functions();
-    $db->db_connect();
-
-	$query = "SELECT * 
-	FROM  `Notifications` 
-	WHERE  `Crypt` LIKE  '$crypt'
-	LIMIT 0 , 30";  
-	  
-	$result = $db->db_query($query);
-
-	if($db->db_num_rows($result) != 0)
-	{
-		return false;  
-	}  
-
-	return true;
-}
-
-function check_crypt_comment($crypt)
-{
-	$db = new db_functions();
-    $db->db_connect();
-
-	$query = "SELECT * 
-	FROM  `Comments` 
-	WHERE  `Crypt` LIKE  '$crypt'
-	LIMIT 0 , 30";  
-	  
-	$result = $db->db_query($query);
-
-	if($db->db_num_rows($result) != 0)
-	{
-		return false;  
-	}  
-
-	return true;
-}
-
-function check_crypt_album($crypt)
-{
-	$db = new db_functions();
-    $db->db_connect();
-
-	$query = "SELECT * 
-	FROM  `Album` 
-	WHERE  `Crypt` LIKE  '$crypt'
-	LIMIT 0 , 30";  
-	  
-	$result = $db->db_query($query);
-
-	if($db->db_num_rows($result) != 0)
-	{
-		return false;  
-	}  
-
 	return true;
 }
 
@@ -168,7 +89,7 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "", $acces
     $db->db_connect();
 
 	$crypt = gen_rand_hex();  
-	while(!check_crypt_user($crypt)) {  
+	while(!check_crypt($crypt, 'Users')) {  
 	$crypt = gen_rand_hex();
 	} 
 
@@ -325,7 +246,7 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
     $db->db_connect();
 
 	$crypt = gen_rand_hex();  
-	while(!check_crypt_goal($crypt)) {  
+	while(!check_crypt($crypt, 'Goal')) {  
 	$crypt = gen_rand_hex();
 	}
 
@@ -529,7 +450,7 @@ function add_comment($comment, $crypt_user, $crypt_goal)
 	$date = date('Y-m-d g-i-s', time()+(60*60*3)); 
 
 	$crypt = gen_rand_hex();  
-	while(!check_crypt_comment($crypt)) {  
+	while(!check_crypt($crypt, 'Comments')) {  
 	$crypt = gen_rand_hex();
 	}
 
@@ -669,7 +590,7 @@ function new_notification($user, $interact, $type, $object)
     $db->db_connect();
 
 	$crypt = gen_rand_hex();  
-	while(!check_crypt_notification($crypt)) {  
+	while(!check_crypt($crypt, 'Notifications')) {  
 	$crypt = gen_rand_hex();
 	}
 
