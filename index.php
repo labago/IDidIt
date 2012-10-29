@@ -2,9 +2,13 @@
 <html>
 	<title>IDidIt</title>
 	<head>
+		<link href="scripts/slideshow-test/css.css?20121002-1" rel="stylesheet" type="text/css" />
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/slideshow-test/second.js?20121016-1"></script>
+	<script type="text/javascript" src="scripts/slideshow-test/first.js?20121016-2"></script>
+	<script type="text/javascript" src="scripts/slideshow-test/easing.js"></script>
 	<?php
 
     	$db->db_connect();
@@ -14,64 +18,73 @@
 				ORDER BY `Date Posted` DESC";
 
 		$result = $db->db_query($query);
-		$count  = $db->db_num_rows($result);
 	?>
 
 	<body>
 		<?php include("Components/header.php"); ?>
 
+
 		<div class="page">
 			<div class="content">
 				<h1>Welcome to IDidIt.com!</h1>
 				<br><br><br>
-				<div id="stream" class="stream">
-					<?php
 
-						$float = false;
-						$small = true;
-						$break = false;
-						while($row = $db->db_fetch_row($result))
-						{
-							if($small)
-							{
-								for ($i=0; $i < 2; $i++) 
-								{ 
-									if(!$float)
-										echo '<div class="stream-goal-small-wrapper">';
+				<div id="cpwm_hero_wrapper">
+					<a href="#" class="arrow prev" id="arrowleft"></a>
+				  	<div id=transleft class="trans" ></div>
+				  	<div id=transright class="trans" ></div>
+					<a href="#" class="next arrow" id="arrowright"></a>
+					<div class="homeslider" id="cpwm_hero_slider">
+						<div class="preload" id="preloadimgs"><img src="test-images/trans.png"/><img src="test-images/trans2.png"/></div>
+						<ul>
+							<li>
+								<?php
 
-									gen_small_goal($row, $float);
-
-									if($float)
+									$goals = array();
+									while($row = $db->db_fetch_row($result))
 									{
-										echo '<div style="display: block; clear: both;"></div>';
+										array_push($goals, $row);	
+									}
+
+									echo '<div class="intracite-wrapper">';
+										echo '<div class="row">';
+											echo '<div class="row-large-single">';
+												echo '<img src="'.$goals[0][4].'">';
+											echo '</div>';
+											echo '<div class="row-large-single">';
+												echo '<img src="'.$goals[1][4].'">';
+											echo '</div>';
 										echo '</div>';
-										echo '<div class="space"></div>';
-									}
+										echo '<div class="row">';
+											echo '<div class="row-large-single">';
+												echo '<img src="'.$goals[2][4].'">';
+											echo '</div>';
+											echo '<div class="row-large-single">';
+												echo '<img src="'.$goals[3][4].'">';
+											echo '</div>';
+										echo '</div>';
+										echo '<div class="row">';
+											echo '<div class="row-large-single">';
+												echo '<img src="'.$goals[2][4].'">';
+											echo '</div>';
+											echo '<div class="row-large-single">';
+												echo '<img src="'.$goals[3][4].'">';
+											echo '</div>';
+											echo '<div class="row-half-single">';
+												echo '<img src="'.$goals[4][4].'">';
+											echo '</div>';
+										echo '</div>';
+									echo '</div>';											
+								?>
+							</li>
+					    </ul>
+					</div>
+				</div>
 
-									$float = !$float;
+				<br><br><br>
 
-									if($i != 1 && !($row = $db->db_fetch_row($result)))
-									{
-										break 2;
-									}
-								}
-							}
-							else
-							{
-								gen_large_goal($row);
-							}
+				<div id="stream" class="stream">
 
-							$small = !$small;
-						}
-
-						// if a second column was not placed close up the loose end
-						if($float)
-						{
-							echo '<div style="display: block; clear: both;"></div>';
-							echo '</div>';
-							echo '<div class="space"></div>';
-						}
-					?>
 				</div>
 
 				<div class="users">

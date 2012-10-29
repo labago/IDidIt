@@ -38,30 +38,30 @@ $.fn.jCarousel = function(o) {
 	div.css("visibility", "hidden");
 
 
-	buttons = $('<div/>', {id:"pagebuttons"}).css({width: tl*38+"px",  textAlign: "center",  margin: "auto"});
+	// buttons = $('<div/>', {id:"pagebuttons"}).css({width: tl*38+"px",  textAlign: "center",  margin: "auto"});
 
-	for (var i=0; i<tl;i++) {
-		var btn = $('<div/>', {id: "slide"+i}).css({cursor:"pointer", background: "url(test-images/button_sm4.png) no-repeat center bottom", height: 24, width: 24, margin: 2, float: "left"});
-		btn.click(function () {			
-			suspendAuto();
-			o.auto = false;
-			go((parseInt(this.id.replace(/slide/,''))+1), true)
-		});
-		btn.mouseover(function () {
-			if ($(this).css("backgroundPosition")!="50% 0%") $(this).css("backgroundPosition","50% 50%");
-		});
-		btn.mouseout(function () {
-			setButtonStates()
-		});
+	// for (var i=0; i<tl;i++) {
+	// 	var btn = $('<div/>', {id: "slide"+i}).css({cursor:"pointer", background: "url(test-images/button_sm4.png) no-repeat center bottom", height: 24, width: 24, margin: 2, float: "left"});
+	// 	btn.click(function () {			
+	// 		suspendAuto();
+	// 		o.auto = false;
+	// 		go((parseInt(this.id.replace(/slide/,''))+1), true)
+	// 	});
+	// 	btn.mouseover(function () {
+	// 		if ($(this).css("backgroundPosition")!="50% 0%") $(this).css("backgroundPosition","50% 50%");
+	// 	});
+	// 	btn.mouseout(function () {
+	// 		setButtonStates()
+	// 	});
 
-		buttons.append(btn);
-	}
-	buttons.append($('<br clear="both"/>'));
-	$(div).append(
-		$('<div/>', {id:"buttoncontainer"})
-			.css({position: "absolute",zIndex: 25,width:"100%", bottom: "10px"})
-			.append(buttons)							
-	);
+	// 	buttons.append(btn);
+	// }
+	// buttons.append($('<br clear="both"/>'));
+	// $(div).append(
+	// 	$('<div/>', {id:"buttoncontainer"})
+	// 		.css({position: "absolute",zIndex: 25,width:"100%", bottom: "10px"})
+	// 		.append(buttons)							
+	// );
 
 
 // sanitize slideH

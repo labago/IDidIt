@@ -39,7 +39,6 @@
 .disabled {display:none;}
 .homeslider {position:relative; visibility:hidden}
 .homeslider ul {position:relative}
-.homeslider li {position:relative; float:left; overflow: hidden;padding:0; margin:0; text-align:left;}
 .homeslider .preload {height0px; position:absolute;}
 .trans {z-index: 10; position:absolute; width:337px;}
 #transleft {left:0; background:url(../../test-images/trans.png) repeat-y left}

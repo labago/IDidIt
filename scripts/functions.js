@@ -204,6 +204,29 @@ function one_selected(){
   // ON PAGE LOAD
   $(document).ready(function () {
 
+    if($.isFunction($.fn.cpwmHpCarousel))
+    {
+      // FOR SLIDESHOW
+      $("div#cpwm_hero_wrapper").insertBefore($(".mainLayoutTable"));
+
+       $(function() {
+         $("#cpwm_hero_wrapper").cpwmHpCarousel({
+          CE: false,
+          auto: "once",
+          autointerval: 3000,
+          delay: 1000,
+          autopause: 1,
+          speed: 1000,
+          easing: "easeOutQuint", //"easeOutExpo", //"easeInOutQuart", // see http://jqueryui.com/demos/effect/easing.html
+          start: 0,
+          scroll: 1,
+          slideH: 450,
+          slideW: 960,
+          showLoading: ".showLoading",
+          visible: 5
+          });
+      });
+     }
 
       // NOTIFICATIONS
       $(".notification-overlay").hide();
@@ -213,7 +236,7 @@ function one_selected(){
       });
       $(".not-count").html("("+$(".notification").length+")");
 
-      check = setInterval(function (){ get_new_goals();}, 5000);
+      //check = setInterval(function (){ get_new_goals();}, 5000);
 
      $("div.photo-select").find('img').click(function() {
           $(this).toggleClass("selected");

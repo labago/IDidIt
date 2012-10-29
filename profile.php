@@ -2,9 +2,13 @@
 <html>
 	<title>IDidIt</title>
 	<head>
+		<link href="scripts/slideshow-test/css.css?20121002-1" rel="stylesheet" type="text/css" />
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/slideshow-test/second.js?20121016-1"></script>
+	<script type="text/javascript" src="scripts/slideshow-test/first.js?20121016-2"></script>
+	<script type="text/javascript" src="scripts/slideshow-test/easing.js"></script>
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -28,106 +32,33 @@
 				   	$goals = fetch_user_goals($_GET['id']);
 				else
 					$goals = fetch_user_goals($_COOKIE['user']);
+			?>
 
-				if(isset($_COOKIE['user']) && ((!isset($_GET['id'])) || $_GET['id'] == $_COOKIE['user']))
-				{ ?>
-					<a href="add-goal.php"><input type="button" value="Add Achievement"></a>
-				<?php }
-
-				foreach($goals as $goal)
-				{
-					echo '<div class="goal">';
-						echo '<div class="goal_column">';
-							echo '<a href="goal.php?id='.$goal[8].'"><h1>'.html_entity_decode($goal[0]).'</h1></a><p>'.html_entity_decode($goal[3]).'</p>';
-							echo '<div class="witness">';
-								echo '<h2>Witnesses</h2>';
-
-							if($goal[6] != '')
-							{
-								$witnesses = explode(',', $goal[6]);
-
-								foreach ($witnesses as $witness) 
+				<div id="cpwm_hero_wrapper">
+					<a href="#" class="arrow prev" id="arrowleft"></a>
+				  	<div id=transleft class="trans" ></div>
+				  	<div id=transright class="trans" ></div>
+					<a href="#" class="next arrow" id="arrowright"></a>
+					<div class="homeslider" id="cpwm_hero_slider">
+						<div class="preload" id="preloadimgs"><img src="test-images/trans.png"/><img src="test-images/trans2.png"/></div>
+						<ul>
+							<?php
+								foreach($goals as $goal)
 								{
-									$info = fetch_user_info_token($witness);
-
-									if(sizeof($info) > 0)
-										echo "<a href='profile.php?id=".$info[4]."'><img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''></a>";
-									else
-										echo "<img src='http://graph.facebook.com/".$witness."/picture?type=square' alt=''>";
+									echo "<li>";
+										gen_large_detailed_goal($goal);
+									echo "</li>";
 								}
-							}
-							else
-							{
-									echo "No Witness Mentioned";
-							}
-							echo "</div>";
-							echo '<div class="witness">';
-							echo '<h2>Congratulators</h2>';
-
-							if($goal[9] != '')
-							{
-								$congradulator = explode(',', $goal[9]);
-
-								foreach ($congradulator as $congrats) {
-									$info = fetch_user_info($congrats);
-
-									echo "<a href='profile.php?id=".$info[4]."'><img src='".$info[5]."' alt=''></a>";
-								}
-							}
-							else
-							{
-								echo "No Congratulators Yet";
-							}
-						echo "</div>";
-						echo '</div>';
-						if($goal[4] != '')
-						{
-							echo '<div class="goal_column">';
-								echo '<img src="'.$goal[4].'">';
-							echo '</div>';
-							echo '<div class="goal_column">';
-								echo '<img src="'.$goal[4].'">';
-							echo '</div>';
-						}
-						echo '<div class="info">';
-							echo '<h3>Stats</h3>';
-							if($goal[9] != '')
-								echo 'Nods: <span id="'.$goal[8].'">'.sizeof(explode(",",$goal[9]))."</span>";
-							else
-								echo 'Nods: <span id="'.$goal[8].'">0'."</span>";
-							if($goal[6] != '')
-								echo 'Validators: '.sizeof(explode(",",$goal[6]));
-							else
-								echo 'Validators: 0';
-						echo '</div>';
-						if(isset($_COOKIE['user']) && (isset($_GET['id'])) && (strpos($goal[9], $_COOKIE['user']) === false) && ($_GET['id'] != $_COOKIE['user']))
-						{
-							$user = "'".$_COOKIE['user']."'";
-							$goal_crypt = "'".$goal[8]."'";
-							echo '<div class="congrats-button"><a onclick="congrats('.$user.', '.$goal_crypt.', this); return false;" href="">Congratulate</a></div>';
-						}
-
-						$album_info = fetch_album($goal[8]);
-						if(isset($_COOKIE['user']) && ((!isset($_GET['id'])) || $_GET['id'] == $_COOKIE['user']))
-						{
-							if(!isset($album_info[1]))
-								echo '<a href="add_album.php?g='.$goal[8].'">Add Album</a>';
-							else
-								echo '<a href="add_album.php?g='.$goal[8].'&id='.$album_info[6].'&mode=edit">Edit Album</a>';
-						}
-						else if(isset($album_info[1]))
-							echo '<a href="view_album.php?g='.$goal[8].'">View Album</a>';
-						echo '</div>';
-						echo '<div class="space"></div>';
-					}
-
-
-			} else 
-					{ 
-
-						echo "Please <a href='login.php'>login</a> to view your profile";
-
-					}
+							?>
+					   </ul>
+					</div>
+				</div>
+			<?php
+			} 
+			else 
+			{ 
+				echo "Please <a href='login.php'>login</a> to view your profile";
+			}
 			?>
 			</div>
 		</div>
