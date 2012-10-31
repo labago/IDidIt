@@ -2,13 +2,14 @@
 <html>
 	<title>IDidIt</title>
 	<head>
-		<link href="scripts/slideshow-test/css.css?20121002-1" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="scripts/slideshow/demos/css/page.css">
+		<link rel="stylesheet" href="scripts/slideshow/css/anythingslider.css">
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
-	<script type="text/javascript" src="scripts/slideshow-test/second.js?20121016-1"></script>
-	<script type="text/javascript" src="scripts/slideshow-test/first.js?20121016-2"></script>
-	<script type="text/javascript" src="scripts/slideshow-test/easing.js"></script>
+	<script src="scripts/slideshow/js/jquery.anythingslider.js"></script>
+	<script src="scripts/slideshow/js/jquery.anythingslider.fx.min.js"></script>
+	<script src="scripts/slideshow/js/jquery.easing.1.2.js"></script> 
 	<?php
 
     	$db->db_connect();
@@ -29,100 +30,223 @@
 				<h1>Welcome to IDidIt.com!</h1>
 				<br><br><br>
 
-				<div id="cpwm_hero_wrapper">
-					<a href="#" class="arrow prev" id="arrowleft"></a>
-				  	<div id=transleft class="trans" ></div>
-				  	<div id=transright class="trans" ></div>
-					<a href="#" class="next arrow" id="arrowright"></a>
-					<div class="homeslider" id="cpwm_hero_slider">
-						<div class="preload" id="preloadimgs"><img src="test-images/trans.png"/><img src="test-images/trans2.png"/></div>
-						<ul>
-							<li>
-								<?php
+				<style>
+				#slider { width: 960px; height: 450px; }
+				#slider .panel { position: relative; } 
+				 #slider .caption-top, #slider .caption-right, 
+				 #slider .caption-bottom, #slider .caption-left { 
+				  background: #000; 
+				  color: #fff; 
+				  padding: 10px; 
+				  margin: 0; 
+				  position: relative; 
+				  z-index: 10; 
+				  opacity: .8; 
+				  filter: alpha(opacity=80); 
+				 } 
+				#slider .caption-right { 
+				  right: 0 !important;
+				  bottom: 0; 
+				  width: 130px; 
+				  height: 180px; 
+				 } 
+				 #slider .caption-left { 
+				  right: 0; 
+				  bottom: 0; 
+				  width: 130px; 
+				  height: 180px; 
+				 } 
+				  #slider .caption-top { 
+				  left: 0; 
+				  top: 0; 
+				  width: 480px; 
+				  height: 30px; 
+				 } 
+				 .caption-top .close, .caption-right .close, 
+				 .caption-bottom .close, .caption-left .close { 
+				  font-size: 80%; 
+				  cursor: pointer; 
+				  float: right; 
+				  display: inline-block; 
+				 }
+				</style>
 
-									$goals = array();
-									while($row = $db->db_fetch_row($result))
-									{
-										array_push($goals, $row);	
-									}
+				<script>
+					// DOM Ready
+				$(function(){
+					$('#slider').anythingSlider({toggleArrows: true, expand: false, buildNavigation: false, buildStartStop: false})
+						.anythingSliderFx({
+							'.caption-right'  : [ 'caption-Right', '130px', '1000', 'easeOutBounce' ],
+							'.caption-top'    : [ 'caption-Top', '50px' ],
+							'.caption-left'   : [ 'caption-Left', '130px', '1000', 'easeOutBounce' ]
+						})
+					});
+				</script>
 
-									echo '<div class="intracite-wrapper">';
-										echo '<div class="row">';
-											echo '<div class="row-half-single-wrapper">';
-												echo '<div class="row-half-single">';
-													echo '<img src="'.$goals[0][4].'">';
-												echo '</div>';
-												echo '<div class="row-half-single">';
-													echo '<img src="'.$goals[0][4].'">';
-												echo '</div>';
-											echo '</div>';
-											echo '<div class="row-large-single">';
-												echo '<img src="'.$goals[0][4].'">';
-											echo '</div>';
-											echo '<div class="row-large-single">';
-												echo '<img src="'.$goals[0][4].'">';
-											echo '</div>';
-										echo '</div>';
-										echo '<div class="row">';
-											echo '<div class="row-large-single">';
-												echo '<img src="'.$goals[0][4].'">';
-											echo '</div>';
-											echo '<div class="row-half-single-wrapper">';
-												echo '<div class="row-half-single">';
-													echo '<img src="'.$goals[0][4].'">';
-													echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
-														echo $goals[0][3];
-													echo '</span></a>';
-												echo '</div>';
-												echo '<div class="row-half-single">';
-													echo '<img src="'.$goals[0][4].'">';
-													echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
-														echo $goals[0][3];
-													echo '</span></a>'; 
-												echo '</div>';
-											echo '</div>';
-											echo '<div class="row-large-single">';
-												echo '<img src="'.$goals[0][4].'">';
+				<ul id="slider">
 
-												echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
-														echo $goals[0][3];
-												echo '</span></a>';
-											echo '</div>';
-										echo '</div>';
-										echo '<div class="row">';
-											echo '<div class="row-large-single">';
-												echo '<img src="'.$goals[0][4].'">';
-												echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
-														echo $goals[0][3];
-												echo '</span></a>';
-											echo '</div>';
-											echo '<div class="row-large-single">';
-												echo '<img src="'.$goals[0][4].'">';
-												echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
-														echo $goals[0][3];
-												echo '</span></a>';
-											echo '</div>';
-											echo '<div class="row-half-single-wrapper">';
-												echo '<div class="row-half-single">';
-													echo '<img src="'.$goals[0][4].'">';
-													echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
-														echo $goals[0][3];
-													echo '</span></a>';
-												echo '</div>';
-												echo '<div class="row-half-single">';
-													echo '<img src="'.$goals[0][4].'">';
-													echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
-														echo $goals[0][3];
-													echo '</span></a>';
-												echo '</div>';
-											echo '</div>';
-										echo '</div>';
-									echo '</div>';											
-								?>
-							</li>
-					    </ul>
-					</div>
-				</div>
+					<li>
+						<?php
+
+						$goals = array();
+						while($row = $db->db_fetch_row($result))
+						{
+							array_push($goals, $row);	
+						}
+							echo '<div class="row">';
+								echo '<div class="row-half-single-wrapper">';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+									echo '</div>';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+									echo '</div>';
+								echo '</div>';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+								echo '</div>';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+								echo '</div>';
+							echo '</div>';
+							echo '<div class="row">';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+								echo '</div>';
+								echo '<div class="row-half-single-wrapper">';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>';
+									echo '</div>';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>'; 
+									echo '</div>';
+								echo '</div>';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+
+									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+									echo '</span></a>';
+								echo '</div>';
+							echo '</div>';
+							echo '<div class="row">';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+									echo '</span></a>';
+								echo '</div>';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+									echo '</span></a>';
+								echo '</div>';
+								echo '<div class="row-half-single-wrapper">';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>';
+									echo '</div>';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>';
+									echo '</div>';
+								echo '</div>';
+							echo '</div>';										
+					?>
+						<div class="caption-top"> 
+					    	These are the top achievements
+					   </div> 
+					</li>
+					<li>
+						<?php				
+							echo '<div class="row">';
+								echo '<div class="row-half-single-wrapper">';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+									echo '</div>';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+									echo '</div>';
+								echo '</div>';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+								echo '</div>';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+								echo '</div>';
+							echo '</div>';
+							echo '<div class="row">';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+								echo '</div>';
+								echo '<div class="row-half-single-wrapper">';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>';
+									echo '</div>';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>'; 
+									echo '</div>';
+								echo '</div>';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+
+									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+									echo '</span></a>';
+								echo '</div>';
+							echo '</div>';
+							echo '<div class="row">';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+									echo '</span></a>';
+								echo '</div>';
+								echo '<div class="row-large-single">';
+									echo '<img src="'.$goals[0][4].'">';
+									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+									echo '</span></a>';
+								echo '</div>';
+								echo '<div class="row-half-single-wrapper">';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>';
+									echo '</div>';
+									echo '<div class="row-half-single">';
+										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>';
+									echo '</div>';
+								echo '</div>';
+							echo '</div>';
+					?>
+						<div class="caption-right"> 
+					    These are the top achievements
+					   </div> 
+					</li>
+
+				</ul>
 
 				<br><br><br>
 
