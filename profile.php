@@ -2,13 +2,14 @@
 <html>
 	<title>IDidIt</title>
 	<head>
-		<link href="scripts/slideshow-test/css.css?20121002-1" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="scripts/slideshow/demos/css/page.css">
+		<link rel="stylesheet" href="scripts/slideshow/css/anythingslider.css">
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
-	<script type="text/javascript" src="scripts/slideshow-test/second.js?20121016-1"></script>
-	<script type="text/javascript" src="scripts/slideshow-test/first.js?20121016-2"></script>
-	<script type="text/javascript" src="scripts/slideshow-test/easing.js"></script>
+	<script src="scripts/slideshow/js/jquery.anythingslider.js"></script>
+	<script src="scripts/slideshow/js/jquery.anythingslider.fx.min.js"></script>
+	<script src="scripts/slideshow/js/jquery.easing.1.2.js"></script> 
 	<body>
 		<?php include("Components/header.php"); ?>
 
@@ -34,25 +35,27 @@
 					$goals = fetch_user_goals($_COOKIE['user']);
 			?>
 
-				<div id="cpwm_hero_wrapper">
-					<a href="#" class="arrow prev" id="arrowleft"></a>
-				  	<div id=transleft class="trans" ></div>
-				  	<div id=transright class="trans" ></div>
-					<a href="#" class="next arrow" id="arrowright"></a>
-					<div class="homeslider" id="cpwm_hero_slider">
-						<div class="preload" id="preloadimgs"><img src="test-images/trans.png"/><img src="test-images/trans2.png"/></div>
-						<ul>
-							<?php
-								foreach($goals as $goal)
-								{
-									echo "<li>";
-										gen_large_detailed_goal($goal);
-									echo "</li>";
-								}
-							?>
-					   </ul>
-					</div>
-				</div>
+				<style>
+				#slider { width: 960px; height: 450px; }
+				</style>
+
+				<script>
+					// DOM Ready
+				$(function(){
+					$('#slider').anythingSlider({toggleArrows: true, expand: false, buildNavigation: false, buildStartStop: false});
+				});
+				</script>
+
+				<ul id="slider">
+					<?php
+						foreach($goals as $goal)
+						{
+							echo "<li>";
+								gen_large_detailed_goal($goal);
+							echo "</li>";
+						}
+					?>
+			    </ul>
 			<?php
 			} 
 			else 

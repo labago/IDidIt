@@ -32,55 +32,13 @@
 
 				<style>
 				#slider { width: 960px; height: 450px; }
-				#slider .panel { position: relative; } 
-				 #slider .caption-top, #slider .caption-right, 
-				 #slider .caption-bottom, #slider .caption-left { 
-				  background: #000; 
-				  color: #fff; 
-				  padding: 10px; 
-				  margin: 0; 
-				  position: relative; 
-				  z-index: 10; 
-				  opacity: .8; 
-				  filter: alpha(opacity=80); 
-				 } 
-				#slider .caption-right { 
-				  right: 0 !important;
-				  bottom: 0; 
-				  width: 130px; 
-				  height: 180px; 
-				 } 
-				 #slider .caption-left { 
-				  right: 0; 
-				  bottom: 0; 
-				  width: 130px; 
-				  height: 180px; 
-				 } 
-				  #slider .caption-top { 
-				  left: 0; 
-				  top: 0; 
-				  width: 480px; 
-				  height: 30px; 
-				 } 
-				 .caption-top .close, .caption-right .close, 
-				 .caption-bottom .close, .caption-left .close { 
-				  font-size: 80%; 
-				  cursor: pointer; 
-				  float: right; 
-				  display: inline-block; 
-				 }
 				</style>
 
 				<script>
 					// DOM Ready
 				$(function(){
-					$('#slider').anythingSlider({toggleArrows: true, expand: false, buildNavigation: false, buildStartStop: false})
-						.anythingSliderFx({
-							'.caption-right'  : [ 'caption-Right', '130px', '1000', 'easeOutBounce' ],
-							'.caption-top'    : [ 'caption-Top', '50px' ],
-							'.caption-left'   : [ 'caption-Left', '130px', '1000', 'easeOutBounce' ]
-						})
-					});
+					$('#slider').anythingSlider({toggleArrows: true, expand: false, buildNavigation: false, buildStartStop: false});
+				});
 				</script>
 
 				<ul id="slider">
@@ -129,7 +87,6 @@
 								echo '</div>';
 								echo '<div class="row-large-single">';
 									echo '<img src="'.$goals[0][4].'">';
-
 									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
 											echo $goals[0][3];
 									echo '</span></a>';
@@ -164,9 +121,6 @@
 								echo '</div>';
 							echo '</div>';										
 					?>
-						<div class="caption-top"> 
-					    	These are the top achievements
-					   </div> 
 					</li>
 					<li>
 						<?php				
@@ -174,16 +128,28 @@
 								echo '<div class="row-half-single-wrapper">';
 									echo '<div class="row-half-single">';
 										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>';
 									echo '</div>';
 									echo '<div class="row-half-single">';
 										echo '<img src="'.$goals[0][4].'">';
+										echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+											echo $goals[0][3];
+										echo '</span></a>';
 									echo '</div>';
 								echo '</div>';
 								echo '<div class="row-large-single">';
 									echo '<img src="'.$goals[0][4].'">';
+									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+										echo $goals[0][3];
+									echo '</span></a>';
 								echo '</div>';
 								echo '<div class="row-large-single">';
 									echo '<img src="'.$goals[0][4].'">';
+									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
+										echo $goals[0][3];
+									echo '</span></a>';
 								echo '</div>';
 							echo '</div>';
 							echo '<div class="row">';
@@ -206,7 +172,6 @@
 								echo '</div>';
 								echo '<div class="row-large-single">';
 									echo '<img src="'.$goals[0][4].'">';
-
 									echo '<a href="goal.php?id='.$goals[0][8].'"><span class="panel-content">';
 											echo $goals[0][3];
 									echo '</span></a>';
@@ -241,9 +206,6 @@
 								echo '</div>';
 							echo '</div>';
 					?>
-						<div class="caption-right"> 
-					    These are the top achievements
-					   </div> 
 					</li>
 
 				</ul>
