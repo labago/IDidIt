@@ -546,7 +546,7 @@
 
 .row-large-single img{
 	height: 100%;
-	text-align: center;
+	width: 100%;
 }
 
 .row-large-single a{
@@ -569,6 +569,7 @@
 
 .row-half-single img{
 	height: 100%;
+	width: 100%;
 }
 
 .panel-content{

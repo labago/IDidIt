@@ -239,7 +239,7 @@ function is_user_goal($crypt, $user)
 
 }
 
-function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $category, $witness, $youtube, $org = '', $prof = '', $school = '')
+function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $category, $witness, $youtube, $org = '', $prof = '', $school = '', $thumbnail)
 {
 
 	$db = new db_functions();
@@ -263,10 +263,11 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
 			`Youtube`,
 			`School`,
 			`Orginization`,
-			`Company`
+			`Company`,
+			`Thumbnail`
 			)
 			VALUES (
-			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt', '$witness', '$youtube', '$school', '$org', '$prof'
+			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt', '$witness', '$youtube', '$school', '$org', '$prof', '$thumbnail'
 			);";
 
 	$db->db_query($query);
@@ -502,7 +503,7 @@ function gen_small_goal($row, $float)
 		echo '<div class="stream-goal-small" style="float: left;">';
 
 		echo '<a href="goal.php?id='.$row[8].'"><h2>'.html_entity_decode($row[0])."</h2></a>";
-		echo '<img src="'.$row[4].'">';
+		echo '<img src="'.$row[16].'">';
 		echo '<div class="small-space"></div>';
 	echo '</div>';
 }
@@ -585,7 +586,7 @@ function gen_large_detailed_goal($goal)
 				echo 'Validators: 0';
 		echo '</div>';
 		echo '</div>';
-		if(isset($_COOKIE['user']) && (isset($_GET['id'])) && (strpos($goal[9], $_COOKIE['user']) === false) && ($_GET['id'] != $_COOKIE['user']))
+		if(isset($_COOKIE['user']) && (isset($_GET['id'])) && (strpos($goal[9], $_COOKIE['user']) === false) && ($_GET['id'] != $_COOKIE['user']) && $_COOKIE['user'] != $goal[5])
 		{
 			$user = "'".$_COOKIE['user']."'";
 			$goal_crypt = "'".$goal[8]."'";
