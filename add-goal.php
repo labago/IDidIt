@@ -116,7 +116,11 @@
 
 				move_uploaded_file($_FILES["pic"]["tmp_name"], "uploads/" . $pic_name);
 
-				$pic_name = "http://www.i-did-it.net/uploads/".$pic_name;
+				$temp_pic_name = $pic_name;
+				$temp = "uploads/".$pic_name;
+				$pic_name = "http://www.localhost/IDidIt/uploads/".$pic_name;
+
+				make_thumb($temp, "uploads/thumbnails/".$temp_pic_name, 100);
 
 				//need to update database here and refresh page
 				}
@@ -149,7 +153,7 @@
 					break;
 			}
 
-			echo '<META HTTP-EQUIV="Refresh" Content="0; URL=profile.php">'; 
+			//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=profile.php">'; 
 
 		}
 
