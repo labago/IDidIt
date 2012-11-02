@@ -1,4 +1,5 @@
 <?php
+// functions file
 include("resources/db.php");
 include("facebook_checks.php");
 record_visit();
