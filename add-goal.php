@@ -116,11 +116,11 @@
 
 				move_uploaded_file($_FILES["pic"]["tmp_name"], "uploads/" . $pic_name);
 
-				$temp_pic_name = $pic_name;
 				$temp = "uploads/".$pic_name;
-				$pic_name = "http://www.localhost/IDidIt/uploads/".$pic_name;
+				$thumbnail = "uploads/thumbnails/".$pic_name;
+				$pic_name = "uploads/".$pic_name;
 
-				make_thumb($temp, "uploads/thumbnails/".$temp_pic_name, 100);
+				make_thumb($temp, $thumbnail, 100);
 
 				//need to update database here and refresh page
 				}
@@ -133,27 +133,28 @@
 			else
 			{
 				$pic_name = '';
+				$thumbnail = '';
 			}
 
 			switch ($category) {
 				case 'Philanthropic':
-					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, $org);
+					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, $org, '', '', $thumbnail);
 					break;
 
 				case 'Professional':
-					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, '', $prof);
+					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, '', $prof, '', $thumbnail);
 					break;
 				
 				case 'Educational':
-					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, '', '', $school);
+					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, '', '', $school, $thumbnail);
 					break;
 
 				default:
-					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube);
+					add_new_goal($title, $date_s, $date_e, $pic_name, $desc, $crypt, $category, $witness, $youtube, '', '', '', $thumbnail);
 					break;
 			}
 
-			//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=profile.php">'; 
+			echo '<META HTTP-EQUIV="Refresh" Content="0; URL=profile.php">'; 
 
 		}
 
