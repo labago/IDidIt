@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 order deny,allow
 deny from all
 allow from 75.69.147.140
