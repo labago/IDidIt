@@ -1,5 +1,5 @@
 <?php include("functions.php"); ?>
-<html>
+<html> 
 	<title>IDidIt</title>
 	<head>
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
