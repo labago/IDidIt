@@ -33,6 +33,7 @@
 
 		    	<input type="submit" name="submit" value="Login">
 		    </form>
+		    <a href="forgot.php">Forgot Password?</a>
 		    <br>
 		<?php } else { 
 
