@@ -55,7 +55,10 @@
 				$message = "Your password for i-did-it.net is: '".$password."' \n \n if you have recieved this emal in error, please disregard";
 
 				// sent a notification to them
-				mail($email, "Your Password", $message, $header);
+				if(mail($email, "Your Password", $message, $header))
+					echo 'Check your email for your password, if its not there also check your spam folder'; 
+				else
+					echo 'Something has gone wrong.';
 			}
 			else
 			{
