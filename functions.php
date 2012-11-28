@@ -21,9 +21,9 @@ function check_email($email)
 	$result = $db->db_query($query);
 
 	if($row = $db->db_fetch_row($result))
-		return false;
-	else
 		return true;
+	else
+		return false;
 
 }
 
@@ -83,7 +83,7 @@ function gen_rand_hex()
 	return $number;
 }
 
-function add_user($fname, $lname, $pass, $email, $picture = "", $id = "", $access_token)
+function add_user($fname, $lname, $pass, $email, $picture = "", $id = "", $access_token = "")
 {
 
 	$db = new db_functions();
