@@ -36,7 +36,20 @@ if($db->db_num_rows($result) > 0)
 }
 
 if($no_account)
+{
 	$crypt = add_user($fname, $lname, $password, $email, $pic, $id, $access_token);
+
+	$header = 'Content-type: text/html; charset=iso-8859-1'."\r\n";
+	$header .= 'From: I Did It <do-not-reply@i-did-it.net>'."\r\n"; 
+
+	$message = "Dear ".$fname.", <br><br>";
+	$message .= "Welcome to I Did It, where you can share with the world all the awesome things you have done ";
+	$message .= "in your life. Better yet, think of this site as a real time achievement tracker, making sure you will";
+	$message .= " never forget the things you have accomplished. Be sure to add as much as you want, but keep in mind ";
+	$message .= "that this site is intended only for valuable posts documenting your life. ";
+
+	mail($email, "Welcome!", $message, $header);
+}
 else
 	update_user_facebook_info($fname, $lname, $password, $email, $pic, $id, $crypt, $access_token);
 

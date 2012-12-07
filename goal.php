@@ -1,6 +1,6 @@
 <?php include("functions.php"); ?>
 <html>
-	<title>IDidIt</title>
+	<title>IDidIt - Achievement</title>
 	<head>
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
@@ -107,7 +107,7 @@
 					$name = $row[0]." ".$row[1];
 
 						echo '<a href="profile.php?id='.$row[4].'">'.html_entity_decode($name).'</a> said: <br>';
-						echo html_entity_decode($comment[0]);
+						echo html_entity_decode(stripcslashes($comment[0]));
 					echo '</div>';
 					echo '<div class="space"></div>';
 				}

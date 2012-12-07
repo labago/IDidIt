@@ -7,7 +7,7 @@ record_visit();
 
 $db = new db_functions();
 
-
+// checks to see if the given account is already in use
 function check_email($email)
 {
 	$db = new db_functions();
@@ -27,6 +27,7 @@ function check_email($email)
 
 }
 
+// checks to see if the user is logged out of facebook
 function is_logged_out_fb($crypt)
 {
 	$db = new db_functions();
@@ -46,6 +47,7 @@ function is_logged_out_fb($crypt)
 		return false;
 }
 
+// changes the logout status of this facebook user
 function change_log_out_status_fb($crypt, $status)
 {
 	$db = new db_functions();
@@ -56,7 +58,7 @@ function change_log_out_status_fb($crypt, $status)
 	$db->db_query($query);
 }
 
-
+// checks whether the given crypt value of the given type is alreayd in use
 function check_crypt($crypt, $type)
 {
 	$db = new db_functions();
@@ -76,6 +78,7 @@ function check_crypt($crypt, $type)
 	return true;
 }
 
+// generates random hexidecimal number
 function gen_rand_hex()
 {
 	$number = substr(md5(rand()), 0, 10); 
@@ -83,6 +86,7 @@ function gen_rand_hex()
 	return $number;
 }
 
+// adds a new user with some optional parameters
 function add_user($fname, $lname, $pass, $email, $picture = "", $id = "", $access_token = "")
 {
 
@@ -114,6 +118,7 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "", $acces
 	return $crypt;
 }
 
+// updates users facebook info on login
 function update_user_facebook_info($fname, $lname, $pass, $email, $picture = "", $id = "", $crypt, $access_token)
 {
 	$db = new db_functions();
@@ -129,6 +134,7 @@ function update_user_facebook_info($fname, $lname, $pass, $email, $picture = "",
 	$db->db_query($query);
 }
 
+// returns all user attributes
 function fetch_user_info($crypt)
 {
  	$db = new db_functions();
@@ -153,6 +159,7 @@ function fetch_user_info($crypt)
 	return $info;
 }
 
+// returns all user attributes based on fb token
 function fetch_user_info_token($token)
 {
   
@@ -179,6 +186,7 @@ function fetch_user_info_token($token)
 	return $info;
 }
 
+// returns all users goals
 function fetch_user_goals($crypt)
 {
 	$db = new db_functions();
@@ -203,6 +211,7 @@ function fetch_user_goals($crypt)
 	return $goals;
 }
 
+// finds a specific achievement/goal
 function fetch_user_goal($crypt)
 {
 	$db = new db_functions();
@@ -220,6 +229,7 @@ function fetch_user_goal($crypt)
 	return $row;
 }
 
+// checks if the given goal is of the given users
 function is_user_goal($crypt, $user)
 {
 	$db = new db_functions();
@@ -275,6 +285,7 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
 
 }
 
+// genereates a random picture name
 function gen_pic_name($original)
 {
 	$components = explode(".", $original);
@@ -292,6 +303,7 @@ function gen_pic_name($original)
 
 }
 
+// changes the users profile picture
 function change_user_pic($crypt, $path)
 {
   	$db = new db_functions();
@@ -306,6 +318,7 @@ function change_user_pic($crypt, $path)
 
 }
 
+// updates this users information, for the account page
 function update_user_info($fname, $lname, $email, $password, $crypt)
 {
 	$db = new db_functions();
@@ -320,6 +333,7 @@ function update_user_info($fname, $lname, $email, $password, $crypt)
 
 }
 
+// records a visit from any user, guest or member
 function record_visit() 
 {
 	$db = new db_functions();
@@ -442,6 +456,7 @@ function find_full_page_name()
 	return $full_name;
 }
 
+// adds a comment to the achievement
 function add_comment($comment, $crypt_user, $crypt_goal)
 {
 	$db = new db_functions();
@@ -472,6 +487,7 @@ function add_comment($comment, $crypt_user, $crypt_goal)
 
 }
 
+// gets the comments that are on this goal
 function get_comments($goal)
 {
 	$db = new db_functions();
@@ -496,6 +512,7 @@ function get_comments($goal)
 	return $comments;
 }
 
+// generates small goal HTML
 function gen_small_goal($row, $float)
 {
 	if($float)
@@ -509,6 +526,7 @@ function gen_small_goal($row, $float)
 	echo '</div>';
 }
 
+// generates large goal HTML
 function gen_large_goal($row)
 {
 	echo '<div class="stream-goal">';
@@ -519,6 +537,7 @@ function gen_large_goal($row)
 	echo '<div class="space"></div>';
 }
 
+// genreates large detailed goal HTML
 function gen_large_detailed_goal($goal)
 {
 	echo '<div class="goal">';
@@ -608,6 +627,7 @@ function gen_large_detailed_goal($goal)
 		echo '<div class="space"></div>';
 }
 
+// decides what to output for the given notification
 function get_notifications_html($crypt)
 {
 	$db = new db_functions();
@@ -653,6 +673,7 @@ function get_notifications_html($crypt)
 	}
 }
 
+// mark a notification as read
 function kill_notifications($object)
 {
 	$db = new db_functions();
@@ -675,6 +696,7 @@ function kill_notifications($object)
 	}
 }
 
+// creates a new notification
 function new_notification($user, $interact, $type, $object)
 {
 	$db = new db_functions();
@@ -702,6 +724,7 @@ function new_notification($user, $interact, $type, $object)
 	$db->db_query($query);
 }
 
+// notifies all commenters of a new comment
 function notify_commenters($goal, $user)
 {
 
@@ -729,7 +752,7 @@ function notify_commenters($goal, $user)
 	}
 }
 
-
+// deletes an album
 function delete_album($crypt)
 {
 	$db = new db_functions();
@@ -740,7 +763,7 @@ function delete_album($crypt)
 	$db->db_query($query);    	
 }
 
-
+// adds an album
 function add_album($locals, $fbs, $fb_albums, $user, $goal, $crypt)
 {
 	$temp = fetch_album($goal);
@@ -775,6 +798,7 @@ function add_album($locals, $fbs, $fb_albums, $user, $goal, $crypt)
 	$db->db_query($query);
 }
 
+// returns the album 
 function fetch_album($crypt)
 {
  	$db = new db_functions();
@@ -800,6 +824,7 @@ function fetch_album($crypt)
 	return $info;
 }
 
+// makes a thumbnail image from a bigger image
 function make_thumb($src, $dest, $desired_width) {
 
   /* read the source image */
