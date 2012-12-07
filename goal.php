@@ -1,6 +1,6 @@
 <?php include("functions.php"); ?>
 <html>
-	<title>IDidIt</title>
+	<title>IDidIt - Achievement</title>
 	<head>
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>

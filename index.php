@@ -1,6 +1,6 @@
 <?php include("functions.php"); ?>
 <html>
-	<title>IDidIt</title>
+	<title>IDidIt - Home</title>
 	<head>
 		<link rel="stylesheet" href="scripts/slideshow/demos/css/page.css">
 		<link rel="stylesheet" href="scripts/slideshow/css/anythingslider.css">

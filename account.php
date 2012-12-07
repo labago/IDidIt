@@ -1,6 +1,6 @@
 <?php include("functions.php"); ?>
 <html>
-	<title>IDidIt</title>
+	<title>IDidIt - My Account</title>
 	<head>
 		<link href="styles/style.css" rel="stylesheet" type="text/css">
 	</head>
@@ -27,9 +27,9 @@
 		    	<input type="text" name="email_first" id="email_first" value="<?php echo $user_info[2]; ?>" class="email"><br>
 		    	Email Confirmation: <br>
 		    	<input type="text" name="email_second" id="email_second" value="<?php echo $user_info[2]; ?>"><br>     
-		    	Password:<br>
+		    	New Password:<br>
 		    	<input type="password" name="pass_first" id="pass_first"><br>
-		    	Password Confirmation:<br>
+		    	New Password Confirmation:<br>
 		    	<input type="password" name="pass_second" id="pass_second"><br>
 		    	Profile Picture: <br>
 		    	<img src="<?php echo $user_info[5]; ?>" alt="current profile pic" style="max-width: 200px;"><br><br>

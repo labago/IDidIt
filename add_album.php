@@ -1,6 +1,6 @@
 <?php include("functions.php"); ?>
 <html>
-  <title>IDidIt</title>
+  <title>IDidIt - Add Album</title>
   <head>
     <link href="styles/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="scripts/multi-upload-file/css/bootstrap.min.css">
