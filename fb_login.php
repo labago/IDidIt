@@ -46,7 +46,7 @@ if($no_account)
 	$message .= "Welcome to I Did It, where you can share with the world all the awesome things you have done ";
 	$message .= "in your life. Better yet, think of this site as a real time achievement tracker, making sure you will";
 	$message .= " never forget the things you have accomplished. Be sure to add as much as you want, but keep in mind ";
-	$message .= "that this site is intended only for valuable posts documenting your life. "
+	$message .= "that this site is intended only for valuable posts documenting your life. ";
 
 	mail($email, "Welcome!", $message, $header);
 }

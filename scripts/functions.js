@@ -92,7 +92,7 @@ function htmlEncode(value){
 function add_comment(goal) {
   var comment = document.getElementById('comment-text').value;
   document.getElementById('comment-text').value = '';
-  comment = escape(comment);
+  comment = encodeURIComponent(comment);
      $.ajax({
             type: "GET",
             url: "resources/ajax/add_comment.php",
