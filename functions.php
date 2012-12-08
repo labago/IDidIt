@@ -13,10 +13,7 @@ function check_email($email)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM `Users` 
-	WHERE `Email` LIKE '$email'
-	LIMIT 0 , 30";
+	$query = "CALL check_email('$email')";
 
 	$result = $db->db_query($query);
 
@@ -33,11 +30,7 @@ function is_logged_out_fb($crypt)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM  `Users` 
-	WHERE  `Crypt` LIKE  '$crypt'
-	AND  `Force Logout` LIKE  'true'
-	LIMIT 0 , 30";
+	$query = "CALL is_logged_out_fb('$crypt')";
 
 	$result = $db->db_query($query);
 
@@ -843,6 +836,6 @@ function make_thumb($src, $dest, $desired_width) {
   
   /* create the physical thumbnail image to its destination */
   imagejpeg($virtual_image, $dest);
-} 
+}
 ?>
 
