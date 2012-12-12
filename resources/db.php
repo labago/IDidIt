@@ -24,28 +24,27 @@ class db_functions
 
 	function db_connect()
 	{
-		mysql_connect($this->server, $this->user, $this->pass) or die ("Unable to connect!"); 
-		mysql_select_db($this->db) or die ("Unable to select database!");  
+		$this->mysqli = mysqli_connect($this->server, $this->user, $this->pass, $this->db) or die ("Unable to connect!"); 
 	}
 
 	function db_close()
 	{
-		return mysql_close($this->link);
+		$this->mysqli->close();
 	}
 
 	function db_query($query)
 	{
-		return mysql_query($query);
+		return $this->mysqli->query($query);
 	}
 
 	function db_fetch_row($response)
 	{
-		return mysql_fetch_row($response);
+		return $response->fetch_row();
 	}
 
 	function db_num_rows($response)
 	{
-		return mysql_num_rows($response);
+		return $response->num_rows;
 	}
 }
 ?>

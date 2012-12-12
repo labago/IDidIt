@@ -51,7 +51,7 @@ if($no_account)
 	mail($email, "Welcome!", $message, $header);
 }
 else
-	update_user_facebook_info($fname, $lname, $password, $email, $pic, $id, $crypt, $access_token);
+	update_user_facebook_info($fname, $lname, $email, $pic, $id, $crypt, $access_token);
 
 
 setcookie("user", $crypt, time()+2592000);

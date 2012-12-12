@@ -173,3 +173,4 @@
 	<script type="text/javascript" src="scripts/functions.js"></script>
 	</body>
 </html>
+<?php $db->db_close(); ?>
