@@ -74,4 +74,3 @@
 		<?php include("Components/footer.php"); ?>
 	</body>
 </html>
-<?php $db->db_close(); ?>
