@@ -34,7 +34,14 @@ class db_functions
 
 	function db_query($query)
 	{
-		return $this->mysqli->query($query);
+		try
+		{
+			return $this->mysqli->query($query);
+		}
+		catch (Exception $e) 
+		{
+  	 		 echo $db->mysqli->error;
+		}
 	}
 
 	function db_fetch_row($response)
