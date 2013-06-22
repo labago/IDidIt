@@ -36,17 +36,29 @@ body {
 
 .right-header-items{
 	float: right;
-	padding-right: 14%
+	padding-right: 15%
+}
+
+.search-box{
+	background-image: url("images/search.png");
+	background-size: 20px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	border:2px solid #020202;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	vertical-align: top;
+	margin-top: 15px;
+	background-color: #444444;
+	outline-width: 0;
+	color: #B5B9B8;
+	padding-left: 20px;
+	width: 100px;
 }
 
 .right-header-items img{   
 	height: 100%;
 	display: inline;
-}
-
-.main-nav{
-	display: inline-block;
-	width: 100%;
 }
 
 .not-count{
@@ -150,6 +162,13 @@ body {
 	float: right;
 }
 
+.notification-filter img{
+	height: 60px;
+	vertical-align: top;
+	border-bottom: 1px solid #6F756F;
+	float: left;
+}
+
 .content {
 	width: 70%;
 	margin-left: auto;
@@ -213,8 +232,8 @@ body {
 }
 
 .login {
-	float: right;
-	color: white;
+	float: left;
+	color: black;
 }
 
 .profile-pic {
@@ -590,11 +609,24 @@ body {
 	width: 870px;
 }
 
+.standard-achievement{
+	width: 47%;
+	height: 303px;
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: top;
+	border:2px solid #DFDFDF;
+	border-radius: 0 0 10px 10px;
+	margin-bottom: 10px;
+}
+
 .feature-achievement{
 	width: 50%;
-	height: 650px;
+	height: 630px;
 	display: inline-block;
-	padding-right: 25px;
+	margin-right: 25px;
+	border:2px solid #DFDFDF;
+	border-radius: 0 0 10px 10px;
 }
 
 .feature-achievement img{
@@ -604,9 +636,8 @@ body {
 
 .feature-achievement-text{
 	padding-left: 10px;
-	border:2px solid #DFDFDF;
-	border-radius: 0 0 10px 10px;
-	min-height: 120px;
+	min-height: 80px;
+	border-bottom:2px solid #DFDFDF;
 }
 
 .feature-achievement-text h2{
@@ -630,10 +661,13 @@ body {
 
 .standard-achievement{
 	width: 47%;
-	height: 325px;
+	height: 303px;
 	display: inline-block;
-	padding-right: 10px;
+	margin-right: 5px;
 	vertical-align: top;
+	border:2px solid #DFDFDF;
+	border-radius: 0 0 10px 10px;
+	margin-bottom: 10px;
 }
 
 .standard-achievement img{
@@ -643,9 +677,8 @@ body {
 
 .standard-achievement-text{
 	padding-left: 10px;
-	border:2px solid #DFDFDF;
-	border-radius: 0 0 10px 10px;
-	min-height: 120px;
+	min-height: 80px;
+	border-bottom:2px solid #DFDFDF;
 }
 
 .standard-achievement-text h2{
@@ -660,7 +693,6 @@ body {
 	margin-bottom: 0px;
 }
 
-
 .bottom-acheivements{
 	width: 100%;
 	height: 400px;
@@ -670,10 +702,11 @@ body {
 
 .narrow-achievement{
 	width: 20%;
-	height: 300px;
+	height: 303px;
 	display: inline-block;
-	padding-right: 25px;
-	vertical-align: top;
+	margin-right: 10px;
+	border:2px solid #DFDFDF;
+	border-radius: 0 0 10px 10px;
 }
 
 .narrow-achievement img{
@@ -683,9 +716,8 @@ body {
 
 .narrow-achievement-text{
 	padding-left: 10px;
-	border:2px solid #DFDFDF;
-	border-radius: 0 0 10px 10px;
-	min-height: 120px;
+	min-height: 80px;
+	border-bottom:2px solid #DFDFDF;
 }
 
 .narrow-achievement-text h2{
@@ -702,9 +734,11 @@ body {
 
 .wide-achievement{
 	width: 75%;
-	height: 300px;
+	height: 303px;
 	display: inline-block;
-	vertical-align: top;
+	margin-right: 10px;
+	border:2px solid #DFDFDF;
+	border-radius: 0 0 10px 10px;
 }
 
 .wide-achievement img{
@@ -714,9 +748,8 @@ body {
 
 .wide-achievement-text{
 	padding-left: 10px;
-	border:2px solid #DFDFDF;
-	border-radius: 0 0 10px 10px;
-	min-height: 120px;
+	min-height: 80px;
+	border-bottom:2px solid #DFDFDF;
 }
 
 .wide-achievement-text h2{
@@ -731,6 +764,26 @@ body {
 	margin-bottom: 0px;
 }
 
+.standard-achievement-stats{
+	min-height: 37px;
+	background-color: #F6F6F6;
+	border:0px solid #DFDFDF;
+	border-radius: 0 0 10px 10px;
+	display: table;
+	width: 100%;
+}
+
+.standard-achievement-stats img{
+	height: 37px;
+	width: 30px;
+}
+
+.standard-achievement-stats span{
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: bold;
+}
+
 .horizontal-shift{
 	position: relative;
 	margin-right: auto;
@@ -743,6 +796,11 @@ body {
 	float: right;
 	padding-bottom: 10px;
 	padding-right: 25px;
+}
+
+.layout-selector img{
+	height: 20px;
+	float: left;
 }
 
 
