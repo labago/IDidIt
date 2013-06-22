@@ -27,8 +27,8 @@
 		<div class="content">
 			<br>
 			<div class="notification-filter">
-				<a href="#"><img src="styles/images/notifications.png" style="height: 70px;"></a>
-				<a href="#"><img src="styles/images/filter.png" style="height: 70px;"></a>
+				<a href="#"><img src="styles/images/notifications.png"></a>
+				<a href="#"><img src="styles/images/filter.png"></a>
 			</div>
 			<div class="main-content">
 				<br>
@@ -63,52 +63,82 @@
 
 				<div class="horizontal-shift">
 					<div class="layout-selector">
-						<a href="#"><img src="styles/images/layout1.png" style="height: 20px;"></a>
-						<a href="#"><img src="styles/images/layout2.png" style="height: 20px;"></a>
+						<a href="#"><img src="styles/images/layout1.png"></a>
+						<a href="#"><img src="styles/images/layout2.png"></a>
 					</div>
 					<br>
 					<ul id="slider">
 						<li>
 							<div class="panel">
 								<div class="feature-achievement">
-									<img src="s<?php echo $goals[1][16]; ?>">
+									<img src="<?php echo $goals[1][16]; ?>">
 									<div class="feature-achievement-text">
-										<a href="<?php echo 'goal.php?id='.$goals[1][8]; ?>"><h2><?php echo $goals[1][3]; ?></h2></a>
+										<a href="<?php echo 'goal.php?id='.$goals[1][8]; ?>"><h2><?php echo $goals[1][0]; ?></h2></a>
 										<p>by: Jon Lane</p>
 										<i><?php echo $goals[1][7]; ?></i>
+									</div>
+									<div class="standard-achievement-stats">
+										<img src="styles/images/thumbs-up.png">
+										<span>458</span>
+										<img src="styles/images/eye.png">
+										<span>7076</span>
 									</div>
 								</div>
 								<div class="quad-achievement">
 									<div class="standard-achievement">
 										<img src="<?php echo $goals[0][16]; ?>">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
+										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
 										</div>
 									</div>
 									<div class="standard-achievement">
 										<img src="<?php echo $goals[0][16]; ?>">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
+										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
 										</div>
 									</div>
 									<div class="standard-achievement">
 										<img src="<?php echo $goals[0][16]; ?>">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
+										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
 										</div>
 									</div>
 									<div class="standard-achievement">
 										<img src="<?php echo $goals[0][16]; ?>">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
+										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
 										</div>
 									</div>
 								</div>
@@ -116,9 +146,15 @@
 									<div class="narrow-achievement">
 										<img src="<?php echo $goals[2][16]; ?>">
 										<div class="narrow-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[2][8]; ?>"><h2><?php echo $goals[2][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[2][8]; ?>"><h2><?php echo $goals[2][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[2][7]; ?></i>
+										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
 										</div>
 									</div>
 									<div class="wide-achievement">
@@ -127,6 +163,12 @@
 											<h2>Graduated Radford University</h2>
 											<p>by: Joni Lane | With: Edward Coles, Maggie Gordon, Whitney Farrar, see more...</p>
 											<i>Academic Achievement</i>
+										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
 										</div>
 									</div>
 								</div>
@@ -137,7 +179,7 @@
 								<div class="feature-achievement">
 									<img src="s<?php echo $goals[1][16]; ?>">
 									<div class="feature-achievement-text">
-										<a href="<?php echo 'goal.php?id='.$goals[1][8]; ?>"><h2><?php echo $goals[1][3]; ?></h2></a>
+										<a href="<?php echo 'goal.php?id='.$goals[1][8]; ?>"><h2><?php echo $goals[1][0]; ?></h2></a>
 										<p>by: Jon Lane</p>
 										<i><?php echo $goals[1][7]; ?></i>
 									</div>
@@ -146,7 +188,7 @@
 									<div class="standard-achievement">
 										<img src="<?php echo $goals[0][16]; ?>">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
 										</div>
@@ -154,7 +196,7 @@
 									<div class="standard-achievement">
 										<img src="<?php echo $goals[0][16]; ?>">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
 										</div>
@@ -162,7 +204,7 @@
 									<div class="standard-achievement">
 										<img src="<?php echo $goals[0][16]; ?>">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
 										</div>
@@ -170,7 +212,7 @@
 									<div class="standard-achievement">
 										<img src="<?php echo $goals[0][16]; ?>">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
 										</div>
@@ -180,7 +222,7 @@
 									<div class="narrow-achievement">
 										<img src="<?php echo $goals[2][16]; ?>">
 										<div class="narrow-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[2][8]; ?>"><h2><?php echo $goals[2][3]; ?></h2></a>
+											<a href="<?php echo 'goal.php?id='.$goals[2][8]; ?>"><h2><?php echo $goals[2][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[2][7]; ?></i>
 										</div>
