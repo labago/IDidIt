@@ -15,7 +15,7 @@ class db_functions
 
 	function db_functions()
 	{
-		require("./Private/creds.php");
+		require($_SERVER['DOCUMENT_ROOT']."/Private/creds.php");
 		$this->server = $db_server;
 		$this->user   = $db_user;
 		$this->pass   = $db_pass;
@@ -24,34 +24,28 @@ class db_functions
 
 	function db_connect()
 	{
-		$this->mysqli = mysqli_connect($this->server, $this->user, $this->pass, $this->db) or die ("Unable to connect!"); 
+		mysql_connect($this->server, $this->user, $this->pass) or die ("Unable to connect!"); 
+		mysql_select_db($this->db) or die ("Unable to select database!");  
 	}
 
 	function db_close()
 	{
-		$this->mysqli->close();
+		return mysql_close($this->link);
 	}
 
 	function db_query($query)
 	{
-		try
-		{
-			return $this->mysqli->query($query);
-		}
-		catch (Exception $e) 
-		{
-  	 		 echo $db->mysqli->error;
-		}
+		return mysql_query($query);
 	}
 
 	function db_fetch_row($response)
 	{
-		return $response->fetch_row();
+		return mysql_fetch_row($response);
 	}
 
 	function db_num_rows($response)
 	{
-		return $response->num_rows;
+		return mysql_num_rows($response);
 	}
 }
 ?>

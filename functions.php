@@ -13,7 +13,10 @@ function check_email($email)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL check_email('$email')";
+	$query = "SELECT * 
+	FROM `Users` 
+	WHERE `Email` LIKE '$email'
+	LIMIT 0 , 30";
 
 	$result = $db->db_query($query);
 
@@ -30,7 +33,11 @@ function is_logged_out_fb($crypt)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL is_logged_out_fb('$crypt')";
+	$query = "SELECT * 
+	FROM  `Users` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	AND  `Force Logout` LIKE  'true'
+	LIMIT 0 , 30";
 
 	$result = $db->db_query($query);
 
@@ -46,7 +53,7 @@ function change_log_out_status_fb($crypt, $status)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL change_log_out_status_fb('$crypt', '$status')";
+	$query = "UPDATE `ididit`.`Users` SET `Force Logout` = '$status' WHERE `Users`.`Crypt` = '$crypt';";
 
 	$db->db_query($query);
 }
@@ -61,7 +68,7 @@ function check_crypt($crypt, $type)
 	FROM  `$type` 
 	WHERE  `Crypt` LIKE  '$crypt'
 	LIMIT 0 , 30";  
-	  
+
 	$result = $db->db_query($query);
 
 	if($db->db_num_rows($result) != 0)
@@ -91,20 +98,38 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "", $acces
 	$crypt = gen_rand_hex();
 	} 
 
-	$query = "CALL add_user('$fname', '$lname', '$email', '$pass', '$crypt', '$picture', '$id', '$access_token')";
+	$query = "INSERT INTO `ididit`.`Users` (
+			`First Name` ,
+			`Last Name` ,
+			`Email` ,
+			`Password`,
+			`Crypt`,
+			`Picture`,
+			`Facebook ID`,
+			`Access`
+			)
+			VALUES (
+			'$fname', '$lname', '$email', '$pass', '$crypt', '$picture', '$id', '$access_token'
+			);";
 
 	$db->db_query($query);
+
 
 	return $crypt;
 }
 
 // updates users facebook info on login
-function update_user_facebook_info($fname, $lname, $email, $picture = "", $id = "", $crypt, $access_token)
+function update_user_facebook_info($fname, $lname, $pass, $email, $picture = "", $id = "", $crypt, $access_token)
 {
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL update_facebook_info('$fname','$lname','$email','$picture','$access_token','$id','$crypt')";
+	$query = "UPDATE `ididit`.`Users` SET `First Name` = '$fname',
+			`Last Name` = '$lname',
+			`Email` = '$email',
+			`Picture` = '$picture',
+			`Access` = '$access_token',
+			`Facebook ID` = '$id' WHERE `Users`.`Crypt` = '$crypt' LIMIT 1 ;";
 
 	$db->db_query($query);
 }
@@ -115,8 +140,11 @@ function fetch_user_info($crypt)
  	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL fetch_user('$crypt')";  
-	  
+	$query = "SELECT * 
+	FROM  `Users` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+
 	$result = $db->db_query($query);
 	$row = $db->db_fetch_row($result);
 
@@ -126,6 +154,7 @@ function fetch_user_info($crypt)
 	{
 		array_push($info, $row_item);	
 	}
+
 
 	return $info;
 }
@@ -137,8 +166,11 @@ function fetch_user_info_token($token)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL fetch_user_with_token('$token')";  
-	  
+	$query = "SELECT * 
+	FROM  `Users` 
+	WHERE  `Facebook ID` LIKE  '$token'
+	LIMIT 0 , 30";  
+
 	$result = $db->db_query($query);
 
 	$info = array();
@@ -159,9 +191,13 @@ function fetch_user_goals($crypt)
 {
 	$db = new db_functions();
     $db->db_connect();
-	  
-	$query = "CALL fetch_user_goals('$crypt')";  
-	  
+
+	$query = "SELECT * 
+	FROM  `Goal` 
+	WHERE  `Crypt of User` LIKE  '$crypt'
+	ORDER BY `Date Posted` DESC
+	LIMIT 0 , 30";  
+
 	$result = $db->db_query($query);
 
 	$goals = array();
@@ -181,8 +217,11 @@ function fetch_user_goal($crypt)
 	$db = new db_functions();
     $db->db_connect();
   
-	$query = "CALL fetch_user_goal('$crypt')";  
-	  
+	$query = "SELECT * 
+	FROM  `Goal` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+
 	$result = $db->db_query($query);
 
 	$row = $db->db_fetch_row($result);
@@ -196,8 +235,11 @@ function is_user_goal($crypt, $user)
 	$db = new db_functions();
     $db->db_connect();
   
-	$query = "CALL fetch_user_goal('$crypt')";  
-	  
+	$query = "SELECT * 
+	FROM  `Goal` 
+	WHERE  `Crypt` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+
 	$result = $db->db_query($query);
 
 	$goals = array();
@@ -220,7 +262,24 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
 	$crypt = gen_rand_hex();
 	}
 
-	$query =  "CALL add_new_goal('$title','$date_s','$date_e','$desc','$pic','$crypt_of_user','$category','$crypt','$witness','$youtube','$school','$org','$prof')";
+	$query =  "INSERT INTO `ididit`.`Goal` (
+			`Title` ,
+			`Date Started` ,
+			`Date Achieved` ,
+			`Description` ,
+			`Picture` ,
+			`Crypt of User`,
+			`Category`,
+			`Crypt`,
+			`Witness`,
+			`Youtube`,
+			`School`,
+			`Orginization`,
+			`Company`
+			)
+			VALUES (
+			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt', '$witness', '$youtube', '$school', '$org', '$prof'
+			);";
 
 	$db->db_query($query);
 
@@ -250,9 +309,13 @@ function change_user_pic($crypt, $path)
   	$db = new db_functions();
     $db->db_connect();
 
-	$query = "change_user_pic('$crypt','$path')";
+	 $query = "UPDATE  `ididit`.`Users` SET  
+	`Picture` =  '$path'
+	WHERE  `Users`.`Crypt` =  '$crypt' 
+	LIMIT 1 ;";
 
 	$db->db_query($query);
+
 }
 
 // updates this users information, for the account page
@@ -261,9 +324,13 @@ function update_user_info($fname, $lname, $email, $password, $crypt)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL update_user_info('$fname','$lname','$email','$password','$crypt')";
+	$query = "UPDATE `ididit`.`Users` SET `First Name` = '$fname',
+			`Last Name` = '$lname',
+			`Email` = '$email',
+			`Password` = '$password' WHERE `Users`.`Crypt` = '$crypt' LIMIT 1 ;";
 
 	$db->db_query($query);
+
 }
 
 // records a visit from any user, guest or member
@@ -275,7 +342,11 @@ function record_visit()
 	$ip_new = VisitorIP();
 	$page_name = find_full_page_name();
 
-	$query = "CALL find_visit('$ip_new','$page_name')";
+	$query = "SELECT * 
+	FROM  `Visits` 
+	WHERE  `IP` LIKE  '$ip_new'
+	AND  `Page Name` LIKE  '$page_name'
+	LIMIT 0 , 30";
 
 	$result = $db->db_query($query);
 
@@ -327,7 +398,7 @@ function record_visit()
 		$date = date('Y-m-d g-i-s', time()+(60*60*3));  
 
 		$location_info = json_decode(file_get_contents("http://api.ipinfodb.com/v3/ip-city/?format=json&key=b49cd6eb6da4c0e429300fd010f02061db560d5b38c2526481abe89bc73f8b3b&ip=".$ip_new));
-		
+
 		@$country = @$location_info->{'countryName'};
 		@$city = @$location_info->{'cityName'};
 		@$zip = @$location_info->{'zipCode'};
@@ -369,7 +440,7 @@ function find_full_page_name()
 {
 
 	$url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];  
-	  
+
 	$array = explode("/", $url);  
 	$full_name = "";
 
@@ -422,7 +493,11 @@ function get_comments($goal)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL get_comments('$goal')";
+	$query = "SELECT * 
+	FROM `Comments` 
+	WHERE `Crypt of Goal` LIKE '$goal'
+	ORDER BY `Date Posted` DESC
+	LIMIT 0 , 30";
 
 	$result = $db->db_query($query);
 
@@ -432,6 +507,7 @@ function get_comments($goal)
 	{
 		array_push($comments, $row);
 	}
+
 
 	return $comments;
 }
@@ -557,7 +633,10 @@ function get_notifications_html($crypt)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL get_notifications('$crypt')";
+	$query = "SELECT * 
+	FROM `Notifications` 
+	WHERE `Crypt of User` LIKE '$crypt'
+	LIMIT 0 , 30";
 
 	$result = $db->db_query($query);
 
@@ -586,7 +665,7 @@ function get_notifications_html($crypt)
 					echo '<tr class="notification">';
 						echo '<td><a href="goal.php?id='.$row[4].'&n=true">'.$user_info[0].' also commented on '.$other_user_info[0]."'s Achievement</a></td>";
 					echo '</tr>';
-				
+
 				default:
 					break;
 			}
@@ -600,7 +679,9 @@ function kill_notifications($object)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL get_notification_object('$object')";
+	$query = "SELECT * 
+	FROM `Notifications` 
+	WHERE `Crypt of Object` LIKE '$object'";
 
 	$result = $db->db_query($query);
 
@@ -608,7 +689,8 @@ function kill_notifications($object)
 	{
 		$crypt = $row[6];
 
-		$query = "CALL change_notification_status('$crypt','true')";
+		$query = "UPDATE  `ididit`.`Notifications` SET  `Seen` =  'true'
+		WHERE  `Notifications`.`Crypt` =  '$crypt' LIMIT 1 ;";
 
 		$db->db_query($query);
 	}
@@ -649,7 +731,10 @@ function notify_commenters($goal, $user)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL get_comments('$goal')";
+	$query = "SELECT * 
+	FROM  `Comments` 
+	WHERE  `Crypt of Goal` LIKE  '$goal'
+	LIMIT 0 , 30";
 
 	$result = $db->db_query($query);
 
@@ -673,7 +758,7 @@ function delete_album($crypt)
 	$db = new db_functions();
     $db->db_connect();
 
-    $query = "CALL delete_album('$crypt')";
+    $query = "DELETE FROM `ididit`.`Album` WHERE `Album`.`Crypt` = '$crypt' LIMIT 1";
 
 	$db->db_query($query);    	
 }
@@ -719,8 +804,11 @@ function fetch_album($crypt)
  	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL get_album('$crypt')";  
-	  
+	$query = "SELECT * 
+	FROM  `Album` 
+	WHERE  `Crypt of Goal` LIKE  '$crypt'
+	LIMIT 0 , 30";  
+
 	$result = $db->db_query($query);	
 
 	$info = array();
@@ -755,6 +843,5 @@ function make_thumb($src, $dest, $desired_width) {
   
   /* create the physical thumbnail image to its destination */
   imagejpeg($virtual_image, $dest);
-}
+} 
 ?>
-
