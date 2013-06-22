@@ -3,10 +3,7 @@
 	<div class="login">
 		<?php if(isset($_COOKIE['user'])) { 
 
-			if($fb_user)		
-				$user_info = fetch_user_info_token($fb_user);
-			else
-				$user_info = fetch_user_info($_COOKIE['user']);	
+			$user_info = fetch_user_info($_COOKIE['user']);	
 
 			if($fb_user)
 				echo "Logged in as ".$user_info[0]." <a href='".$logoutUrl."'>Logout</a>";

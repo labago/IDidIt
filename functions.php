@@ -13,10 +13,7 @@ function check_email($email)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM `Users` 
-	WHERE `Email` LIKE '$email'
-	LIMIT 0 , 30";
+	$query = "CALL check_email('$email')";
 
 	$result = $db->db_query($query);
 
@@ -33,11 +30,7 @@ function is_logged_out_fb($crypt)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM  `Users` 
-	WHERE  `Crypt` LIKE  '$crypt'
-	AND  `Force Logout` LIKE  'true'
-	LIMIT 0 , 30";
+	$query = "CALL is_logged_out_fb('$crypt')";
 
 	$result = $db->db_query($query);
 
@@ -53,7 +46,7 @@ function change_log_out_status_fb($crypt, $status)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "UPDATE `ididit`.`Users` SET `Force Logout` = '$status' WHERE `Users`.`Crypt` = '$crypt';";
+	$query = "CALL change_log_out_status_fb('$crypt', '$status')";
 
 	$db->db_query($query);
 }
@@ -98,38 +91,20 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "", $acces
 	$crypt = gen_rand_hex();
 	} 
 
-	$query = "INSERT INTO `ididit`.`Users` (
-			`First Name` ,
-			`Last Name` ,
-			`Email` ,
-			`Password`,
-			`Crypt`,
-			`Picture`,
-			`Facebook ID`,
-			`Access`
-			)
-			VALUES (
-			'$fname', '$lname', '$email', '$pass', '$crypt', '$picture', '$id', '$access_token'
-			);";
+	$query = "CALL add_user('$fname', '$lname', '$email', '$pass', '$crypt', '$picture', '$id', '$access_token')";
 
 	$db->db_query($query);
-
 
 	return $crypt;
 }
 
 // updates users facebook info on login
-function update_user_facebook_info($fname, $lname, $pass, $email, $picture = "", $id = "", $crypt, $access_token)
+function update_user_facebook_info($fname, $lname, $email, $picture = "", $id = "", $crypt, $access_token)
 {
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "UPDATE `ididit`.`Users` SET `First Name` = '$fname',
-			`Last Name` = '$lname',
-			`Email` = '$email',
-			`Picture` = '$picture',
-			`Access` = '$access_token',
-			`Facebook ID` = '$id' WHERE `Users`.`Crypt` = '$crypt' LIMIT 1 ;";
+	$query = "CALL update_facebook_info('$fname','$lname','$email','$picture','$access_token','$id','$crypt')";
 
 	$db->db_query($query);
 }
@@ -140,10 +115,7 @@ function fetch_user_info($crypt)
  	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM  `Users` 
-	WHERE  `Crypt` LIKE  '$crypt'
-	LIMIT 0 , 30";  
+	$query = "CALL fetch_user('$crypt')";  
 	  
 	$result = $db->db_query($query);
 	$row = $db->db_fetch_row($result);
@@ -155,7 +127,6 @@ function fetch_user_info($crypt)
 		array_push($info, $row_item);	
 	}
 
-
 	return $info;
 }
 
@@ -166,10 +137,7 @@ function fetch_user_info_token($token)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM  `Users` 
-	WHERE  `Facebook ID` LIKE  '$token'
-	LIMIT 0 , 30";  
+	$query = "CALL fetch_user_with_token('$token')";  
 	  
 	$result = $db->db_query($query);
 
@@ -192,11 +160,7 @@ function fetch_user_goals($crypt)
 	$db = new db_functions();
     $db->db_connect();
 	  
-	$query = "SELECT * 
-	FROM  `Goal` 
-	WHERE  `Crypt of User` LIKE  '$crypt'
-	ORDER BY `Date Posted` DESC
-	LIMIT 0 , 30";  
+	$query = "CALL fetch_user_goals('$crypt')";  
 	  
 	$result = $db->db_query($query);
 
@@ -217,10 +181,7 @@ function fetch_user_goal($crypt)
 	$db = new db_functions();
     $db->db_connect();
   
-	$query = "SELECT * 
-	FROM  `Goal` 
-	WHERE  `Crypt` LIKE  '$crypt'
-	LIMIT 0 , 30";  
+	$query = "CALL fetch_user_goal('$crypt')";  
 	  
 	$result = $db->db_query($query);
 
@@ -235,10 +196,7 @@ function is_user_goal($crypt, $user)
 	$db = new db_functions();
     $db->db_connect();
   
-	$query = "SELECT * 
-	FROM  `Goal` 
-	WHERE  `Crypt` LIKE  '$crypt'
-	LIMIT 0 , 30";  
+	$query = "CALL fetch_user_goal('$crypt')";  
 	  
 	$result = $db->db_query($query);
 
@@ -261,25 +219,7 @@ function add_new_goal($title, $date_s, $date_e, $pic, $desc, $crypt_of_user, $ca
 	$crypt = gen_rand_hex();
 	}
 
-	$query =  "INSERT INTO `ididit`.`Goal` (
-			`Title` ,
-			`Date Started` ,
-			`Date Achieved` ,
-			`Description` ,
-			`Picture` ,
-			`Crypt of User`,
-			`Category`,
-			`Crypt`,
-			`Witness`,
-			`Youtube`,
-			`School`,
-			`Orginization`,
-			`Company`,
-			`Thumbnail`
-			)
-			VALUES (
-			'$title', '$date_s', '$date_e', '$desc', '$pic', '$crypt_of_user','$category', '$crypt', '$witness', '$youtube', '$school', '$org', '$prof', '$thumbnail'
-			);";
+	$query =  "CALL add_new_goal('$title','$date_s','$date_e','$desc','$pic','$crypt_of_user','$category','$crypt','$witness','$youtube','$school','$org','$prof')";
 
 	$db->db_query($query);
 
@@ -309,13 +249,9 @@ function change_user_pic($crypt, $path)
   	$db = new db_functions();
     $db->db_connect();
 
-	 $query = "UPDATE  `ididit`.`Users` SET  
-	`Picture` =  '$path'
-	WHERE  `Users`.`Crypt` =  '$crypt' 
-	LIMIT 1 ;";
+	$query = "change_user_pic('$crypt','$path')";
 
 	$db->db_query($query);
-
 }
 
 // updates this users information, for the account page
@@ -324,13 +260,9 @@ function update_user_info($fname, $lname, $email, $password, $crypt)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "UPDATE `ididit`.`Users` SET `First Name` = '$fname',
-			`Last Name` = '$lname',
-			`Email` = '$email',
-			`Password` = '$password' WHERE `Users`.`Crypt` = '$crypt' LIMIT 1 ;";
+	$query = "CALL update_user_info('$fname','$lname','$email','$password','$crypt')";
 
 	$db->db_query($query);
-
 }
 
 // records a visit from any user, guest or member
@@ -342,11 +274,7 @@ function record_visit()
 	$ip_new = VisitorIP();
 	$page_name = find_full_page_name();
 
-	$query = "SELECT * 
-	FROM  `Visits` 
-	WHERE  `IP` LIKE  '$ip_new'
-	AND  `Page Name` LIKE  '$page_name'
-	LIMIT 0 , 30";
+	$query = "CALL find_visit('$ip_new','$page_name')";
 
 	$result = $db->db_query($query);
 
@@ -493,11 +421,7 @@ function get_comments($goal)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM `Comments` 
-	WHERE `Crypt of Goal` LIKE '$goal'
-	ORDER BY `Date Posted` DESC
-	LIMIT 0 , 30";
+	$query = "CALL get_comments('$goal')";
 
 	$result = $db->db_query($query);
 
@@ -507,7 +431,6 @@ function get_comments($goal)
 	{
 		array_push($comments, $row);
 	}
-
 
 	return $comments;
 }
@@ -633,10 +556,7 @@ function get_notifications_html($crypt)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM `Notifications` 
-	WHERE `Crypt of User` LIKE '$crypt'
-	LIMIT 0 , 30";
+	$query = "CALL get_notifications('$crypt')";
 
 	$result = $db->db_query($query);
 
@@ -679,9 +599,7 @@ function kill_notifications($object)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM `Notifications` 
-	WHERE `Crypt of Object` LIKE '$object'";
+	$query = "CALL get_notification_object('$object')";
 
 	$result = $db->db_query($query);
 
@@ -689,8 +607,7 @@ function kill_notifications($object)
 	{
 		$crypt = $row[6];
 
-		$query = "UPDATE  `ididit`.`Notifications` SET  `Seen` =  'true'
-		WHERE  `Notifications`.`Crypt` =  '$crypt' LIMIT 1 ;";
+		$query = "CALL change_notification_status('$crypt','true')";
 
 		$db->db_query($query);
 	}
@@ -731,10 +648,7 @@ function notify_commenters($goal, $user)
 	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM  `Comments` 
-	WHERE  `Crypt of Goal` LIKE  '$goal'
-	LIMIT 0 , 30";
+	$query = "CALL get_comments('$goal')";
 
 	$result = $db->db_query($query);
 
@@ -758,7 +672,7 @@ function delete_album($crypt)
 	$db = new db_functions();
     $db->db_connect();
 
-    $query = "DELETE FROM `ididit`.`Album` WHERE `Album`.`Crypt` = '$crypt' LIMIT 1";
+    $query = "CALL delete_album('$crypt')";
 
 	$db->db_query($query);    	
 }
@@ -804,10 +718,7 @@ function fetch_album($crypt)
  	$db = new db_functions();
     $db->db_connect();
 
-	$query = "SELECT * 
-	FROM  `Album` 
-	WHERE  `Crypt of Goal` LIKE  '$crypt'
-	LIMIT 0 , 30";  
+	$query = "CALL get_album('$crypt')";  
 	  
 	$result = $db->db_query($query);	
 
@@ -843,6 +754,6 @@ function make_thumb($src, $dest, $desired_width) {
   
   /* create the physical thumbnail image to its destination */
   imagejpeg($virtual_image, $dest);
-} 
+}
 ?>
 
