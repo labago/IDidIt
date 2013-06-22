@@ -115,7 +115,10 @@ function fetch_user_info($crypt)
  	$db = new db_functions();
     $db->db_connect();
 
-	$query = "CALL fetch_user('$crypt')";  
+	$query = '$query = "SELECT * 
+	  FROM  `Users` 
+	  WHERE  `Crypt` LIKE  '$crypt'
+	  LIMIT 0 , 30";';
 	  
 	$result = $db->db_query($query);
 	$row = $db->db_fetch_row($result);
