@@ -177,44 +177,74 @@
 						<li>
 							<div class="panel">
 								<div class="feature-achievement">
-									<img src="s<?php echo $goals[1][16]; ?>">
+									<img src="<?php echo $goals[1][16]; ?>">
 									<div class="feature-achievement-text">
 										<a href="<?php echo 'goal.php?id='.$goals[1][8]; ?>"><h2><?php echo $goals[1][0]; ?></h2></a>
 										<p>by: Jon Lane</p>
 										<i><?php echo $goals[1][7]; ?></i>
 									</div>
+									<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
+										</div>
 								</div>
 								<div class="quad-achievement">
 									<div class="standard-achievement">
-										<img src="<?php echo $goals[0][16]; ?>">
+										<img src="<?php echo $goals[4][16]; ?>">
 										<div class="standard-achievement-text">
 											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
 										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
+										</div>
 									</div>
 									<div class="standard-achievement">
-										<img src="<?php echo $goals[0][16]; ?>">
+										<img src="<?php echo $goals[4][16]; ?>">
 										<div class="standard-achievement-text">
 											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
 										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
+										</div>
 									</div>
 									<div class="standard-achievement">
-										<img src="<?php echo $goals[0][16]; ?>">
+										<img src="<?php echo $goals[4][16]; ?>">
 										<div class="standard-achievement-text">
 											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
 										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
+										</div>
 									</div>
 									<div class="standard-achievement">
-										<img src="<?php echo $goals[0][16]; ?>">
+										<img src="<?php echo $goals[4][16]; ?>">
 										<div class="standard-achievement-text">
 											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[0][7]; ?></i>
+										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
 										</div>
 									</div>
 								</div>
@@ -226,6 +256,12 @@
 											<p>by: Jon Lane</p>
 											<i><?php echo $goals[2][7]; ?></i>
 										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
+										</div>
 									</div>
 									<div class="wide-achievement">
 										<img src="styles/images/joni-grad.png">
@@ -233,6 +269,12 @@
 											<h2>Graduated Radford University</h2>
 											<p>by: Joni Lane | With: Edward Coles, Maggie Gordon, Whitney Farrar, see more...</p>
 											<i>Academic Achievement</i>
+										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
 										</div>
 									</div>
 								</div>
