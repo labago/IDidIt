@@ -1,5 +1,13 @@
 <div class="header">
-	<h1>#IDIDIT</h1>
+	<img src="styles/images/ididit_logo.png" style="float: left; display: inline; padding-left: 20%; padding-right: 20px; height: 100%;">
+	<div class="nav-items">
+		<div class="bordered-header-link">
+			<a href="#">MY ACHIEVEMENTS</a>
+		</div>
+		<div class="bordered-header-link">
+			<a href="#">ADD NEW</a>
+		</div>
+	</div>
 	<div class="login">
 		<?php if(isset($_COOKIE['user'])) { 
 
@@ -14,33 +22,8 @@
 		<?php } ?>
 
 	</div>
-	<div class="main-nav">
-		<div class="notifications">
-			<table>
-				<tr>
-					<td><a href="#" class="notification-click">Notifications <span class="not-count"></span></a></td>
-				</tr>
-			</table>
-			<div class="notification-overlay">
-				<table>
-					<?php
-					if(isset($_COOKIE['user']))	
-						echo get_notifications_html($_COOKIE['user']);
-					?>
-				</table>
-			</div>
-		</div>
-		<div class="nav">
-			<table>
-				<tr>
-					<td><a href="index.php">Home</a></td>
-					<td><a href="profile.php">Profile</a></td>
-					<td><a href="sign-up.php">Sign Up</a></td>
-					<td><a href="account.php">Account</a></td>
-					<td><a href="twitter-feed.php">#ididit</a></td>
-					<td><a href="add-goal.php">Add Achievement</a></td>
-				</tr>
-			</table>
-		</div>
+	<div class="right-header-items">
+		<a href="#"><img src="styles/images/profile.png"></a>
+		<a href="#"><img src="styles/images/search.png"></a>
 	</div>
 </div>
