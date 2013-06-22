@@ -71,11 +71,11 @@
 						<li>
 							<div class="panel">
 								<div class="feature-achievement">
-									<img src="<?php echo $goals[1][16]; ?>">
+									<img src="styles/images/graduation-image.png">
 									<div class="feature-achievement-text">
-										<a href="<?php echo 'goal.php?id='.$goals[1][8]; ?>"><h2><?php echo $goals[1][0]; ?></h2></a>
+										<h2>St. John's Prep Award</h2>
 										<p>by: Jon Lane</p>
-										<i><?php echo $goals[1][7]; ?></i>
+										<i>Academic Achievement</i>
 									</div>
 									<div class="standard-achievement-stats">
 										<img src="styles/images/thumbs-up.png">
@@ -86,11 +86,11 @@
 								</div>
 								<div class="quad-achievement">
 									<div class="standard-achievement">
-										<img src="<?php echo $goals[0][16]; ?>">
+										<img src="styles/images/water-ski.png">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
+											<h2>Got Up Water-Skiing</h2>
 											<p>by: Jon Lane</p>
-											<i><?php echo $goals[0][7]; ?></i>
+											<i>Athletic Achievement</i>
 										</div>
 										<div class="standard-achievement-stats">
 											<img src="styles/images/thumbs-up.png">
@@ -100,11 +100,11 @@
 										</div>
 									</div>
 									<div class="standard-achievement">
-										<img src="<?php echo $goals[0][16]; ?>">
+										<img src="styles/images/rafting.png">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
+											<h2>White Water Rafting</h2>
 											<p>by: Jon Lane</p>
-											<i><?php echo $goals[0][7]; ?></i>
+											<i>Life Event</i>
 										</div>
 										<div class="standard-achievement-stats">
 											<img src="styles/images/thumbs-up.png">
@@ -114,11 +114,11 @@
 										</div>
 									</div>
 									<div class="standard-achievement">
-										<img src="<?php echo $goals[0][16]; ?>">
+										<img src="styles/images/working.png">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
+											<h2>Built a house</h2>
 											<p>by: Jon Lane</p>
-											<i><?php echo $goals[0][7]; ?></i>
+											<i>Philanthropic Achievement</i>
 										</div>
 										<div class="standard-achievement-stats">
 											<img src="styles/images/thumbs-up.png">
@@ -128,11 +128,11 @@
 										</div>
 									</div>
 									<div class="standard-achievement">
-										<img src="<?php echo $goals[0][16]; ?>">
+										<img src="styles/images/painting.png">
 										<div class="standard-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[0][8]; ?>"><h2><?php echo $goals[0][0]; ?></h2></a>
-											<p>by: Jon Lane</p>
-											<i><?php echo $goals[0][7]; ?></i>
+											<h2>My First Painting</h2>
+											<p>by: Joni Lane</p>
+											<i>Personal Achievement</i>
 										</div>
 										<div class="standard-achievement-stats">
 											<img src="styles/images/thumbs-up.png">
@@ -144,11 +144,11 @@
 								</div>
 								<div class="bottom-achievements">
 									<div class="narrow-achievement">
-										<img src="<?php echo $goals[2][16]; ?>">
+										<img src="styles/images/kid.png">
 										<div class="narrow-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[2][8]; ?>"><h2><?php echo $goals[2][0]; ?></h2></a>
-											<p>by: Jon Lane</p>
-											<i><?php echo $goals[2][7]; ?></i>
+											<h2>Took my first Steps!</h2>
+											<p>by: Carter Lee Sam</p>
+											<i>Personal Achievement</i>
 										</div>
 										<div class="standard-achievement-stats">
 											<img src="styles/images/thumbs-up.png">
@@ -174,7 +174,7 @@
 								</div>
 							</div>
 						</li>
-												<li>
+						<li>
 							<div class="panel">
 								<div class="feature-achievement">
 									<img src="s<?php echo $goals[1][16]; ?>">
