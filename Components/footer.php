@@ -1,12 +1,15 @@
-<div class="footer">
-	<span class="footer-content">
-		<ul class="bottom-links">
-			<li><a href="#">Contact</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Terms and Conditions</a></li>
-		</ul>
-	</span>
-</div>
+		<div class="footer">
+			<div class="footer-column">
+				
+			</div>
+			<div class="footer-column">
+
+			</div>
+			<div class="footer-column no-border">
+
+			</div>
+		</div>
+	</div>
 <script type="text/javascript">
 <?php if(isset($_COOKIE['user'])){ ?>
 get_notifications(<?php echo '"'.$_COOKIE['user'].'"'; ?>);
