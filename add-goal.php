@@ -11,8 +11,8 @@
 	<body>
 		<?php include("Components/header.php"); ?>
 
-		<div class="page">
-			<div class="content">
+		<div class="content">
+			<div class="main-content">
 				<h1>Add Goal</h1>
 				<br><br>
 		<?php if(isset($_COOKIE['user']))

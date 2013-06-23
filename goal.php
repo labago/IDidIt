@@ -8,8 +8,8 @@
 	<body>
 		<?php include("Components/header.php"); ?>
 
-		<div class="page">
-			<div class="content">
+		<div class="content">
+			<div class="main-content">
 			<?php 
 			
 			// see if the user has a cookie

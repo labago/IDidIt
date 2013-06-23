@@ -13,8 +13,8 @@
 	<body>
 		<?php include("Components/header.php"); ?>
 
-		<div class="page">
-			<div class="content">
+		<div class="content">
+			<div class="main-content">
 			<?php if(isset($_GET['id']) || isset($_COOKIE['user']))
 				   {
 				   	   if(isset($_GET['id']))

@@ -24,10 +24,6 @@
 	</div>
 	<div class="right-header-items">
 		<a href="#"><img src="styles/images/profile.png"></a>
-		<a href="#"><img src="styles/images/search.png"></a>
-	</div>
-	<div class="right-header-items">
-		<a href="#"><img src="styles/images/profile.png"></a>
 		<input type="text" class="search-box" value="Search..." onclick="this.value = '';">
 	</div>
 </div>
