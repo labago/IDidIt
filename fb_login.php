@@ -3,8 +3,6 @@ include('functions.php');
 
 $user_info = fetch_user_info_token($fb_user);
 
-var_dump($user_info);
-
 $token = $user_info[7];
 if(!(strlen($token) > 0))
 	$token = $facebook->getAccessToken();

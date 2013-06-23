@@ -19,8 +19,8 @@ if ($fb_user) {
   try {
     // Proceed knowing you have a logged in user who's authenticated.
     $user_info = fetch_user_info_token($fb_user);
-    $token = $user_info[7];
-    $crypt = $user_info[4];
+    $token = @$user_info[7];
+    $crypt = @$user_info[4];
 
     $user_profile = $facebook->api('/me', array('access_token' => $token));
   } catch (FacebookApiException $e) {
