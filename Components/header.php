@@ -1,4 +1,4 @@
-	<div class="login">
+<div class="login">
 	<?php if(isset($_COOKIE['user'])) { 
 
 		$user_info = fetch_user_info($_COOKIE['user']);	

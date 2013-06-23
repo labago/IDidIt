@@ -8,12 +8,10 @@ $db_user   = "jlane09";
 $db_pass   = "counter";
 $db        = "ididit";
 
-$fb_app_key = "204806049653341";
-$fb_app_secret = "e5a3bb77981baae5711ec31d1355da4b";
-$fb_login = "http://www.i-did-it.net/fb_login.php";
-$fb_logout = "http://www.i-did-it.net/logout.php";
-$fb_status_true_url = 'http://www.i-did-it.net/status.php?status=true';
-$fb_status_false_url = 'http://www.i-did-it.net/status.php?status=false';
+$fb_app_key = "388268061241544";
+$fb_app_secret = "aae027a71d75ea2c14328994fb375c91";
+$fb_login = "http://localhost/IDidIt/fb_login.php";
+$fb_logout = "http://localhost/IDidIt/logout.php";
 
 $twitter_app_key = "jdZBZzna7KmUuwUSFPZkw";
 $twitter_app_secret = "tKcUNrlgnQVx0bj7bUWaH3wKLS434gMm47bUEewkSw";

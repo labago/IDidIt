@@ -119,7 +119,7 @@ function add_user($fname, $lname, $pass, $email, $picture = "", $id = "", $acces
 }
 
 // updates users facebook info on login
-function update_user_facebook_info($fname, $lname, $pass, $email, $picture = "", $id = "", $crypt, $access_token)
+function update_user_facebook_info($fname, $lname, $email, $picture = "", $id = "", $crypt, $access_token)
 {
 	$db = new db_functions();
     $db->db_connect();
