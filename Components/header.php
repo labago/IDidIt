@@ -1,5 +1,5 @@
 <div class="login">
-	<?php if(isset($_COOKIE['user'])) { 
+		<?php if(isset($_COOKIE['user'])) { 
 
 		$user_info = fetch_user_info($_COOKIE['user']);	
 
@@ -21,6 +21,10 @@
 		<div class="bordered-header-link">
 			<a href="#">ADD NEW</a>
 		</div>
+	</div>
+	<div class="right-header-items">
+		<a href="#"><img src="styles/images/profile.png"></a>
+		<a href="#"><img src="styles/images/search.png"></a>
 	</div>
 	<div class="right-header-items">
 		<a href="#"><img src="styles/images/profile.png"></a>
