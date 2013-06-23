@@ -1,5 +1,5 @@
 <div class="login">
-	<?php if(isset($_COOKIE['user'])) { 
+		<?php if(isset($_COOKIE['user'])) { 
 
 		$user_info = fetch_user_info($_COOKIE['user']);	
 
@@ -10,8 +10,7 @@
 	} else { ?>
 		Welcome, login with facebook <a href="<?php echo $loginUrl; ?>">here</a>
 	<?php } ?>
-
-</div>
+	</div>
 <br>
 <div class="header">
 	<img src="styles/images/ididit_logo.png" style="float: left; display: inline; padding-left: 20%; padding-right: 20px; height: 100%;">
@@ -22,6 +21,10 @@
 		<div class="bordered-header-link">
 			<a href="#">ADD NEW</a>
 		</div>
+	</div>
+	<div class="right-header-items">
+		<a href="#"><img src="styles/images/profile.png"></a>
+		<a href="#"><img src="styles/images/search.png"></a>
 	</div>
 	<div class="right-header-items">
 		<a href="#"><img src="styles/images/profile.png"></a>
