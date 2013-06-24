@@ -8,6 +8,7 @@
 	<body>
 		<?php include("Components/header.php"); ?>
 
+	<div class="page">
 		<div class="content">
 			<div class="main-content">
 			<?php 
@@ -121,8 +122,6 @@
 					echo "Please <a href='login.php'>login</a> to view this page";
 				}
 			?>
-			</div>
-		</div>
 		<script type="text/javascript" src="scripts/functions.js"></script>
 		<?php include("Components/footer.php"); ?>
 	</body>

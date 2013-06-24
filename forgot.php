@@ -9,6 +9,7 @@
 	<body>
 		<?php include("Components/header.php"); ?>
 
+	<div class="page">
 		<div class="content">
 			<div class="main-content">
 				<h1>Recover Password</h1>
@@ -67,8 +68,6 @@
 		}
 
 	 	?>
-			</div>
-		</div>
 
 		<script type="text/javascript" src="scripts/functions.js"></script>
 		<?php include("Components/footer.php"); ?>

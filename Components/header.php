@@ -13,14 +13,18 @@
 </div>
 <br>
 <div class="header">
-	<img src="styles/images/ididit_logo.png" style="float: left; display: inline; padding-left: 20%; padding-right: 20px; height: 100%;">
+	<img src="styles/images/ididit_logo.png" style="float: left; display: inline; padding-left: 30%; padding-right: 20px; height: 100%;">
 	<div class="nav-items">
-		<div class="bordered-header-link">
-			<a href="#">MY ACHIEVEMENTS</a>
-		</div>
-		<div class="bordered-header-link">
-			<a href="#">ADD NEW</a>
-		</div>
+		<a href="#">
+			<div class="bordered-header-link bordred-header-link-left-right">
+				<p>MY ACHIEVEMENTS</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="bordered-header-link bordred-header-link-right">
+				<p>ADD NEW</p>
+			</div>
+		</a>
 	</div>
 	<div class="right-header-items">
 		<a href="#"><img src="styles/images/profile.png"></a>

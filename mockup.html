@@ -12,14 +12,18 @@
 	
 	<body>
 		<div class="header">
-			<img src="styles/images/ididit_logo.png" style="float: left; display: inline; padding-left: 20%; padding-right: 20px; height: 100%;">
+			<img src="styles/images/ididit_logo.png" style="float: left; display: inline; padding-left: 30%; padding-right: 20px; height: 100%;">
 			<div class="nav-items">
-				<div class="bordered-header-link">
-					<a href="#">MY ACHIEVEMENTS</a>
-				</div>
-				<div class="bordered-header-link">
-					<a href="#">ADD NEW</a>
-				</div>
+				<a href="#">
+					<div class="bordered-header-link bordred-header-link-left-right">
+						<p>MY ACHIEVEMENTS</p>
+					</div>
+				</a>
+				<a href="#">
+					<div class="bordered-header-link bordred-header-link-right">
+						<p>ADD NEW</p>
+					</div>
+				</a>
 			</div>
 			<div class="right-header-items">
 				<a href="#"><img src="styles/images/profile.png"></a>
@@ -27,137 +31,50 @@
 			</div>
 		</div>
 
-		<div class="content">
-			<br>
-			<div class="notification-filter">
-				<a href="#"><img src="styles/images/notifications.png"></a>
-				<a href="#"><img src="styles/images/filter.png"></a>
-			</div>
-			<div class="main-content">
-				<br>
-
-				<style>
-				#slider { 
-					width: 888px; 
-					height: 1000px; 
-				}
-				.anythingSlider-default {
-					padding: 0 0 0 0 !important;
-					border: none;
-				}
-				.anythingSlider-default .anythingWindow{
-					border: none;
-				}
-				</style>
-
-				<script>
-					// DOM Ready
-				$(function(){
-					$('#slider').anythingSlider({toggleArrows: true, expand: false, buildNavigation: false, buildStartStop: false});
-				});
-				</script>
-
-				<div class="horizontal-shift">
-					<div class="layout-selector">
-						<a href="#"><img src="styles/images/layout1.png"></a>
-						<a href="#"><img src="styles/images/layout2.png"></a>
-					</div>
+		<div class="page">
+			<div class="content">
+				<div class="notification-filter">
+					<a href="#"><img src="styles/images/notifications.png"></a>
+					<a href="#"><img src="styles/images/filter.png"></a>
+				</div>
+				<div class="main-content">
 					<br>
-					<ul id="slider">
-						<li>
-							<div class="panel">
-								<div class="feature-achievement">
-									<img src="styles/images/graduation-image.png">
-									<div class="feature-achievement-text">
-										<h2>St. John's Prep Award</h2>
-										<p>by: Jon Lane</p>
-										<i>Academic Achievement</i>
-									</div>
-									<div class="standard-achievement-stats">
-										<img src="styles/images/thumbs-up.png">
-										<span>458</span>
-										<img src="styles/images/eye.png">
-										<span>7076</span>
-									</div>
-								</div>
-								<div class="quad-achievement">
-									<div class="standard-achievement">
-										<img src="styles/images/water-ski.png">
-										<div class="standard-achievement-text">
-											<h2>Got Up Water-Skiing</h2>
+
+					<style>
+					#slider { 
+						width: 888px; 
+						height: 1000px; 
+					}
+					.anythingSlider-default {
+						padding: 0 0 0 0 !important;
+						border: none;
+					}
+					.anythingSlider-default .anythingWindow{
+						border: none;
+					}
+					</style>
+
+					<script>
+						// DOM Ready
+					$(function(){
+						$('#slider').anythingSlider({toggleArrows: true, expand: false, buildNavigation: false, buildStartStop: false});
+					});
+					</script>
+
+					<div class="horizontal-shift">
+						<div class="layout-selector">
+							<a href="#"><img src="styles/images/layout1.png"></a>
+							<a href="#"><img src="styles/images/layout2.png"></a>
+						</div>
+						<br>
+						<ul id="slider">
+							<li>
+								<div class="panel">
+									<div class="feature-achievement">
+										<img src="styles/images/graduation-image.png">
+										<div class="feature-achievement-text">
+											<h2>St. John's Prep Award</h2>
 											<p>by: Jon Lane</p>
-											<i>Athletic Achievement</i>
-										</div>
-										<div class="standard-achievement-stats">
-											<img src="styles/images/thumbs-up.png">
-											<span>458</span>
-											<img src="styles/images/eye.png">
-											<span>7076</span>
-										</div>
-									</div>
-									<div class="standard-achievement">
-										<img src="styles/images/rafting.png">
-										<div class="standard-achievement-text">
-											<h2>White Water Rafting</h2>
-											<p>by: Jon Lane</p>
-											<i>Life Event</i>
-										</div>
-										<div class="standard-achievement-stats">
-											<img src="styles/images/thumbs-up.png">
-											<span>458</span>
-											<img src="styles/images/eye.png">
-											<span>7076</span>
-										</div>
-									</div>
-									<div class="standard-achievement">
-										<img src="styles/images/working.png">
-										<div class="standard-achievement-text">
-											<h2>Built a house</h2>
-											<p>by: Jon Lane</p>
-											<i>Philanthropic Achievement</i>
-										</div>
-										<div class="standard-achievement-stats">
-											<img src="styles/images/thumbs-up.png">
-											<span>458</span>
-											<img src="styles/images/eye.png">
-											<span>7076</span>
-										</div>
-									</div>
-									<div class="standard-achievement">
-										<img src="styles/images/painting.png">
-										<div class="standard-achievement-text">
-											<h2>My First Painting</h2>
-											<p>by: Joni Lane</p>
-											<i>Personal Achievement</i>
-										</div>
-										<div class="standard-achievement-stats">
-											<img src="styles/images/thumbs-up.png">
-											<span>458</span>
-											<img src="styles/images/eye.png">
-											<span>7076</span>
-										</div>
-									</div>
-								</div>
-								<div class="bottom-achievements">
-									<div class="narrow-achievement">
-										<img src="styles/images/kid.png">
-										<div class="narrow-achievement-text">
-											<h2>Took my first Steps!</h2>
-											<p>by: Carter Lee Sam</p>
-											<i>Personal Achievement</i>
-										</div>
-										<div class="standard-achievement-stats">
-											<img src="styles/images/thumbs-up.png">
-											<span>458</span>
-											<img src="styles/images/eye.png">
-											<span>7076</span>
-										</div>
-									</div>
-									<div class="wide-achievement">
-										<img src="styles/images/joni-grad.png">
-										<div class="wide-achievement-text">
-											<h2>Graduated Radford University</h2>
-											<p>by: Joni Lane | With: Edward Coles, Maggie Gordon, Whitney Farrar, see more...</p>
 											<i>Academic Achievement</i>
 										</div>
 										<div class="standard-achievement-stats">
@@ -165,88 +82,309 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="quad-achievement">
+										<div class="standard-achievement">
+											<img src="styles/images/water-ski.png">
+											<div class="standard-achievement-text">
+												<h2>Got Up Water-Skiing</h2>
+												<p>by: Jon Lane</p>
+												<i>Athletic Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="standard-achievement">
+											<img src="styles/images/rafting.png">
+											<div class="standard-achievement-text">
+												<h2>White Water Rafting</h2>
+												<p>by: Jon Lane</p>
+												<i>Life Event</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="standard-achievement">
+											<img src="styles/images/working.png">
+											<div class="standard-achievement-text">
+												<h2>Built a house</h2>
+												<p>by: Jon Lane</p>
+												<i>Philanthropic Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="standard-achievement">
+											<img src="styles/images/painting.png">
+											<div class="standard-achievement-text">
+												<h2>My First Painting</h2>
+												<p>by: Joni Lane</p>
+												<i>Personal Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="bottom-achievements">
+										<div class="narrow-achievement">
+											<img src="styles/images/kid.png">
+											<div class="narrow-achievement-text">
+												<h2>Took my first Steps!</h2>
+												<p>by: Carter Lee Sam</p>
+												<i>Personal Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="wide-achievement">
+											<img src="styles/images/joni-grad.png">
+											<div class="wide-achievement-text">
+												<h2>Graduated Radford University</h2>
+												<p>by: Joni Lane | With: Edward Coles, Maggie Gordon, Whitney Farrar, see more...</p>
+												<i>Academic Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</li>
-						<li>
-							<div class="panel">
-								<div class="feature-achievement">
-									<img src="styles/images/graduation-image.png">
-									<div class="feature-achievement-text">
-										<h2>St. John's Prep Award</h2>
-										<p>by: Jon Lane</p>
-										<i>Academic Achievement</i>
-									</div>
-								</div>
-								<div class="quad-achievement">
-									<div class="standard-achievement">
-										<img src="styles/images/water-ski.png">
-										<div class="standard-achievement-text">
-											<h2>Got Up Water-Skiing</h2>
+							</li>
+							<li>
+								<div class="panel">
+									<div class="feature-achievement">
+										<img src="styles/images/graduation-image.png">
+										<div class="feature-achievement-text">
+											<h2>St. John's Prep Award</h2>
 											<p>by: Jon Lane</p>
-											<i>Athletic Achievement</i>
-										</div>
-									</div>
-									<div class="standard-achievement">
-										<img src="styles/images/rafting.png">
-										<div class="standard-achievement-text">
-											<h2>White Water Rafting</h2>
-											<p>by: Jon Lane</p>
-											<i>Life Event</i>
-										</div>
-									</div>
-									<div class="standard-achievement">
-										<img src="styles/images/working.png">
-										<div class="standard-achievement-text">
-											<h2>Built a house</h2>
-											<p>by: Jon Lane</p>
-											<i>Philanthropic Achievement</i>
-										</div>
-									</div>
-									<div class="standard-achievement">
-										<img src="styles/images/painting.png">
-										<div class="standard-achievement-text">
-											<h2>My First Painting</h2>
-											<p>by: Joni Lane</p>
-											<i>Personal Achievement</i>
-										</div>
-									</div>
-								</div>
-								<div class="bottom-achievements">
-									<div class="narrow-achievement">
-										<img src="styles/images/kid.png">
-										<div class="narrow-achievement-text">
-											<h2>Took my first Steps!</h2>
-											<p>by: Carter Lee Sam</p>
-											<i>Personal Achievement</i>
-										</div>
-									</div>
-									<div class="wide-achievement">
-										<img src="styles/images/joni-grad.png">
-										<div class="wide-achievement-text">
-											<h2>Graduated Radford University</h2>
-											<p>by: Joni Lane | With: Edward Coles, Maggie Gordon, Whitney Farrar, see more...</p>
 											<i>Academic Achievement</i>
 										</div>
+										<div class="standard-achievement-stats">
+											<img src="styles/images/thumbs-up.png">
+											<span>458</span>
+											<img src="styles/images/eye.png">
+											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="quad-achievement">
+										<div class="standard-achievement">
+											<img src="styles/images/water-ski.png">
+											<div class="standard-achievement-text">
+												<h2>Got Up Water-Skiing</h2>
+												<p>by: Jon Lane</p>
+												<i>Athletic Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="standard-achievement">
+											<img src="styles/images/rafting.png">
+											<div class="standard-achievement-text">
+												<h2>White Water Rafting</h2>
+												<p>by: Jon Lane</p>
+												<i>Life Event</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="standard-achievement">
+											<img src="styles/images/working.png">
+											<div class="standard-achievement-text">
+												<h2>Built a house</h2>
+												<p>by: Jon Lane</p>
+												<i>Philanthropic Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="standard-achievement">
+											<img src="styles/images/painting.png">
+											<div class="standard-achievement-text">
+												<h2>My First Painting</h2>
+												<p>by: Joni Lane</p>
+												<i>Personal Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="bottom-achievements">
+										<div class="narrow-achievement">
+											<img src="styles/images/kid.png">
+											<div class="narrow-achievement-text">
+												<h2>Took my first Steps!</h2>
+												<p>by: Carter Lee Sam</p>
+												<i>Personal Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="wide-achievement">
+											<img src="styles/images/joni-grad.png">
+											<div class="wide-achievement-text">
+												<h2>Graduated Radford University</h2>
+												<p>by: Joni Lane | With: Edward Coles, Maggie Gordon, Whitney Farrar, see more...</p>
+												<i>Academic Achievement</i>
+											</div>
+											<div class="standard-achievement-stats">
+												<img src="styles/images/thumbs-up.png">
+												<span>458</span>
+												<img src="styles/images/eye.png">
+												<span>7076</span>
+												<a href="#">
+													<div class="favorite-box">
+														<img src="styles/images/favorite.png">
+													</div>
+												</a>
+											</div>
+										</div>
 									</div>
 								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="footer">
+						<div class="footer-column">
+							<div class="footer-column-content">
+								<img src="styles/images/ididit_logo.png" style="height: 40px;">
+								<br>
+								&copy; 2013 ididit. All Rights Reserved
 							</div>
-						</li>
-					</ul>
+						</div>
+						<div class="footer-column">
+							<div class="footer-column-content">
+								<h2>Stay Connected</h2>
+								<img src="styles/images/facebook_logo.png" style="height: 60px;">
+							</div>
+						</div>
+						<div class="footer-column">
+							<div class="footer-column-content no-border">
+								<h2>Contact Us?</h2>
+								<p style="float: left;">For more information please<br>
+									<a href="#">Click Here</a>
+								</p>
+								<img src="styles/images/info_bubble.png" style="float: right; height: 60px; padding-right: 20px;">
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="footer">
-					<div class="footer-column">
-						
-					</div>
-					<div class="footer-column">
-
-					</div>
-					<div class="footer-column no-border">
-
-					</div>
+				<div class="bottom-page-links">
+					<p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Purchase Terms and Conditions</a> | <a href="#">Refunds and Returns Policy</a> | neverlandsales 2012</p>
 				</div>
+			</div>
+			<div class="social-media-buttons">
+				<a href="#"><img src="styles/images/google-button.png"></a>
+				<a href="#"><img src="styles/images/twitter-button.png"></a>
+				<a href="#"><img src="styles/images/facebook-button.png"></a>
 			</div>
 		</div>
 		<script type="text/javascript" src="scripts/functions.js"></script>

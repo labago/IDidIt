@@ -24,8 +24,8 @@
 	<body>
 		<?php include("Components/header.php"); ?>
 
+		<div class="page">
 		<div class="content">
-			<br>
 			<div class="notification-filter">
 				<a href="#"><img src="styles/images/notifications.png"></a>
 				<a href="#"><img src="styles/images/filter.png"></a>
@@ -82,6 +82,11 @@
 										<span>458</span>
 										<img src="styles/images/eye.png">
 										<span>7076</span>
+										<a href="#">
+											<div class="favorite-box">
+												<img src="styles/images/favorite.png">
+											</div>
+										</a>
 									</div>
 								</div>
 								<div class="quad-achievement">
@@ -97,6 +102,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 									<div class="standard-achievement">
@@ -111,6 +121,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 									<div class="standard-achievement">
@@ -125,6 +140,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 									<div class="standard-achievement">
@@ -139,6 +159,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 								</div>
@@ -155,6 +180,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 									<div class="wide-achievement">
@@ -169,6 +199,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 								</div>
@@ -188,6 +223,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 								</div>
 								<div class="quad-achievement">
@@ -203,6 +243,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 									<div class="standard-achievement">
@@ -217,6 +262,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 									<div class="standard-achievement">
@@ -231,6 +281,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 									<div class="standard-achievement">
@@ -245,6 +300,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 								</div>
@@ -261,6 +321,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 									<div class="wide-achievement">
@@ -275,6 +340,11 @@
 											<span>458</span>
 											<img src="styles/images/eye.png">
 											<span>7076</span>
+											<a href="#">
+												<div class="favorite-box">
+													<img src="styles/images/favorite.png">
+												</div>
+											</a>
 										</div>
 									</div>
 								</div>
