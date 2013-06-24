@@ -13,7 +13,7 @@
 </div>
 <br>
 <div class="header">
-	<img src="styles/images/ididit_logo.png" style="float: left; display: inline; padding-left: 20%; padding-right: 20px; height: 100%;">
+	<img src="styles/images/ididit_logo.png" style="float: left; display: inline; padding-left: 30%; padding-right: 20px; height: 100%;">
 	<div class="nav-items">
 		<a href="#">
 			<div class="bordered-header-link bordred-header-link-left-right">
