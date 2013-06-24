@@ -46,7 +46,7 @@ body {
 
 .right-header-items{
 	float: right;
-	padding-right: 15%
+	padding-right: 25%
 }
 
 .search-box{
@@ -170,6 +170,7 @@ body {
 
 .notification-filter{
 	float: right;
+	padding-top: 10px;
 }
 
 .notification-filter img{
@@ -180,17 +181,13 @@ body {
 }
 
 .content {
-	width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-	overflow: hidden; 
+	width: 952px;
+	margin-left: 470px;
+	display: inline-block;
 }
 
 .main-content {
 	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	min-height: 600px;
 	background-color: #FFFFFF;
 	overflow: hidden; 
 }
@@ -205,7 +202,7 @@ body {
 }
 
 .footer-column {
-	width: 29%;
+	width: 27%;
 	height: 100%;
 	display: inline-block;
 	margin-left: 40px;
@@ -240,13 +237,10 @@ body {
 }
 
 .page {
-	background-color: #A9D8E0;
-	text-align: center;
-}
-
-.page h1 {
-	display: inline;
-	border-bottom:3px solid #fff;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1800;
+	display: inline-block;
 }
 
 .bottom-links {
@@ -843,6 +837,18 @@ body {
 .layout-selector img{
 	height: 20px;
 	float: left;
+}
+
+.social-media-buttons{
+	width: 150px;
+	float: right;
+	padding-right: 210px;
+	padding-top: 10px;
+}
+
+.social-media-buttons img{
+	width: 150px;
+	padding-bottom: 5px; 
 }
 
 .bottom-page-links{

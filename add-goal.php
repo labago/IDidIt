@@ -11,6 +11,7 @@
 	<body>
 		<?php include("Components/header.php"); ?>
 
+	<div class="page">
 		<div class="content">
 			<div class="main-content">
 				<h1>Add Goal</h1>
@@ -166,8 +167,6 @@
 		}
 	 	?>
 
-			</div>
-		</div>
 
 		<?php include("Components/footer.php"); ?>
 	<script type="text/javascript" src="scripts/functions.js"></script>

@@ -17,6 +17,7 @@
   <body>
     <?php include("Components/header.php"); ?>
 
+<div class="page">
     <div class="content">
       <div class="main-content">
         <h1>Add Album</h1>
@@ -254,8 +255,6 @@
           }
     ?>
 
-      </div>
-    </div>
     <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
     <script src="scripts/multi-upload-file/js/vendor/jquery.ui.widget.js"></script>
     <!-- The Templates plugin is included to render the upload/download listings -->

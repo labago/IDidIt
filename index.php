@@ -24,8 +24,8 @@
 	<body>
 		<?php include("Components/header.php"); ?>
 
+		<div class="page">
 		<div class="content">
-			<br>
 			<div class="notification-filter">
 				<a href="#"><img src="styles/images/notifications.png"></a>
 				<a href="#"><img src="styles/images/filter.png"></a>
