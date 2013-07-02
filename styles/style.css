@@ -14,18 +14,25 @@ body {
 	overflow: hidden;
 }
 
+.clear{
+	clear: both;
+}
+
 .header-logo img{
+	z-index: 1000px;
 	float: left; 
 	display: inline; 
 	padding-right: 20px; 
-	height: 100%;
-	padding-left: 50px; 
+	height: 8%;
+	padding-left: 50px;
+	position: absolute;
+	top: 10px;
 }
 
 .nav-items{
 	float: left;
 	height: 100%;
-	padding-left: 10px;
+	padding-left: 25%;
 }
 
 .nav-items a{
@@ -662,6 +669,7 @@ body {
 }
 
 .feature-achievement-text h2{
+	font-size: 12pt;
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 0px;
@@ -707,11 +715,14 @@ body {
 	padding-left: 5px;
 	min-height: 90px;
 	border-bottom:2px solid #DFDFDF;
-	font-size: 10px;
 }
 
 .standard-achievement-text h2{
+<<<<<<< HEAD
 	font-size: 10pt;
+=======
+	font-size: 12pt;
+>>>>>>> develop
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 0px;
@@ -741,7 +752,6 @@ body {
 	padding-left: 10px;
 	min-height: 90px;
 	border-bottom:2px solid #DFDFDF;
-	font-size: 10px;
 }
 
 .wide-achievement-text h2{
