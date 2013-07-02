@@ -42,8 +42,8 @@
 				?>
 				<style>
 				#slider { 
-					width: 888px; 
-					height: 1000px; 
+					width: 688px; 
+					height: 750px; 
 				}
 				.anythingSlider-default {
 					padding: 0 0 0 0 !important;

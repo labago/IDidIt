@@ -181,8 +181,7 @@ body {
 }
 
 .content {
-	width: 952px;
-	margin-left: 470px;
+	width: 700px;
 	display: inline-block;
 }
 
@@ -237,9 +236,8 @@ body {
 }
 
 .page {
-	margin-left: auto;
-	margin-right: auto;
-	width: 1800;
+	margin-left: 470px;
+	width: 1100;
 	display: inline-block;
 }
 
@@ -643,21 +641,21 @@ body {
 
 .feature-achievement{
 	width: 50%;
-	height: 630px;
+	height: 450px;
 	display: inline-block;
-	margin-right: 25px;
+	margin-right: 5px;
 	border:2px solid #DFDFDF;
 	border-radius: 0 0 10px 10px;
 }
 
 .feature-achievement img{
 	width: 100%;
-	height: 500px;
+	height: 300px;
 }
 
 .feature-achievement-text{
 	padding-left: 10px;
-	min-height: 80px;
+	min-height: 111px;
 	border-bottom:2px solid #DFDFDF;
 }
 
@@ -673,16 +671,16 @@ body {
 }
 
 .quad-achievement{
-	width: 45%;
-	height: 650px;
+	width: 47%;
+	height: 450px;
 	display: inline-block;
-	padding-right: 10px;
+	padding-right: 5px;
 	vertical-align: top;
 }
 
 .standard-achievement{
-	width: 47%;
-	height: 303px;
+	width: 46%;
+	height: 218px;
 	display: inline-block;
 	margin-right: 5px;
 	vertical-align: top;
@@ -693,17 +691,18 @@ body {
 
 .standard-achievement img{
 	width: 100%;
-	height: 174px;
+	height: 74px;
 }
 
 .standard-achievement-text{
-	padding-left: 10px;
-	min-height: 80px;
+	padding-left: 5px;
+	min-height: 105px;
 	border-bottom:2px solid #DFDFDF;
+	font-size: 10px;
 }
 
 .standard-achievement-text h2{
-	font-size: 12pt;
+	font-size: 10pt;
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 0px;
@@ -716,14 +715,14 @@ body {
 
 .bottom-acheivements{
 	width: 100%;
-	height: 400px;
+	height: 300px;
+	margin-top: 10px;
 	display: inline-block;
-	vertical-align: top;
 }
 
 .narrow-achievement{
 	width: 20%;
-	height: 303px;
+	height: 203px;
 	display: inline-block;
 	margin-right: 10px;
 	border:2px solid #DFDFDF;
@@ -732,13 +731,14 @@ body {
 
 .narrow-achievement img{
 	width: 100%;
-	height: 174px;
+	height: 74px;
 }
 
 .narrow-achievement-text{
 	padding-left: 10px;
-	min-height: 80px;
+	min-height: 89px;
 	border-bottom:2px solid #DFDFDF;
+	font-size: 10px;
 }
 
 .narrow-achievement-text h2{
@@ -755,22 +755,24 @@ body {
 
 .wide-achievement{
 	width: 75%;
-	height: 303px;
+	height: 203px;
 	display: inline-block;
-	margin-right: 10px;
+	margin-right: 5px;
 	border:2px solid #DFDFDF;
 	border-radius: 0 0 10px 10px;
+	vertical-align: top;
 }
 
 .wide-achievement img{
 	width: 100%;
-	height: 174px;
+	height: 74px;
 }
 
 .wide-achievement-text{
 	padding-left: 10px;
-	min-height: 80px;
+	min-height: 89px;
 	border-bottom:2px solid #DFDFDF;
+	font-size: 10px;
 }
 
 .wide-achievement-text h2{
@@ -786,7 +788,6 @@ body {
 }
 
 .standard-achievement-stats{
-	min-height: 37px;
 	background-color: #F6F6F6;
 	border:0px solid #DFDFDF;
 	border-radius: 0 0 10px 10px;
@@ -795,7 +796,7 @@ body {
 }
 
 .standard-achievement-stats img{
-	height: 37px;
+	height: 27px;
 	width: 30px;
 	float: left;
 }
@@ -805,6 +806,7 @@ body {
 	vertical-align: top;
 	padding-top: 5px;
 	font-weight: bold;
+	font-size: 9px;
 	float: left;
 }
 
@@ -824,8 +826,8 @@ body {
 	position: relative;
 	margin-right: auto;
 	margin-left: auto;
-	width: 888px; 
-	height: 1000px;
+	width: 688px; 
+	height: 750px;
 }
 
 .layout-selector{
