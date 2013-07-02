@@ -14,19 +14,12 @@ body {
 	overflow: hidden;
 }
 
-.clear{
-	clear: both;
-}
-
 .header-logo img{
-	z-index: 1000px;
 	float: left; 
 	display: inline; 
 	padding-right: 20px; 
-	height: 8%;
-	padding-left: 15%;
-	position: absolute;
-	top: 5px;
+	height: 100%;
+	padding-left: 50px; 
 }
 
 .nav-items{
@@ -61,7 +54,7 @@ body {
 
 .right-header-items{
 	float: right;
-	padding-right: 16%;
+	padding-right: 50px;
 }
 
 .search-box{
@@ -253,7 +246,7 @@ body {
 }
 
 .page {
-	width: 100%;
+	width: 1380;
 	display: inline-block;
 }
 
@@ -718,7 +711,7 @@ body {
 }
 
 .standard-achievement-text h2{
-	font-size: 12pt;
+	font-size: 10pt;
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 0px;
