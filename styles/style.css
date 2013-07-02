@@ -25,6 +25,14 @@ body {
 	vertical-align: top;
 }
 
+.header-logo img{
+	float: left; 
+	display: inline; 
+	padding-right: 20px; 
+	height: 100%;
+	padding-left: 50px; 
+}
+
 .nav-items{
 	float: left;
 	height: 100%;
@@ -56,10 +64,7 @@ body {
 
 .right-header-items{
 	float: right;
-<<<<<<< HEAD
 	padding-right: 50px;
-=======
->>>>>>> small changes
 }
 
 .search-box{
@@ -717,7 +722,7 @@ body {
 }
 
 .standard-achievement-text h2{
-	font-size: 12pt;
+	font-size: 10pt;
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 0px;
