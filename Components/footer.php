@@ -27,11 +27,11 @@
 		<p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Purchase Terms and Conditions</a> | <a href="#">Refunds and Returns Policy</a> | neverlandsales 2012</p>
 	</div>
 </div>
-			<div class="social-media-buttons">
+			<!-- <div class="social-media-buttons">
 				<a href="#"><img src="styles/images/google-button.png"></a>
 				<a href="#"><img src="styles/images/twitter-button.png"></a>
 				<a href="#"><img src="styles/images/facebook-button.png"></a>
-			</div>
+			</div> -->
 		</div>
 <script type="text/javascript">
 <?php if(isset($_COOKIE['user'])){ ?>

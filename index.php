@@ -30,6 +30,7 @@
 				<a href="#"><img src="styles/images/notifications.png"></a>
 				<a href="#"><img src="styles/images/filter.png"></a>
 			</div>
+			<div class="clear"></div>
 			<div class="main-content">
 				<br>
 				<?php
@@ -42,8 +43,8 @@
 				?>
 				<style>
 				#slider { 
-					width: 688px; 
-					height: 750px; 
+					width: 1200px; 
+					height: 700px; 
 				}
 				.anythingSlider-default {
 					padding: 0 0 0 0 !important;
@@ -66,6 +67,7 @@
 						<a href="#"><img src="styles/images/layout1.png"></a>
 						<a href="#"><img src="styles/images/layout2.png"></a>
 					</div>
+					<div class="clear"></div>
 					<br>
 					<ul id="slider">
 						<li>
@@ -167,10 +169,10 @@
 										</div>
 									</div>
 								</div>
-								<div class="bottom-achievements">
-									<div class="narrow-achievement">
+								<div class="bi-wide">
+									<div class="wide-achievement">
 										<img src="styles/images/kid.png">
-										<div class="narrow-achievement-text">
+										<div class="wide-achievement-text">
 											<h2>Took my first Steps!</h2>
 											<p>by: Carter Lee Sam</p>
 											<i>Personal Achievement</i>
