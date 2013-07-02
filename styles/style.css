@@ -722,7 +722,11 @@ body {
 }
 
 .standard-achievement-text h2{
+<<<<<<< HEAD
 	font-size: 10pt;
+=======
+	font-size: 12pt;
+>>>>>>> merge conflicts
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 0px;
