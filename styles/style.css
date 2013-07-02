@@ -14,6 +14,14 @@ body {
 	overflow: hidden;
 }
 
+.header-logo img{
+	float: left; 
+	display: inline; 
+	padding-right: 20px; 
+	height: 100%;
+	padding-left: 50px; 
+}
+
 .nav-items{
 	float: left;
 	height: 100%;
@@ -46,7 +54,7 @@ body {
 
 .right-header-items{
 	float: right;
-	padding-right: 25%
+	padding-right: 50px;
 }
 
 .search-box{
@@ -174,15 +182,17 @@ body {
 }
 
 .notification-filter img{
-	height: 60px;
+	height: 50px;
 	vertical-align: top;
 	border-bottom: 1px solid #6F756F;
 	float: left;
 }
 
 .content {
-	width: 700px;
-	display: inline-block;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	width: 1300px;
 }
 
 .main-content {
@@ -236,8 +246,7 @@ body {
 }
 
 .page {
-	margin-left: 470px;
-	width: 1100;
+	width: 1380;
 	display: inline-block;
 }
 
@@ -628,20 +637,13 @@ body {
 	width: 870px;
 }
 
-.standard-achievement{
-	width: 47%;
-	height: 303px;
-	display: inline-block;
-	margin-right: 5px;
-	vertical-align: top;
-	border:2px solid #DFDFDF;
-	border-radius: 0 0 10px 10px;
-	margin-bottom: 10px;
+.extra-margin-left{
+	margin-left: 15px;
 }
 
 .feature-achievement{
-	width: 50%;
-	height: 450px;
+	width: 32%;
+	height: 90%;
 	display: inline-block;
 	margin-right: 5px;
 	border:2px solid #DFDFDF;
@@ -650,12 +652,12 @@ body {
 
 .feature-achievement img{
 	width: 100%;
-	height: 300px;
+	height: 500px;
 }
 
 .feature-achievement-text{
 	padding-left: 10px;
-	min-height: 111px;
+	min-height: 92px;
 	border-bottom:2px solid #DFDFDF;
 }
 
@@ -671,16 +673,23 @@ body {
 }
 
 .quad-achievement{
-	width: 47%;
-	height: 450px;
+	width: 32%;
+	height: 100%;
 	display: inline-block;
-	padding-right: 5px;
 	vertical-align: top;
 }
 
+.bi-wide{
+	width: 32%;
+	height: 450px;
+	display: inline-block;
+	padding-right: 5px;
+	vertical-align: top;	
+}
+
 .standard-achievement{
-	width: 46%;
-	height: 218px;
+	width: 47%;
+	height: 309px;
 	display: inline-block;
 	margin-right: 5px;
 	vertical-align: top;
@@ -691,12 +700,12 @@ body {
 
 .standard-achievement img{
 	width: 100%;
-	height: 74px;
+	height: 179px;
 }
 
 .standard-achievement-text{
 	padding-left: 5px;
-	min-height: 105px;
+	min-height: 90px;
 	border-bottom:2px solid #DFDFDF;
 	font-size: 10px;
 }
@@ -713,64 +722,24 @@ body {
 	margin-bottom: 0px;
 }
 
-.bottom-acheivements{
-	width: 100%;
-	height: 300px;
-	margin-top: 10px;
-	display: inline-block;
-}
-
-.narrow-achievement{
-	width: 20%;
-	height: 203px;
-	display: inline-block;
-	margin-right: 10px;
-	border:2px solid #DFDFDF;
-	border-radius: 0 0 10px 10px;
-}
-
-.narrow-achievement img{
-	width: 100%;
-	height: 74px;
-}
-
-.narrow-achievement-text{
-	padding-left: 10px;
-	min-height: 89px;
-	border-bottom:2px solid #DFDFDF;
-	font-size: 10px;
-}
-
-.narrow-achievement-text h2{
-	font-size: 12pt;
-	font-weight: bold;
-	margin-top: 10px;
-	margin-bottom: 0px;
-}
-
-.narrow-achievement-text p{
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-
 .wide-achievement{
-	width: 75%;
-	height: 203px;
+	width: 100%;
+	height: 309px;
 	display: inline-block;
 	margin-right: 5px;
+	margin-bottom: 10px;
 	border:2px solid #DFDFDF;
 	border-radius: 0 0 10px 10px;
-	vertical-align: top;
 }
 
 .wide-achievement img{
 	width: 100%;
-	height: 74px;
+	height: 179px;
 }
 
 .wide-achievement-text{
 	padding-left: 10px;
-	min-height: 89px;
+	min-height: 90px;
 	border-bottom:2px solid #DFDFDF;
 	font-size: 10px;
 }
@@ -826,8 +795,8 @@ body {
 	position: relative;
 	margin-right: auto;
 	margin-left: auto;
-	width: 688px; 
-	height: 750px;
+	width: 1200px; 
+	height: 700px;
 }
 
 .layout-selector{
