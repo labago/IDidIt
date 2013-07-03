@@ -13,6 +13,11 @@
 				<p>ADD NEW</p>
 			</div>
 		</a>
+		<a href="#">
+			<div class="bordered-header-link bordred-header-link-right">
+				<p>NOTIFICATIONS</p>
+			</div>
+		</a>
 	</div>
 	<div class="right-header-items">
 		<a href="#"><img src="styles/images/profile.png"></a>
