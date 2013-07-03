@@ -56,6 +56,7 @@ body {
 
 .right-header-items{
 	float: right;
+	padding-right: 50px;
 }
 
 .search-box{
@@ -248,7 +249,7 @@ body {
 }
 
 .page {
-	width: 100%;
+	width: 1380;
 	display: inline-block;
 }
 
