@@ -15,10 +15,9 @@
   </head>
   <script type="text/javascript" src="scripts/jquery.js"></script>
   <body>
-    <?php include("Components/header.php"); ?>
-
 <div class="page">
     <div class="content">
+      <?php include("Components/header.php"); ?>
       <div class="main-content">
         <h1>Add Album</h1>
         <br><br><br>

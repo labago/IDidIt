@@ -11,10 +11,9 @@
 	<script src="scripts/slideshow/js/jquery.anythingslider.fx.min.js"></script>
 	<script src="scripts/slideshow/js/jquery.easing.1.2.js"></script> 
 	<body>
-		<?php include("Components/header.php"); ?>
-
 	<div class="page">
 		<div class="content">
+			<?php include("Components/header.php"); ?>
 			<div class="main-content">
 			<?php if(isset($_GET['id']) || isset($_COOKIE['user']))
 				   {

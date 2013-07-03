@@ -9,10 +9,9 @@
 	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/token-input.css" />
 	<body>
-		<?php include("Components/header.php"); ?>
-
 	<div class="page">
 		<div class="content">
+			<?php include("Components/header.php"); ?>
 			<div class="main-content">
 				<h1>Add Goal</h1>
 				<br><br>

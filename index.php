@@ -22,15 +22,9 @@
 	?>
 
 	<body>
-		<?php include("Components/header.php"); ?>
-
 		<div class="page">
 		<div class="content">
-			<div class="notification-filter">
-				<a href="#"><img src="styles/images/notifications.png"></a>
-				<a href="#"><img src="styles/images/filter.png"></a>
-			</div>
-			<div class="clear"></div>
+			<?php include("Components/header.php"); ?>
 			<div class="main-content">
 				<br>
 				<?php
@@ -310,13 +304,13 @@
 										</div>
 									</div>
 								</div>
-								<div class="bottom-achievements">
-									<div class="narrow-achievement">
-										<img src="<?php echo $goals[2][16]; ?>">
-										<div class="narrow-achievement-text">
-											<a href="<?php echo 'goal.php?id='.$goals[2][8]; ?>"><h2><?php echo $goals[2][0]; ?></h2></a>
-											<p>by: Jon Lane</p>
-											<i><?php echo $goals[2][7]; ?></i>
+								<div class="bi-wide">
+									<div class="wide-achievement">
+										<img src="styles/images/kid.png">
+										<div class="wide-achievement-text">
+											<h2>Took my first Steps!</h2>
+											<p>by: Carter Lee Sam</p>
+											<i>Personal Achievement</i>
 										</div>
 										<div class="standard-achievement-stats">
 											<img src="styles/images/thumbs-up.png">

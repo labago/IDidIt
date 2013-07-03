@@ -1,7 +1,6 @@
+<img src="styles/images/ididit-header-logo.png" class="header-logo">
+<div clear="both"></div>
 <div class="header">
-	<div class="header-logo">
-		<a href="/"><img src="styles/images/ididit-header-logo.png"></a>
-	</div>
 	<div class="nav-items">
 		<a href="profile.php">
 			<div class="bordered-header-link bordred-header-link-left-right">

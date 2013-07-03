@@ -7,10 +7,9 @@
 	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<body>
-		<?php include("Components/header.php"); ?>
-
 	<div class="page">
 		<div class="content">
+			<?php include("Components/header.php"); ?>
 			<div class="main-content">
 				<h1>Login</h1>
 				<br><br>
