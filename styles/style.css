@@ -12,27 +12,22 @@ body {
 	background-size: 80px;
 	background-repeat: repeat-x;
 	overflow: hidden;
+	display: block;
+	vertical-align: bottom;
 }
 
 .clear{
 	clear: both;
 }
 
-.header-logo img{
-	z-index: 1000px;
-	float: left; 
-	display: inline; 
-	padding-right: 20px; 
-	height: 8%;
-	padding-left: 15%;
-	position: absolute;
-	top: 5px;
+.header-logo{
+	height: 10%;
+	vertical-align: top;
 }
 
 .nav-items{
 	float: left;
 	height: 100%;
-	padding-left: 30%;
 }
 
 .nav-items a{
@@ -61,7 +56,6 @@ body {
 
 .right-header-items{
 	float: right;
-	padding-right: 16%;
 }
 
 .search-box{
@@ -74,6 +68,7 @@ body {
 	border-radius: 10px;
 	vertical-align: top;
 	margin-top: 15px;
+	margin-right: 15px;
 	background-color: #444444;
 	outline-width: 0;
 	color: #B5B9B8;
