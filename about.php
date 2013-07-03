@@ -6,10 +6,9 @@
 	</head>
 	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<body>
-		<?php include("Components/header.php"); ?>
-
 	<div class="page">
 		<div class="content">
+			<?php include("Components/header.php"); ?>
 			<div class="main-content">
 
 		<script type="text/javascript" src="scripts/functions.js"></script>
