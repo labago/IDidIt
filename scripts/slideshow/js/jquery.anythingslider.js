@@ -370,8 +370,8 @@
 
 		// Creates the Forward/Backward buttons
 		base.buildNextBackButtons = function() {
-			base.$forward = $('<span class="arrow forward"><a href="#"><span>' + o.forwardText + '</span></a></span>');
-			base.$back = $('<span class="arrow back"><a href="#"><span>' + o.backText + '</span></a></span>');
+			base.$forward = $('<span class="arrow1 forward"><a href="#"><span></span></a></span>');
+			base.$back = $('<span class="arrow2 back"><a href="#"><span></span></a></span>');
 
 			// Bind to the forward and back buttons
 			base.$back.bind(o.clickBackArrow, function(e) {

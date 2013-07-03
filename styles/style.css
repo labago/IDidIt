@@ -642,11 +642,11 @@ body {
 }
 
 .extra-margin-left{
-	margin-left: 15px;
+	margin-left: 45px;
 }
 
 .feature-achievement{
-	width: 32%;
+	width: 30%;
 	height: 90%;
 	display: inline-block;
 	margin-right: 5px;
@@ -678,14 +678,14 @@ body {
 }
 
 .quad-achievement{
-	width: 32%;
+	width: 30%;
 	height: 100%;
 	display: inline-block;
 	vertical-align: top;
 }
 
 .bi-wide{
-	width: 32%;
+	width: 30%;
 	height: 450px;
 	display: inline-block;
 	padding-right: 5px;
@@ -693,7 +693,7 @@ body {
 }
 
 .standard-achievement{
-	width: 47%;
+	width: 46%;
 	height: 309px;
 	display: inline-block;
 	margin-right: 5px;

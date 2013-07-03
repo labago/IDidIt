@@ -28,7 +28,7 @@
 .anythingSlider-default {
 	margin: 0 auto;
 	/* 45px right & left padding for the arrows, 28px @ bottom for navigation */
-	padding: 0 45px 28px 45px;
+	padding: 0 65px 28px 65px;
 }
 /* slider window - top & bottom borders, default state */
 .anythingSlider-default .anythingWindow {
@@ -114,17 +114,32 @@
   NAVIGATION POSITIONING
  ************************/
 /* Navigation Arrows */
-.anythingSlider-default .arrow {
+.anythingSlider-default .arrow1 {
 	top: 50%;
 	position: absolute;
 	display: block;
 }
 
-.anythingSlider-default .arrow a {
+.anythingSlider-default .arrow2 {
+	top: 50%;
+	position: absolute;
+	display: block;
+}
+
+.anythingSlider-default .arrow1 a {
 	display: block;
 	width: 45px;
 	height: 140px;
-	margin: -70px 0 0 0; /* half height of image */
+	margin: -100px 0 0 -56; /* half height of image */
+	text-align: center;
+	outline: 0;
+	background: url(../images/default.png) no-repeat;
+}
+.anythingSlider-default .arrow2 a {
+	display: block;
+	width: 45px;
+	height: 140px;
+	margin: -100px 0 0 3px; /* half height of image */
 	text-align: center;
 	outline: 0;
 	background: url(../images/default.png) no-repeat;
@@ -178,10 +193,17 @@
  ***********************/
 
 /* Navigation Arrows */
-.as-oldie .anythingSlider-default .arrow {
+.as-oldie .anythingSlider-default .arrow1 {
 	top: 30%;
 }
-.as-oldie .anythingSlider-default .arrow a {
+.as-oldie .anythingSlider-default .arrow1 a {
+	margin: 0;
+}
+
+.as-oldie .anythingSlider-default .arrow2 {
+	top: 30%;
+}
+.as-oldie .anythingSlider-default .arrow2 a {
 	margin: 0;
 }
 
